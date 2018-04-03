@@ -1,0 +1,4 @@
+data/
+baselines/morfette/*
+*.jar
+baselines/lemming/models/*
