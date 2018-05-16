@@ -1,0 +1,10 @@
+name: msc
+channels:
+- defaults
+dependencies:
+- python=3.6
+- numpy 
+- spyder
+- scipy 
+- matplotlib 
+- jupyter

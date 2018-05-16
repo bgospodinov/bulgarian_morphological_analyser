@@ -1,8 +1,10 @@
-data/
+/data/
 baselines/morfette/models/*
+baselines/morfette/data/*
 *.jar
 *.model
 baselines/lemming/models/*
+baselines/lemming/data/UD_Bulgarian-BTB/*
 *.lemming
 *.marmot
 

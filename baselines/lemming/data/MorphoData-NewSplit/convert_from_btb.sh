@@ -1,0 +1,1 @@
+sed '/^#/ d' < $1 | cut -d$'\t' -f2-4 | expand > $1.conv
