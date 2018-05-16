@@ -1,7 +1,10 @@
 data/
-baselines/morfette/*
+baselines/morfette/models/*
 *.jar
+*.model
 baselines/lemming/models/*
+*.lemming
+*.marmot
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

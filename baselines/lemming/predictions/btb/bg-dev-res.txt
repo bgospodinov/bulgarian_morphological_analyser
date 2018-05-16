@@ -1,0 +1,4 @@
+. predictions/compute_pred_btb.sh predictions/btb/bg-dev-pred.txt data/MorphoData-NewSplit/bg-dev.txt.conv
+Lemma accuracy: 0.9661589895988113
+Morph accuracy: 0.9577265973254087
+Joint accuracy: 0.937741456166419
