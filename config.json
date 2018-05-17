@@ -1,0 +1,11 @@
+{
+	"DATASET": {
+		"FOLDER": "MorphoData-NewSplit",
+		"PARTITIONS": ["training", "dev", "test"],
+		"COLUMNS": {
+			"WORD": "word",
+			"LEMMA": "lemma",
+			"TAG": "tag"
+		}
+	}
+}
