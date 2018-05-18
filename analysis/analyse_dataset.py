@@ -32,30 +32,90 @@ if __name__ == "__main__":
         partition_df = pd.read_csv(os.path.join(args.folder, vars(args)[partition]), 
                     sep='\s+', 
                     names=cols)
+        partition_df["word"] = partition_df["word"].str.lower()
         partition_dfs[partition] = partition_df
         
         types = {}
         for col in cols:
-            types[col] = partition_df[col].unique()
-        del col
+            types[col] = set(partition_df[col].unique())
+        del col, partition_df
 
         partition_types[partition] = types
     del types, partition
-
-    print(" Dataset token statistics ".upper().center(TITLE_LENGTH, TITLE_CH))
-    print(("{:<20}" * 3).format("", "Word tokens", "Sentences"))
+    
+    print(" Dataset statistics ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(("{:<20}" * 5).format("", "Word tokens", *["{} types".format(c).capitalize() for c in cols]))
     
     for partition in config["DATASET"]["PARTITIONS"]:
         pt = partition_types[partition]
-        print(("{:<20}" * 3).format("{} set".format(partition), 34324, 34324))
-    del partition
-    
+        print(("{:<20}" * 5).format("{} set".format(partition), len(partition_dfs[partition].index), *[len(pt[c]) for c in cols]))
+    del partition, pt
     print("\n")
     
-    print(" Dataset types statistics ".upper().center(TITLE_LENGTH, TITLE_CH))
-    print(("{:<20}" * 4).format("", *["{} types".format(c).capitalize() for c in cols]))
-    
+    print(" Types unseen during training ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(("{:<20}" * 5).format("", "", *["{} types".format(c).capitalize() for c in cols]))
+    ptt = partition_types["training"]
     for partition in config["DATASET"]["PARTITIONS"]:
-        pt = partition_types[partition]
-        print(("{:<20}" * 4).format("{} set".format(partition), *[pt[c].size for c in cols]))
-    del partition, pt
+        if partition != "training":
+            pt = partition_types[partition]
+            print(("{:<20}" * 5).format("{} set".format(partition), "", *[len(pt[c] - ptt[c]) for c in cols]))
+    del partition, pt, ptt     
+    print("\n")    
+    
+    # ambiguity stats
+    print(" Ambiguous lemma types with more than one ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(("{:<20}" * 5).format("", "", "", *["{} type %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["LEMMA"]]))
+    for partition in config["DATASET"]["PARTITIONS"]:
+        pdf = partition_dfs[partition]
+        print(("{:<20}" * 5).format("{} set".format(partition), "", "", *[pdf.groupby([config["DATASET"]["COLUMNS"]["LEMMA"]])[c].nunique().loc[lambda x: x > 1].size / pdf.groupby([config["DATASET"]["COLUMNS"]["LEMMA"]])[c].count().size for c in cols if c is not config["DATASET"]["COLUMNS"]["LEMMA"]]))
+    del partition, pdf
+    print("\n") 
+
+    
+    print(" Lemma types with most wordforms in training set ".upper().center(TITLE_LENGTH, TITLE_CH))
+    #print(partition_dfs["training"].groupby(["lemma"])["word"].nunique().loc[lambda x: x > 1].sort_values(ascending=False).head(20))
+    print("\n") 
+    
+    print(" Lemma types with most tags in training set ".upper().center(TITLE_LENGTH, TITLE_CH))
+    #print(partition_dfs["training"].groupby(["lemma"])["tag"].nunique().loc[lambda x: x > 1].sort_values(ascending=False).head(20))
+    print("\n") 
+    # awk sanity check
+    # awk 'BEGIN { cnt=0; } { if ( $2 == "голям" ) { cnt++; print tolower($1); } } END { print cnt; }' training.txt | sort | uniq -c | wc -l
+
+       
+    print(" Ambiguous word types with more than one ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(("{:<20}" * 5).format("", "", "", *["{} type %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["WORD"]]))
+    for partition in config["DATASET"]["PARTITIONS"]:
+        pdf = partition_dfs[partition]
+        print(("{:<20}" * 5).format("{} set".format(partition), "", "", *[round(pdf.groupby([config["DATASET"]["COLUMNS"]["WORD"]])[c].nunique().loc[lambda x: x > 1].size / pdf.groupby([config["DATASET"]["COLUMNS"]["WORD"]])[c].count().size, 5) for c in cols if c is not config["DATASET"]["COLUMNS"]["WORD"]]))
+    del partition, pdf
+    print("\n") 
+    
+    # naive baseline
+    print(" Naive baseline ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print("1) Assign each word form the most frequent lemma from the training set; otherwise assume every wordform is its own lemma.")
+    print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; ties are broken randomly.")
+    print("\n")
+    
+    # memoized baseline MFG tags and lemmata
+    base_mem = {}        
+    for col in cols:
+        if col is not config["DATASET"]["COLUMNS"]["WORD"]:
+            base_mem[col] = partition_dfs["training"].groupby(["word", col]).size().to_frame("count")\
+                .reset_index().sort_values(["word", "count"], ascending=[True, False])\
+                .drop_duplicates(subset="word").iloc[:, 0:2]
+    del col
+    
+    print(("{:<20}" * 5).format("", "", "", *["{} acc %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["WORD"]]))
+    
+    pdft = partition_dfs["training"]
+    for partition in config["DATASET"]["PARTITIONS"]:
+        if partition != "training":
+            pdf = partition_dfs[partition]
+            x_test = pdf["word"]
+            
+            y_test = pdft.join(pdf)
+            #base_mem
+            
+            print(("{:<20}" * 5).format("{} set".format(partition), "", "", *[1, 2]))
+    del partition
