@@ -2,6 +2,9 @@ import os
 import sys
 import pandas as pd
 
+pd.set_option('display.max_rows', 50) 
+pd.set_option('display.max_columns', None)
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from config import config
@@ -94,10 +97,10 @@ if __name__ == "__main__":
     # naive baseline
     print(" Naive baseline ".upper().center(TITLE_LENGTH, TITLE_CH))
     print("1) Assign each word form the most frequent lemma from the training set; otherwise assume every wordform is its own lemma.")
-    print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; ties are broken randomly.")
+    print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; unknowns are wrong.")
     print("\n")
     
-    # memoized baseline MFG tags and lemmata
+    # memoized baseline MFT tags and lemmata
     base_mem = {}        
     for col in cols:
         if col is not config["DATASET"]["COLUMNS"]["WORD"]:
@@ -108,14 +111,27 @@ if __name__ == "__main__":
     
     print(("{:<20}" * 5).format("", "", "", *["{} acc %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["WORD"]]))
     
-    pdft = partition_dfs["training"]
     for partition in config["DATASET"]["PARTITIONS"]:
         if partition != "training":
             pdf = partition_dfs[partition]
             x_test = pdf["word"]
+            acc = [] 
             
-            y_test = pdft.join(pdf)
-            #base_mem
+            for c in cols:
+                if c is not config["DATASET"]["COLUMNS"]["WORD"]:
+                    y_test = pdf[c]
+                    
+                    y_pred = x_test.to_frame().set_index('word')\
+                        .join(base_mem[c].set_index('word'), on=["word"])\
+                        .reset_index()
+                    
+                    if c == config["DATASET"]["COLUMNS"]["LEMMA"]:
+                        # interpolating lemmata
+                        y_pred[c] = y_pred[c].fillna(y_pred['word'])
+                    
+                    
+                    acc.append((y_pred[c] == y_test).value_counts(normalize=True).iloc[0])
+                    #y_pred[pd.isnull(y_pred).any(axis=1)]
             
-            print(("{:<20}" * 5).format("{} set".format(partition), "", "", *[1, 2]))
+            print(("{:<20}" * 5).format("{} set".format(partition), "", "", *acc))
     del partition
