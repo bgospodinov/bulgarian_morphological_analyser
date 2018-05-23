@@ -9,3 +9,6 @@ dependencies:
 - matplotlib 
 - jupyter
 - pandas
+- pip
+- pip:
+  - tensorflow-gpu==1.4.0
