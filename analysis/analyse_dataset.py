@@ -1,21 +1,18 @@
-import os
-import sys
-import pandas as pd
-import numpy as np
+if __name__ == "__main__":
+    import os
+    import sys
+    import pandas as pd
+    import numpy as np
 
-pd.set_option('display.max_rows', 50) 
-pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_rows', 50)
+    pd.set_option('display.max_columns', None)
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-
-from config import config
-
-if __name__ == "__main__":    
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+    from helper import preprocess_dataset
+    from config import config
     import argparse
-    TITLE_LENGTH = 90
-    TITLE_CH = "="
-    cols = list(config["DATASET"]["COLUMNS"].values())
     
+    cols = list(config["DATASET"]["COLUMNS"].values())
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder", help="dataset folder path", type=str, 
@@ -32,29 +29,33 @@ if __name__ == "__main__":
     partition_dfs = {}
     partition_types = {}
 
+    partition_dfs["pre_all_tokens"] = {}
     partition_dfs["all_tokens"] = {}
 
+    # preprocessing
     for partition in config["DATASET"]["PARTITIONS"]:
         partition_df = pd.read_csv(os.path.join(args.folder, vars(args)[partition]), 
                     sep='\s+', 
                     names=cols)
-        partition_df["word"] = partition_df["word"].str.lower()
-        partition_dfs["all_tokens"][partition] = partition_df
+        
+        partition_dfs["pre_all_tokens"][partition] = partition_df
+        partition_dfs["all_tokens"][partition] = preprocess_dataset(partition_df)
         
         types = {}
         for col in cols:
-            types[col] = set(partition_df[col].unique())
+            types[col] = set(partition_dfs["all_tokens"][partition][col].unique())
         del col, partition_df
 
         partition_types[partition] = types
     del types, partition
     
-    print(" Dataset statistics ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Dataset statistics ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print(("{:<20}" * 5).format("", "Word tokens", *["{} types".format(c).capitalize() for c in cols]))
     
     for partition in config["DATASET"]["PARTITIONS"]:
         pt = partition_types[partition]
-        print(("{:<20}" * 5).format("{} set".format(partition), len(partition_dfs["all_tokens"][partition].index), *[len(pt[c]) for c in cols]))
+        print(("{:<20}" * 5).format("{} set".format(partition), "{}/{}".format(len(partition_dfs["pre_all_tokens"][partition].index),\
+                                                                               len(partition_dfs["all_tokens"][partition].index)), *[len(pt[c]) for c in cols]))
     del partition, pt
     print("\n")
 
@@ -64,7 +65,7 @@ if __name__ == "__main__":
     partition_dfs["unseen_tag_tokens"] = {}
     partition_dfs["ambiguous_word_tokens"] = {}
 
-    print(" Types unseen during training ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Types unseen during training ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print(("{:<20}" * 5).format("", "", *["{} types".format(c).capitalize() for c in cols]))
     ptt = partition_types["training"]
     for partition in config["DATASET"]["PARTITIONS"]:
@@ -80,7 +81,7 @@ if __name__ == "__main__":
     print("\n")
 
     # ambiguity stats
-    print(" Ambiguous lemma types with more than one ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Ambiguous lemma types with more than one ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print(("{:<20}" * 5).format("", "", "", *["{} type %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["LEMMA"]]))
     for partition in config["DATASET"]["PARTITIONS"]:
         pdf = partition_dfs["all_tokens"][partition]
@@ -88,18 +89,18 @@ if __name__ == "__main__":
     del partition, pdf
     print("\n") 
 
-    print(" Lemma types with most wordforms in training set ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Lemma types with most wordforms in training set ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     #print(partition_dfs["training"].groupby(["lemma"])["word"].nunique().loc[lambda x: x > 1].sort_values(ascending=False).head(20))
     print("\n") 
     
-    print(" Lemma types with most tags in training set ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Lemma types with most tags in training set ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     #print(partition_dfs["training"].groupby(["lemma"])["tag"].nunique().loc[lambda x: x > 1].sort_values(ascending=False).head(20))
     print("\n") 
     # awk sanity check
     # awk 'BEGIN { cnt=0; } { if ( $2 == "голям" ) { cnt++; print tolower($1); } } END { print cnt; }' training.txt | sort | uniq -c | wc -l
 
        
-    print(" Ambiguous word types with more than one ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Ambiguous word types with more than one ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print(("{:<20}" * 5).format("", "", "", *["{} type %".format(c).capitalize() for c in cols if c is not config["DATASET"]["COLUMNS"]["WORD"]]))
     for partition in config["DATASET"]["PARTITIONS"]:
         pdf = partition_dfs["all_tokens"][partition]
@@ -109,14 +110,14 @@ if __name__ == "__main__":
 
         # this line defines ambiguous word as having either more than one possible tag or one possible lemma
         #ambiguous_index = pdf.groupby([config["DATASET"]["COLUMNS"]["WORD"]]).nunique().apply(lambda x: x > 1).any(axis=1)
-        ambiguous_index = pdf.groupby([config["DATASET"]["COLUMNS"]["WORD"]]).nunique()["lemma"] > 1
+        ambiguous_index = pdf.groupby([config["DATASET"]["COLUMNS"]["WORD"]]).nunique()[config["DATASET"]["COLUMNS"]["LEMMA"]] > 1
         ambiguous_words = ambiguous_index.where(lambda x: x).dropna().index.tolist()
-        partition_dfs["ambiguous_word_tokens"][partition] = pdf[pdf["word"].isin(ambiguous_words)]
+        partition_dfs["ambiguous_word_tokens"][partition] = pdf[pdf[config["DATASET"]["COLUMNS"]["WORD"]].isin(ambiguous_words)]
     del partition, pdf
     print("\n") 
     
     # naive baseline
-    print(" Naive baseline ".upper().center(TITLE_LENGTH, TITLE_CH))
+    print(" Naive baseline ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print("1) Assign each word form the most frequent lemma from the training set; otherwise assume every wordform is its own lemma.")
     print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; unknowns are wrong.")
     print("\n")
@@ -125,9 +126,9 @@ if __name__ == "__main__":
     base_mem = {}        
     for col in cols:
         if col is not config["DATASET"]["COLUMNS"]["WORD"]:
-            base_mem[col] = partition_dfs["all_tokens"]["training"].groupby(["word", col]).size().to_frame("count")\
-                .reset_index().sort_values(["word", "count"], ascending=[True, False])\
-                .drop_duplicates(subset="word").iloc[:, 0:2]
+            base_mem[col] = partition_dfs["pre_all_tokens"]["training"].groupby([config["DATASET"]["COLUMNS"]["WORD"], col]).size().to_frame("count")\
+                .reset_index().sort_values([config["DATASET"]["COLUMNS"]["WORD"], "count"], ascending=[True, False])\
+                .drop_duplicates(subset=config["DATASET"]["COLUMNS"]["WORD"]).iloc[:, 0:2]
     del col
 
     for scope in partition_dfs.keys():
@@ -136,7 +137,7 @@ if __name__ == "__main__":
         for partition in config["DATASET"]["PARTITIONS"]:
             if partition != "training":
                 pdf = partition_dfs[scope][partition]
-                x_test = pdf["word"]
+                x_test = pdf[config["DATASET"]["COLUMNS"]["WORD"]]
                 acc = []
 
                 # initializes the mask that keeps record of which predictions are correct for every column of the dataset
@@ -146,13 +147,13 @@ if __name__ == "__main__":
                     if c is not config["DATASET"]["COLUMNS"]["WORD"]:
                         y_test = pdf[c].reset_index(drop=True)
 
-                        y_pred = x_test.to_frame().set_index('word')\
-                            .join(base_mem[c].set_index('word'), on=["word"])\
+                        y_pred = x_test.to_frame().set_index(config["DATASET"]["COLUMNS"]["WORD"])\
+                            .join(base_mem[c].set_index(config["DATASET"]["COLUMNS"]["WORD"]), on=[config["DATASET"]["COLUMNS"]["WORD"]])\
                             .reset_index()
 
                         if c == config["DATASET"]["COLUMNS"]["LEMMA"]:
                             # interpolating lemmata
-                            y_pred[c] = y_pred[c].fillna(y_pred['word'])
+                            y_pred[c] = y_pred[c].fillna(y_pred[config["DATASET"]["COLUMNS"]["WORD"]])
 
                         pred_mask = (y_pred[c] == y_test)
                         acc.append(1 - pred_mask.value_counts(normalize=True).loc[False])
@@ -163,5 +164,5 @@ if __name__ == "__main__":
                 acc.append(joint_mask.sum() / joint_mask.size)
 
                 print(("{:<20}" * 6).format("{} set".format(partition), "", pdf.shape[0], *acc))
-        del partition
+        del partition, acc
         print("\n")

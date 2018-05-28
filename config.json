@@ -7,5 +7,9 @@
 			"LEMMA": "lemma",
 			"TAG": "tag"
 		}
+	},
+	"PPRINT": {
+		"TITLE_LENGTH": 90,
+		"TITLE_CH": "="
 	}
 }
