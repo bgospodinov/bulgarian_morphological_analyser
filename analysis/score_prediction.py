@@ -58,3 +58,10 @@ if __name__ == "__main__":
     prediction_match['ambiguous'] = prediction_match.apply(lambda row: row.word_prediction in ambiguous_words, axis=1)
     print_results(prediction_match[prediction_match['ambiguous'] == True])
     print("\n")
+
+    print("Error analysis".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]))
+    print("Tagging errors")
+    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False))
+    print("\n")
+    print("\n")
+
