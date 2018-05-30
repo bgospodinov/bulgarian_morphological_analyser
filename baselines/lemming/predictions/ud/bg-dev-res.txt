@@ -1,5 +1,3 @@
-. predictions/compute_pred_ud.sh predictions/ud/bg-dev-pred.txt data/UD_Bulgarian-BTB/bg-dev.txt.conv
-Lemma accuracy: 0.9714601255521972
-POS accuracy: 0.9829109509416415
-Morph accuracy: 0.9582073936293886
-Joint accuracy: 0.962159962799349
+Lemma accuracy: 0.97105324343176
+Morph accuracy: 0.9573936293885144
+Joint accuracy: 0.9506510113926994

@@ -8,18 +8,22 @@ if __name__ == "__main__":
     from helper import preprocess_dataset
 
     cols = list(config["DATASET"]["COLUMNS"].values())
-
+    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/MorphoData-NewSplit/dev.txt
+    #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
     parser = argparse.ArgumentParser()
     parser.add_argument("--training", help="training file name", type=str,
                         default=os.path.join(os.path.pardir, "data", config["DATASET"]["FOLDER"], "training.txt"))
     parser.add_argument("prediction", help="file name of predictions", type=str)
     parser.add_argument("ground", help="ground truth file name", type=str)
+    parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
+    parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
     args = parser.parse_args()
 
     dfs = {}
 
-    for partition in vars(args):
-        dfs[partition] = preprocess_dataset(pd.read_csv(vars(args)[partition], sep='\s+', names=cols))
+    for partition in ["training", "prediction", "ground"]:
+        pcols = args.dataset_cols if partition != "prediction" else args.prediction_cols
+        dfs[partition] = preprocess_dataset(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=pcols))
 
     assert dfs["prediction"].shape[0] == dfs["ground"].shape[0], "More rows predicted than necessary"
 

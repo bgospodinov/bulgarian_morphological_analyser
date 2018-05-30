@@ -13,10 +13,11 @@ if __name__ == "__main__":
     import argparse
     
     cols = list(config["DATASET"]["COLUMNS"].values())
-
+    # UD --folder ../data/UD_Bulgarian-BTB --cols 1 2 4 --training bg_btb-ud-train.conllu --dev bg_btb-ud-dev.conllu --test bg_btb-ud-test.conllu
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder", help="dataset folder path", type=str, 
                             default=os.path.join(os.path.pardir, "data", config["DATASET"]["FOLDER"]))
+    parser.add_argument("--cols", help="list of column indices to read (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
     
     for partition in config["DATASET"]["PARTITIONS"]:
         parser.add_argument("--{}".format(partition), 
@@ -36,7 +37,8 @@ if __name__ == "__main__":
     for partition in config["DATASET"]["PARTITIONS"]:
         partition_df = pd.read_csv(os.path.join(args.folder, vars(args)[partition]), 
                     sep='\s+', 
-                    names=cols)
+                    names=cols,
+                    usecols=args.cols)
         
         partition_dfs["pre_all_tokens"][partition] = partition_df
         partition_dfs["all_tokens"][partition] = preprocess_dataset(partition_df)

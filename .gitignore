@@ -1,12 +1,12 @@
 /data/*
 !/data/MorphoData-NewSplit/
-
+!/data/UD_Bulgarian-BTB/
 baselines/morfette/models/*
 baselines/morfette/data/*
 *.jar
 *.model
 baselines/lemming/models/*
-baselines/lemming/data/UD_Bulgarian-BTB/*
+baselines/lemming/data/UD_Bulgarian-BTB/*.conv
 baselines/lemming/data/MorphoData-NewSplit/*.conv
 *.lemming
 *.marmot
