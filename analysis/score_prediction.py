@@ -53,8 +53,10 @@ if __name__ == "__main__":
     print("\n")
 
     print("Ambiguous tokens")
-    ambiguous_index = dfs["ground"].groupby("word").nunique()["lemma"] > 1
-    ambiguous_words = ambiguous_index.where(lambda x: x).dropna().index.tolist()
+    ambiguous_index_ground = dfs["ground"].groupby("word").nunique()["lemma"] > 1
+    ambiguous_index_training = dfs["training"].groupby("word").nunique()["lemma"] > 1
+    joint_ambiguous_index = ambiguous_index_ground[ambiguous_index_ground == True].index.union(ambiguous_index_training[ambiguous_index_training == True].index)
+    ambiguous_words = joint_ambiguous_index.tolist()
     prediction_match['ambiguous'] = prediction_match.apply(lambda row: row.word_prediction in ambiguous_words, axis=1)
     print_results(prediction_match[prediction_match['ambiguous'] == True])
     print("\n")
