@@ -1,6 +1,7 @@
 /data/*
 !/data/MorphoData-NewSplit/
 !/data/UD_Bulgarian-BTB/
+!/data/*.py
 baselines/morfette/models/*
 baselines/morfette/data/*
 *.jar

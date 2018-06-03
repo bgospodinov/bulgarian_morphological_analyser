@@ -6,5 +6,5 @@
 	path = subword-nmt
 	url = git@github.com:rsennrich/subword-nmt.git
 [submodule "data/UD_Bulgarian-BTB"]
-	path = data/UD_Bulgarian-BTB
+	path = data/datasets/UD_Bulgarian-BTB
 	url = git@github.com:UniversalDependencies/UD_Bulgarian-BTB.git

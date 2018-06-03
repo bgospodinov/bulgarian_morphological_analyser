@@ -11,5 +11,19 @@
 	"PPRINT": {
 		"TITLE_LENGTH": 90,
 		"TITLE_CH": "="
+	},
+	"TRANSFORM": {
+		"DEFAULTS": {
+			"CONTEXT_UNIT": "word",
+            "WORD_UNIT": "char",
+            "CHAR_N_GRAM": 1,
+            "CONTEXT_SIZE": 20,
+            "CONTEXT_SPAN": 0,
+            "LEFT_CONTEXT_BOUNDARY": "<lc>",
+            "RIGHT_CONTEXT_BOUNDARY": "<rc>",
+            "WORD_BOUNDARY": "<s>",
+			"EXAMPLE_BOUNDARY_TAG": "w",
+			"SUBWORD_SEPARATOR": "@@"
+		}
 	}
 }
