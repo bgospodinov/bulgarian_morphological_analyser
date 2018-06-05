@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="transform" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true" singleton="true">
+  <configuration default="false" name="transform_ud" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true" singleton="true">
     <module name="msc_project" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -12,7 +12,7 @@
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <option name="SCRIPT_NAME" value="data.transform_ud" />
-    <option name="PARAMETERS" value="--input datasets/MorphoData-NewSplit/training.txt --context_size 5 --context_unit char --char_n_gram 2 --word_unit char" />
+    <option name="PARAMETERS" value="--input datasets/MorphoData-NewSplit/dev.txt --test_case" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="true" />

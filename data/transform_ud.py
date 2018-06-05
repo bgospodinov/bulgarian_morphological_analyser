@@ -12,29 +12,28 @@ cols = list(config["DATASET"]["COLUMNS"].values())
 
 
 class Transformer(object):
-    def __init__(self, context_unit=defaults["CONTEXT_UNIT"],
-                 word_unit=defaults["WORD_UNIT"], 
-                 char_n_gram=defaults["CHAR_N_GRAM"],
+    def __init__(self, word_unit=defaults["WORD_UNIT"],
                  context_size=defaults["CONTEXT_SIZE"],
                  context_char_size=None,
-                 context_span=defaults["CONTEXT_SPAN"],
                  left_context_boundary=defaults["LEFT_CONTEXT_BOUNDARY"],
                  right_context_boundary=defaults["RIGHT_CONTEXT_BOUNDARY"],
                  word_boundary=defaults["WORD_BOUNDARY"],
-                 example_boundary_tag=defaults["EXAMPLE_BOUNDARY_TAG"],
+                 example_boundary=defaults["EXAMPLE_BOUNDARY"],
                  subword_separator=defaults["SUBWORD_SEPARATOR"]):
-        self.example_boundary_tag = example_boundary_tag
+        self.example_boundary = example_boundary
         self.subword_separator = subword_separator
         self.word_boundary = word_boundary
         self.left_context_boundary = left_context_boundary
         self.right_context_boundary = right_context_boundary
-        self.context_span = context_span
         self.context_size = context_size
-        self.char_n_gram = char_n_gram
         self.word_unit = word_unit
-        self.context_unit = context_unit
         self.context_char_size = context_char_size
         self.keep_punct_in_context = False
+
+        # compute closing tag for each training example
+        if self.example_boundary is not None:
+            pos_close_tag = self.example_boundary.find('<') + 1
+            self.close_tag = self.example_boundary[:pos_close_tag] + '/' + self.example_boundary[pos_close_tag:]
 
     def process_sentence(self, sentence_df, lc_df=pd.DataFrame(), rc_df=pd.DataFrame()):
         """
@@ -47,12 +46,18 @@ class Transformer(object):
         # merges the sentence to be processed with its left and right context sentences (if any)
         sentence_with_context_df = pd.concat([lc_df, sentence_df, rc_df], copy=False)
 
-        # TODO: lowercase first letter of a sentence here
+        # check if subword units are present in the sentence and update flag accordingly
+        self.subword_mode_flag = sentence_with_context_df["word"].str.contains(self.subword_separator).any()
 
         # by default removes all punctuation
         if not self.keep_punct_in_context:
             sentence_with_context_df = sentence_with_context_df[sentence_with_context_df["tag"] != "punct"]
             sentence_df = sentence_df[sentence_df["tag"] != "punct"]
+
+        # lowercase proper nouns and other names
+        proper_nouns_and_names = sentence_with_context_df["tag"].str.contains("^(?:Np|H).*$")
+        sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]] = \
+            sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]].squeeze(axis=1).str.lower()
 
         # remember the bounds of the sentence we want to process so that we are able to distinguish it from the
         # additional context
@@ -69,7 +74,9 @@ class Transformer(object):
             wordform_clean = row["word"].replace(self.subword_separator + " ", "")
 
             source_line = []
-            source_line.append("<" + self.example_boundary_tag + ">")
+
+            if self.example_boundary is not None:
+                source_line.append(self.example_boundary)
 
             # computes left-hand side context
             source_line.extend(self.compute_context(sentence_with_context_df.loc[:index - 1]))
@@ -88,19 +95,21 @@ class Transformer(object):
             # we have to revert the input and output in order to use the same function for both contexts
             rhs_sentence = sentence_with_context_df.loc[:index + 1:-1]
 
-            # special preprocessing when breaking up words in char-n-grams
-            if self.char_n_gram > 1 and self.context_unit == 'char':
+            # special preprocessing when breaking up words into subwords
+            if self.subword_mode_flag:
                 rhs_sentence = rhs_sentence.applymap(lambda x: x[::-1] if type(x) is str else x)
 
             right_context = self.compute_context(rhs_sentence)[::-1]
 
-            # special postprocessing when breaking up words in char-n-grams
-            if self.char_n_gram > 1 and self.context_unit == 'char':
+            # special postprocessing when breaking up words into subwords
+            if self.subword_mode_flag:
                 right_context_buffer = [w[::-1] if w is not self.word_boundary else w for w in right_context]
                 right_context = right_context_buffer
 
             source_line.extend(right_context)
-            source_line.append("</" + self.example_boundary_tag + ">")
+
+            if self.example_boundary is not None:
+                source_line.append(self.close_tag)
 
             source_lines.append(" ".join(source_line))
 
@@ -108,7 +117,10 @@ class Transformer(object):
             # TODO: append moprho tags when requested
             # represent the word on word- or character-level
             target_line = []
-            target_line.append("<" + self.example_boundary_tag + ">")
+
+            if self.example_boundary is not None:
+                target_line.append(self.example_boundary)
+
             target_lemma = row["lemma"]
 
             if self.word_unit == 'word':
@@ -116,7 +128,9 @@ class Transformer(object):
             else:
                 target_line.extend(target_lemma)
 
-            target_line.append("</" + self.example_boundary_tag + ">")
+            if self.example_boundary is not None:
+                target_line.append(self.close_tag)
+
             target_lines.append(" ".join(target_line))
 
         return source_lines, target_lines
@@ -138,7 +152,8 @@ class Transformer(object):
 
         if self.context_char_size is not None:
             # code to return the desired initial number of characters from the context regardless of units
-            cum_context_length = list(accumulate([len(unit) if unit is not self.word_boundary else 0 for unit in context_units[::-1]]))
+            cum_context_length = list(accumulate([len(unit) if unit is not self.word_boundary else 0
+                                                  for unit in context_units[::-1]]))
             offset = bisect(cum_context_length, self.context_char_size)
             if offset != 0:
                 context_units = context_units[-offset:]
@@ -166,7 +181,8 @@ class Transformer(object):
 
         return context_units
 
-if __name__ == "__main__":
+
+def main(argv):
     import argparse
     from io import StringIO
 
@@ -175,72 +191,84 @@ if __name__ == "__main__":
         description="adapts an UD dataset to context-sensitive lemmatization")
 
     parser.add_argument("--input", help="file to be transformed", type=str)
-    parser.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int, default=0)
-    parser.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int, default=1)
-    parser.add_argument("--tag_column_index", help="index of tag column in the file (zero-indexed)", type=int, default=2)
+    parser.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int,
+                        default=0)
+    parser.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int,
+                        default=1)
+    parser.add_argument("--tag_column_index", help="index of tag column in the file (zero-indexed)", type=int,
+                        default=2)
     parser.add_argument("--output", help="output source and target files", nargs='+', type=str, default=None)
-    parser.add_argument("--context_unit", help="type of context representation", choices=['char','bpe','word'],
+    parser.add_argument("--context_unit", help="type of context representation", choices=['char', 'bpe', 'word'],
                         type=str, default=defaults["CONTEXT_UNIT"])
     parser.add_argument("--word_unit", help="type of word representation", choices=['char', 'word'],
                         type=str, default=defaults["WORD_UNIT"])
-    parser.add_argument("--char_n_gram", help="size of char-n-gram context (only used if --context_unit is char, default: %(default)s)",
+    parser.add_argument("--char_n_gram",
+                        help="size of char-n-gram context (only used if --context_unit is char, default: %(default)s)",
                         type=int, default=defaults["CHAR_N_GRAM"])
-    parser.add_argument("--context_size", help="size of context representation (in respective units) on left and right (0 to use full span)",
+    parser.add_argument("--context_size",
+                        help="size of context representation (in respective units) on left and right (0 to use full span)",
                         type=int, default=defaults["CONTEXT_SIZE"])
-    parser.add_argument("--context_char_size", help="size of context representation (in characters) on left and right (0 to use full span, has precedence over --context_size)",
+    parser.add_argument("--context_char_size",
+                        help="size of context representation (in characters) on left and right (0 to use full span, has precedence over --context_size)",
                         type=int, default=argparse.SUPPRESS)
-    parser.add_argument("--context_span", help="maximum span of a word in number of sentences on left and right of the sentence of the word, default: %(default)s))", type=int,
+    parser.add_argument("--context_span",
+                        help="maximum span of a word in number of sentences on left and right of the sentence of the word, default: %(default)s))",
+                        type=int,
                         default=defaults["CONTEXT_SPAN"])
-    parser.add_argument("--left_context_boundary", help="left context boundary special symbol (default: %(default)s)", type=str,
+    parser.add_argument("--left_context_boundary", help="left context boundary special symbol (default: %(default)s)",
+                        type=str,
                         default=defaults["LEFT_CONTEXT_BOUNDARY"])
-    parser.add_argument("--example_boundary_tag", help="example boundary tag special symbol - no angle brackets (default: %(default)s)", type=str,
-                        default=defaults["EXAMPLE_BOUNDARY_TAG"])
-    parser.add_argument("--right_context_boundary", help="right context boundary special symbol (default: %(default)s)", type=str,
+    parser.add_argument("--example_boundary", help="example boundary special symbol (default: %(default)s)", type=str,
+                        default=defaults["EXAMPLE_BOUNDARY"])
+    parser.add_argument("--right_context_boundary", help="right context boundary special symbol (default: %(default)s)",
+                        type=str,
                         default=defaults["RIGHT_CONTEXT_BOUNDARY"])
     parser.add_argument("--word_boundary", help="word boundary special symbol (default: %(default)s)", type=str,
                         default=defaults["WORD_BOUNDARY"])
     parser.add_argument('--subword_separator', type=str, default=defaults["SUBWORD_SEPARATOR"], metavar='STR',
                         help="separator between non-final BPE subword units (default: '%(default)s'))")
+    parser.add_argument('--test_case', dest='test_case', action='store_true')
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     if args.input is None:
         args.input = sys.stdin
 
-    if args.output is None:
-        if args.input is None:
-            raise ValueError("Can't decide how to name the transformation because you feed from stdin. Use --output to specify path.")
+    if not args.test_case:
+        if args.output is None:
+            if args.input is sys.stdin:
+                raise ValueError(
+                    "Can't decide how to name the transformation because you feed from stdin. Use --output to specify path.")
 
-        input_folders = re.split("/+|\\+", args.input)
-        if len(input_folders) < 2:
-            raise ValueError("Can't decide how to name the transformation. Use --output to specify path.")
+            input_folders = re.split("/+|\\+", args.input)
+            if len(input_folders) < 2:
+                raise ValueError("Can't decide how to name the transformation. Use --output to specify path.")
+            else:
+                input_folder = input_folders[-2]
+                input_filename = input_folders[-1].split(".")[0]
+
+            transform_folder = "{}_{}_{}{}".format(input_folder, args.context_size, args.context_unit,
+                                                   "_{}".format(args.char_n_gram) if args.context_unit == "char" else "")
+
+            full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
+
+            assert not os.path.isdir(full_transform_folder_path), "Folder of the transformation must not exist ({})".format(transform_folder)
+
+            os.makedirs(full_transform_folder_path, exist_ok=True)
+
+            output_source_path = os.path.join(full_transform_folder_path, '{}_source'.format(input_filename))
+            output_target_path = os.path.join(full_transform_folder_path, '{}_target'.format(input_filename))
         else:
-            input_folder = input_folders[-2]
-            input_filename = input_folders[-1].split(".")[0]
+            if len(args.output) < 2:
+                raise ValueError("You must specify both target and source output paths.")
+            output_source_path = args.output[0]
+            output_target_path = args.output[1]
 
-        transform_folder = "{}_{}_{}{}".format(input_folder, args.context_size, args.context_unit, "_{}".format(args.char_n_gram) if args.context_unit == "char" else "")
-
-        full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
-
-        # TODO: return file existence checks
-        #assert not os.path.isdir(full_transform_folder_path), "Folder of the transformation must not exist ({})".format(transform_folder)
-
-        os.makedirs(full_transform_folder_path, exist_ok=True)
-
-        output_source_path = os.path.join(full_transform_folder_path, '{}_source'.format(input_filename))
-        output_target_path = os.path.join(full_transform_folder_path, '{}_target'.format(input_filename))
-    else:
-        if len(args.output) < 2:
-            raise ValueError("You must specify both target and source output paths.")
-        output_source_path = args.output[0]
-        output_target_path = args.output[1]
-
-    transformer_args = vars(args).copy()
-    transformer_args.pop("input", None)
-    transformer_args.pop("word_column_index", None)
-    transformer_args.pop("lemma_column_index", None)
-    transformer_args.pop("tag_column_index", None)
-    transformer_args.pop("output", None)
+    transformer_args = {'word_unit': args.word_unit, 'context_size': args.context_size,
+                        'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
+                        'left_context_boundary': args.left_context_boundary,
+                        'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
+                        'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
 
     transformer = Transformer(**transformer_args)
 
@@ -271,30 +299,34 @@ if __name__ == "__main__":
         segment_char_ngrams(SimpleNamespace(input=infile_df["word"].dropna().astype(str), vocab={}, n=args.char_n_gram,
                                             output=subword_nmt_output, separator=args.subword_separator))
         subword_nmt_output.seek(0)
-        infile_df.loc[infile_df["word"].notnull(), ["word"]] = np.array([line.rstrip(' \t\n\r') for line in subword_nmt_output])[:, np.newaxis]
+        infile_df.loc[infile_df["word"].notnull(), ["word"]] = np.array([line.rstrip(' \t\n\r')
+                                                                         for line in subword_nmt_output])[:, np.newaxis]
     elif args.context_unit == 'bpe':
         # TODO: BPE processing should happen here
         sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'subword-nmt'))
         from subword_nmt.learn_bpe import learn_bpe
 
+    sentence_dfs = []
+    sentence_indices = pd.isna(infile_df).all(axis=1)
+    sentence_iterator = (i for i, e in sentence_indices.to_dict().items() if e is True)
 
-    with open(output_source_path, 'w', encoding='utf-8') as outsourcefile, \
-            open(output_target_path, 'w', encoding='utf-8') as outtargetfile:
-        sentence_dfs = []
-        sentence_indices = pd.isna(infile_df).all(axis=1)
-        sentence_iterator = (i for i, e in sentence_indices.to_dict().items() if e is True)
+    sentence_start = 0
+    for sentence_end in sentence_iterator:
+        sentence_dfs.append(infile_df.iloc[sentence_start:sentence_end])
+        sentence_start = sentence_end + 1
 
-        sentence_start = 0
-        for sentence_end in sentence_iterator:
-            sentence_dfs.append(infile_df.iloc[sentence_start:sentence_end])
-            sentence_start = sentence_end + 1
+    for sentence_df in sentence_dfs:
+        # TODO: add additional context according to CONTEXT_SPAN to line before passing it below
+        output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
 
-        for sentence_df in sentence_dfs:
-            # TODO: add additional context according to CONTEXT_SPAN to line before passing it below
-            output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
+        if args.test_case:
             print("\n".join(output_source_lines))
-            #outsourcefile.write(output_source_lines)
-            #outtargetfile.write(output_target_lines)
+        else:
+            with open(output_source_path, 'w', encoding='utf-8') as outsourcefile, \
+                    open(output_target_path, 'w', encoding='utf-8') as outtargetfile:
+                outsourcefile.write("\n".join(output_source_lines))
+                outtargetfile.write("\n".join(output_target_lines))
 
-    import shutil
-    shutil.rmtree(full_transform_folder_path)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

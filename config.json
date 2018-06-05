@@ -22,7 +22,7 @@
             "LEFT_CONTEXT_BOUNDARY": "<lc>",
             "RIGHT_CONTEXT_BOUNDARY": "<rc>",
             "WORD_BOUNDARY": "<s>",
-			"EXAMPLE_BOUNDARY_TAG": "w",
+			"EXAMPLE_BOUNDARY": "<w>",
 			"SUBWORD_SEPARATOR": "@@"
 		}
 	}
