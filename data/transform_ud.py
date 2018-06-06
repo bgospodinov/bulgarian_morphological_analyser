@@ -13,13 +13,17 @@ cols = list(config["DATASET"]["COLUMNS"].values())
 
 class Transformer(object):
     def __init__(self, word_unit=defaults["WORD_UNIT"],
+                 tag_unit=defaults["TAG_UNIT"],
                  context_size=defaults["CONTEXT_SIZE"],
                  context_char_size=None,
                  left_context_boundary=defaults["LEFT_CONTEXT_BOUNDARY"],
                  right_context_boundary=defaults["RIGHT_CONTEXT_BOUNDARY"],
                  word_boundary=defaults["WORD_BOUNDARY"],
                  example_boundary=defaults["EXAMPLE_BOUNDARY"],
+                 tag_boundary=defaults["TAG_BOUNDARY"],
                  subword_separator=defaults["SUBWORD_SEPARATOR"]):
+        self.tag_unit = tag_unit
+        self.tag_boundary = tag_boundary
         self.example_boundary = example_boundary
         self.subword_separator = subword_separator
         self.word_boundary = word_boundary
@@ -122,11 +126,19 @@ class Transformer(object):
                 target_line.append(self.example_boundary)
 
             target_lemma = row["lemma"]
+            target_tag = row["tag"]
 
             if self.word_unit == 'word':
                 target_line.append(target_lemma)
             else:
                 target_line.extend(target_lemma)
+
+            target_line.append(self.tag_boundary)
+
+            if self.tag_unit == 'word':
+                target_line.append(target_tag)
+            else:
+                target_line.extend(target_tag)
 
             if self.example_boundary is not None:
                 target_line.append(self.close_tag)
@@ -202,6 +214,8 @@ def main(argv):
                         type=str, default=defaults["CONTEXT_UNIT"])
     parser.add_argument("--word_unit", help="type of word representation", choices=['char', 'word'],
                         type=str, default=defaults["WORD_UNIT"])
+    parser.add_argument("--tag_unit", help="type of tag representation", choices=['char', 'word'],
+                        type=str, default=defaults["TAG_UNIT"])
     parser.add_argument("--char_n_gram",
                         help="size of char-n-gram context (only used if --context_unit is char, default: %(default)s)",
                         type=int, default=defaults["CHAR_N_GRAM"])
@@ -225,9 +239,14 @@ def main(argv):
                         default=defaults["RIGHT_CONTEXT_BOUNDARY"])
     parser.add_argument("--word_boundary", help="word boundary special symbol (default: %(default)s)", type=str,
                         default=defaults["WORD_BOUNDARY"])
+    parser.add_argument("--tag_boundary", help="tag boundary special symbol (default: %(default)s)", type=str,
+                        default=defaults["TAG_BOUNDARY"])
     parser.add_argument('--subword_separator', type=str, default=defaults["SUBWORD_SEPARATOR"], metavar='STR',
                         help="separator between non-final BPE subword units (default: '%(default)s'))")
     parser.add_argument('--test_case', dest='test_case', action='store_true')
+    parser.add_argument('--overwrite', dest='overwrite', action='store_true')
+    parser.add_argument("--print_file", help="which file to output (source/target)", choices=['source', 'target'],
+                        type=str, default=defaults["PRINT_FILE"])
 
     args = parser.parse_args(argv)
 
@@ -251,22 +270,27 @@ def main(argv):
                                                    "_{}".format(args.char_n_gram) if args.context_unit == "char" else "")
 
             full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
-
-            assert not os.path.isdir(full_transform_folder_path), "Folder of the transformation must not exist ({})".format(transform_folder)
-
             os.makedirs(full_transform_folder_path, exist_ok=True)
 
             output_source_path = os.path.join(full_transform_folder_path, '{}_source'.format(input_filename))
             output_target_path = os.path.join(full_transform_folder_path, '{}_target'.format(input_filename))
+
+            if not args.overwrite and (os.path.isfile(output_source_path) or os.path.isfile(output_target_path)):
+                raise ValueError("Output files for {} already exist in {}. Pass --overwrite or delete them."
+                                 .format(input_filename, full_transform_folder_path))
+
+            # truncate output files or create them anew
+            open(output_source_path, 'w').close()
+            open(output_target_path, 'w').close()
         else:
             if len(args.output) < 2:
                 raise ValueError("You must specify both target and source output paths.")
             output_source_path = args.output[0]
             output_target_path = args.output[1]
 
-    transformer_args = {'word_unit': args.word_unit, 'context_size': args.context_size,
+    transformer_args = {'word_unit': args.word_unit, 'tag_unit': args.tag_unit, 'context_size': args.context_size,
                         'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
-                        'left_context_boundary': args.left_context_boundary,
+                        'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
                         'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
                         'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
 
@@ -320,12 +344,15 @@ def main(argv):
         output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
 
         if args.test_case:
-            print("\n".join(output_source_lines))
+            if args.print_file == 'source':
+                print("\n".join(output_source_lines))
+            else:
+                print("\n".join(output_target_lines))
         else:
-            with open(output_source_path, 'w', encoding='utf-8') as outsourcefile, \
-                    open(output_target_path, 'w', encoding='utf-8') as outtargetfile:
-                outsourcefile.write("\n".join(output_source_lines))
-                outtargetfile.write("\n".join(output_target_lines))
+            with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
+                    open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
+                outsourcefile.write("\n".join(output_source_lines) + "\n")
+                outtargetfile.write("\n".join(output_target_lines) + "\n")
 
 
 if __name__ == "__main__":

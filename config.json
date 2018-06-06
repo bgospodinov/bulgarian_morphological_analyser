@@ -14,14 +14,17 @@
 	},
 	"TRANSFORM": {
 		"DEFAULTS": {
-			"CONTEXT_UNIT": "word",
+			"CONTEXT_UNIT": "char",
             "WORD_UNIT": "char",
+			"TAG_UNIT": "word",
+			"PRINT_FILE": "source",
             "CHAR_N_GRAM": 1,
             "CONTEXT_SIZE": 20,
             "CONTEXT_SPAN": 0,
             "LEFT_CONTEXT_BOUNDARY": "<lc>",
             "RIGHT_CONTEXT_BOUNDARY": "<rc>",
             "WORD_BOUNDARY": "<s>",
+			"TAG_BOUNDARY": "+",
 			"EXAMPLE_BOUNDARY": "<w>",
 			"SUBWORD_SEPARATOR": "@@"
 		}
