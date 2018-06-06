@@ -15,7 +15,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
 
-INPUT = "datasets/MorphoData-NewSplit/dev.txt"
+INPUT = os.path.join(os.path.dirname(__file__), 'datasets', 'MorphoData-NewSplit', 'dev.txt')
 cols = list(config["DATASET"]["COLUMNS"].values())
 defaults = config["TRANSFORM"]["DEFAULTS"]
 
