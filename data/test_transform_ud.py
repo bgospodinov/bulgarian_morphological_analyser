@@ -158,6 +158,8 @@ class TestTransformUD(unittest.TestCase):
                         logging.error("Assertion error logged: ", exc_info=True)
                     finally:
                         sys.stdout = saved_stdout
+                logger.info("Success {} ({})".format(i, argv))
+            logger.info("Tests finished.")
 
 
 if __name__ == '__main__':
