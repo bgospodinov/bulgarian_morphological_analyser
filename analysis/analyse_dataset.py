@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+__author__ = "Bogomil Gospodinov"
+__email__ = "s1312650@sms.ed.ac.uk"
+__status__ = "dev"
+
 if __name__ == "__main__":
     import os
     import sys
@@ -9,7 +14,7 @@ if __name__ == "__main__":
     pd.set_option('display.max_columns', None)
 
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-    from helper import preprocess_dataset
+    from data.preprocess_ud import preprocess_dataset, postprocess_dataset
     from config import config
     import argparse
     
@@ -17,7 +22,7 @@ if __name__ == "__main__":
     # UD --folder ../data/UD_Bulgarian-BTB --cols 1 2 4 --training bg_btb-ud-train.conllu --dev bg_btb-ud-dev.conllu --test bg_btb-ud-test.conllu
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder", help="dataset folder path", type=str, 
-                            default=os.path.join(os.path.pardir, "data", config["DATASET"]["FOLDER"]))
+                            default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"]))
     parser.add_argument("--cols", help="list of column indices to read (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
     
     for partition in config["DATASET"]["PARTITIONS"]:
@@ -41,8 +46,8 @@ if __name__ == "__main__":
                     names=cols,
                     usecols=args.cols)
         
-        partition_dfs["pre_all_tokens"][partition] = partition_df
-        partition_dfs["all_tokens"][partition] = preprocess_dataset(partition_df)
+        partition_dfs["pre_all_tokens"][partition] = preprocess_dataset(partition_df)
+        partition_dfs["all_tokens"][partition] = postprocess_dataset(partition_dfs["pre_all_tokens"][partition])
         
         types = {}
         for col in cols:

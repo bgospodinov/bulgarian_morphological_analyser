@@ -1,4 +1,11 @@
+#!/usr/bin/env python
+
+__author__ = "Bogomil Gospodinov"
+__email__ = "s1312650@sms.ed.ac.uk"
+__status__ = "dev"
+
 import unittest
+import logging
 import os
 import sys
 from io import StringIO
@@ -9,7 +16,6 @@ from functools import reduce
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from config import config
 
-import logging
 logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(module)s - %(funcName)s: %(message)s',
                     datefmt="%Y-%m-%d %H:%M:%S")

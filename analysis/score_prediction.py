@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+__author__ = "Bogomil Gospodinov"
+__email__ = "s1312650@sms.ed.ac.uk"
+__status__ = "dev"
+
 if __name__ == "__main__":
     import os
     import sys
@@ -6,14 +11,16 @@ if __name__ == "__main__":
     from config import config
     import argparse
     import pandas as pd
-    from helper import preprocess_dataset
+    from data.preprocess_ud import preprocess_dataset, postprocess_dataset
 
     cols = list(config["DATASET"]["COLUMNS"].values())
-    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/MorphoData-NewSplit/dev.txt
+
+    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/MorphoData-NewSplit/dev-pre.txt
     #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--training", help="training file name", type=str,
-                        default=os.path.join(os.path.pardir, "data", config["DATASET"]["FOLDER"], "training.txt"))
+                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "training-pre.txt"))
     parser.add_argument("prediction", help="file name of predictions", type=str)
     parser.add_argument("ground", help="ground truth file name", type=str)
     parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
@@ -22,9 +29,10 @@ if __name__ == "__main__":
 
     dfs = {}
 
-    for partition in ["training", "prediction", "ground"]:
-        pcols = args.dataset_cols if partition != "prediction" else args.prediction_cols
-        dfs[partition] = preprocess_dataset(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=pcols))
+    for partition in ["training", "ground"]:
+        dfs[partition] = preprocess_dataset(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))
+
+    dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols, usecols=args.prediction_cols)
 
     assert dfs["prediction"].shape[0] == dfs["ground"].shape[0], "More rows predicted than necessary"
 
@@ -39,6 +47,7 @@ if __name__ == "__main__":
     print("\n")
     print("All tokens")
     prediction_match = dfs["prediction"].join(dfs["ground"], lsuffix='_prediction', rsuffix='_truth')
+    prediction_match = postprocess_dataset(prediction_match, prediction=True)
     prediction_match['lemma_match'] = prediction_match.apply(lambda row: row.lemma_prediction == row.lemma_truth,
                                        axis=1)
     prediction_match['tag_match'] = prediction_match.apply(lambda row: row.tag_prediction == row.tag_truth, axis=1)

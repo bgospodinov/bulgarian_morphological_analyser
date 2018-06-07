@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+
+""" transform_ud.py: transforms a preprocessed UD dataset into source and target language files for lemmatization as MT"""
+__author__ = "Bogomil Gospodinov"
+__email__ = "s1312650@sms.ed.ac.uk"
+__status__ = "dev"
+
 import sys
 import os
 import pandas as pd
@@ -32,7 +38,6 @@ class Transformer(object):
         self.context_size = context_size
         self.word_unit = word_unit
         self.context_char_size = context_char_size
-        self.keep_punct_in_context = False
 
         # compute closing tag for each training example
         if self.example_boundary is not None:
@@ -53,15 +58,16 @@ class Transformer(object):
         # check if subword units are present in the sentence and update flag accordingly
         self.subword_mode_flag = sentence_with_context_df["word"].str.contains(self.subword_separator).any()
 
+        # TODO: apply equivalent preprocessing as analysis modules
         # by default removes all punctuation
-        if not self.keep_punct_in_context:
-            sentence_with_context_df = sentence_with_context_df[sentence_with_context_df["tag"] != "punct"]
-            sentence_df = sentence_df[sentence_df["tag"] != "punct"]
+        #if not self.keep_punct_in_context:
+        #    sentence_with_context_df = sentence_with_context_df[sentence_with_context_df["tag"] != "punct"]
+        #    sentence_df = sentence_df[sentence_df["tag"] != "punct"]
 
         # lowercase proper nouns and other names
-        proper_nouns_and_names = sentence_with_context_df["tag"].str.contains("^(?:Np|H).*$")
-        sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]] = \
-            sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]].squeeze(axis=1).str.lower()
+        #proper_nouns_and_names = sentence_with_context_df["tag"].str.contains("^(?:Np|H).*$")
+        #sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]] = \
+        #    sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]].squeeze(axis=1).str.lower()
 
         # remember the bounds of the sentence we want to process so that we are able to distinguish it from the
         # additional context
@@ -118,8 +124,6 @@ class Transformer(object):
             source_lines.append(" ".join(source_line))
 
             # computes target line
-            # TODO: append moprho tags when requested
-            # represent the word on word- or character-level
             target_line = []
 
             if self.example_boundary is not None:
@@ -297,18 +301,20 @@ def main(argv):
     transformer = Transformer(**transformer_args)
 
     # preprocessing
+    '''
     with open(args.input, 'r', encoding='utf-8') as infile:
         infile_buffer = StringIO()
         prev_line = ""
         empty_line = ['\n', '\r\n']
         for i, line in enumerate(infile):
-            if line.startswith("\""):
+            if line.contains("\""):
                 continue
             if line in empty_line and prev_line in empty_line:
                 continue
             infile_buffer.write(line)
             prev_line = line
         infile_buffer.seek(0)
+    '''
 
     infile_df = pd.read_csv(infile_buffer, sep='\s+', names=cols,
                             usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],

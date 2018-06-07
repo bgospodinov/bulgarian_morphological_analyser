@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="score_prediction" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true">
+  <configuration default="false" name="preprocess_ud" type="PythonConfigurationType" factoryName="Python">
     <module name="msc_project" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -7,12 +7,12 @@
       <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
     <option name="SDK_HOME" value="C:\Users\Bogomil\Anaconda3\envs\msc\python.exe" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
-    <option name="SCRIPT_NAME" value="analysis.score_prediction" />
-    <option name="PARAMETERS" value="../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/datasets/MorphoData-NewSplit/dev-pre.txt" />
+    <option name="SCRIPT_NAME" value="data.preprocess_ud" />
+    <option name="PARAMETERS" value="data/datasets/MorphoData-NewSplit/dev.txt" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="true" />
