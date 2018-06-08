@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     cols = list(config["DATASET"]["COLUMNS"].values())
 
-    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/MorphoData-NewSplit/dev-pre.txt
+    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/datasets/MorphoData-NewSplit/dev-pre.txt
     #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
 
     parser = argparse.ArgumentParser()
@@ -25,6 +25,7 @@ if __name__ == "__main__":
     parser.add_argument("ground", help="ground truth file name", type=str)
     parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
     parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
+    parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
     args = parser.parse_args()
 
     dfs = {}
@@ -47,7 +48,11 @@ if __name__ == "__main__":
     print("\n")
     print("All tokens")
     prediction_match = dfs["prediction"].join(dfs["ground"], lsuffix='_prediction', rsuffix='_truth')
-    prediction_match = postprocess_dataset(prediction_match, prediction=True)
+    if args.postprocess:
+        print("Postprocessing on.")
+        prediction_match = postprocess_dataset(prediction_match, prediction=True)
+    else:
+        print("Postprocessing off.")
     prediction_match['lemma_match'] = prediction_match.apply(lambda row: row.lemma_prediction == row.lemma_truth,
                                        axis=1)
     prediction_match['tag_match'] = prediction_match.apply(lambda row: row.tag_prediction == row.tag_truth, axis=1)

@@ -21,4 +21,4 @@ mkdir -p models
 #java -d64 -Xmx10G -cp "marmot.jar;mallet.jar;trove.jar" lemming.lemma.cmd.Trainer lemming.lemma.ranker.RankerTrainer $options models/btb/${lang}.lemming form-index=0,lemma-index=1,data/MorphoData-NewSplit/${lang}-train.txt.conv  
 
 #make predictions 
-#java -d64 -Xmx10g -cp "marmot.jar;trove.jar" marmot.morph.cmd.Annotator -model-file models/btb/${lang}.marmot -lemmatizer-file models/btb/${lang}.lemming -test-file form-index=0,data/MorphoData-NewSplit/${lang}-${set}.txt.conv -pred-file predictions/btb/${lang}-${set}-pred.txt
+#java -d64 -Xmx12g -cp "marmot.jar;trove.jar" marmot.morph.cmd.Annotator -model-file models/btb/${lang}.marmot -lemmatizer-file models/btb/${lang}.lemming -test-file form-index=0,data/MorphoData-NewSplit/${lang}-${set}.txt.conv -pred-file predictions/btb/${lang}-${set}-pred.txt

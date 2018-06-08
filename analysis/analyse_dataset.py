@@ -30,7 +30,8 @@ if __name__ == "__main__":
                             help="{} file name".format(partition), 
                             type=str, 
                             default="{}.txt".format(partition))
-    
+    parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
+
     args = parser.parse_args()
     
     partition_dfs = {}
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     partition_dfs["pre_all_tokens"] = {}
     partition_dfs["all_tokens"] = {}
 
-    # preprocessing
+    # preprocessing and postprocessing
     for partition in config["DATASET"]["PARTITIONS"]:
         partition_df = pd.read_csv(os.path.join(args.folder, vars(args)[partition]), 
                     sep='\s+', 
@@ -47,7 +48,14 @@ if __name__ == "__main__":
                     usecols=args.cols)
         
         partition_dfs["pre_all_tokens"][partition] = preprocess_dataset(partition_df)
-        partition_dfs["all_tokens"][partition] = postprocess_dataset(partition_dfs["pre_all_tokens"][partition])
+
+        if args.postprocess:
+            print("Postprocessing on.")
+            partition_dfs["all_tokens"][partition] = postprocess_dataset(partition_dfs["pre_all_tokens"][partition])
+        else:
+            print("Postprocessing off.")
+            partition_dfs["all_tokens"][partition] = partition_dfs["pre_all_tokens"][partition]
+
         
         types = {}
         for col in cols:

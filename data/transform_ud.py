@@ -13,6 +13,7 @@ from itertools import accumulate
 from bisect import bisect
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from config import config
+from data.preprocess_ud import preprocess_dataset, postprocess_dataset
 defaults = config["TRANSFORM"]["DEFAULTS"]
 cols = list(config["DATASET"]["COLUMNS"].values())
 
@@ -57,17 +58,6 @@ class Transformer(object):
 
         # check if subword units are present in the sentence and update flag accordingly
         self.subword_mode_flag = sentence_with_context_df["word"].str.contains(self.subword_separator).any()
-
-        # TODO: apply equivalent preprocessing as analysis modules
-        # by default removes all punctuation
-        #if not self.keep_punct_in_context:
-        #    sentence_with_context_df = sentence_with_context_df[sentence_with_context_df["tag"] != "punct"]
-        #    sentence_df = sentence_df[sentence_df["tag"] != "punct"]
-
-        # lowercase proper nouns and other names
-        #proper_nouns_and_names = sentence_with_context_df["tag"].str.contains("^(?:Np|H).*$")
-        #sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]] = \
-        #    sentence_with_context_df.loc[~proper_nouns_and_names, ["word"]].squeeze(axis=1).str.lower()
 
         # remember the bounds of the sentence we want to process so that we are able to distinguish it from the
         # additional context
@@ -300,25 +290,9 @@ def main(argv):
 
     transformer = Transformer(**transformer_args)
 
-    # preprocessing
-    '''
-    with open(args.input, 'r', encoding='utf-8') as infile:
-        infile_buffer = StringIO()
-        prev_line = ""
-        empty_line = ['\n', '\r\n']
-        for i, line in enumerate(infile):
-            if line.contains("\""):
-                continue
-            if line in empty_line and prev_line in empty_line:
-                continue
-            infile_buffer.write(line)
-            prev_line = line
-        infile_buffer.seek(0)
-    '''
-
-    infile_df = pd.read_csv(infile_buffer, sep='\s+', names=cols,
+    infile_df = preprocess_dataset(pd.read_csv(args.input, sep='\s+', names=cols,
                             usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],
-                            skip_blank_lines=False, comment='#')[cols]
+                            skip_blank_lines=False, comment='#')[cols])
 
     if args.context_unit == 'char':
         from types import SimpleNamespace
@@ -342,7 +316,7 @@ def main(argv):
 
     sentence_start = 0
     for sentence_end in sentence_iterator:
-        sentence_dfs.append(infile_df.iloc[sentence_start:sentence_end])
+        sentence_dfs.append(infile_df.loc[sentence_start:sentence_end - 1])
         sentence_start = sentence_end + 1
 
     for sentence_df in sentence_dfs:
