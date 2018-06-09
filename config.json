@@ -26,7 +26,8 @@
             "WORD_BOUNDARY": "<s>",
 			"TAG_BOUNDARY": "+",
 			"EXAMPLE_BOUNDARY": "<w>",
-			"SUBWORD_SEPARATOR": "@@"
+			"SUBWORD_SEPARATOR": "@@",
+			"BPE_OPERATIONS": 500
 		}
 	}
 }

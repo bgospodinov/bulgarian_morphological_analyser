@@ -237,6 +237,11 @@ def main(argv):
                         default=defaults["TAG_BOUNDARY"])
     parser.add_argument('--subword_separator', type=str, default=defaults["SUBWORD_SEPARATOR"], metavar='STR',
                         help="separator between non-final BPE subword units (default: '%(default)s'))")
+    parser.add_argument("--bpe_operations", help="number of BPE merge operations to be learned "
+                                                 "(corresponds to number of symbols/char-n-grams/codes)",
+                        type=int, default=defaults["BPE_OPERATIONS"])
+    parser.add_argument("--bpe_codes_path", help="full file path to export BPE codes to or to read them from if available",
+                        type=str, default=None)
     parser.add_argument('--test_case', dest='test_case', action='store_true')
     parser.add_argument('--overwrite', dest='overwrite', action='store_true')
     parser.add_argument("--print_file", help="which file to output (source/target)", choices=['source', 'target'],
@@ -245,25 +250,28 @@ def main(argv):
     args = parser.parse_args(argv)
 
     if args.input is None:
+        if args.output is None:
+            raise ValueError(
+                "Can't decide how to name the transformation because you feed from stdin. Use --output to specify path.")
         args.input = sys.stdin
+    else:
+        input_folders = re.split("/+|\\+", args.input)
+        if len(input_folders) < 2:
+            raise ValueError("Can't decide how to name the transformation. Use --output to specify path.")
+        else:
+            input_folder = input_folders[-2]
+            input_filename = input_folders[-1].split(".")[0]
 
     if not args.test_case:
-        if args.output is None:
-            if args.input is sys.stdin:
-                raise ValueError(
-                    "Can't decide how to name the transformation because you feed from stdin. Use --output to specify path.")
-
-            input_folders = re.split("/+|\\+", args.input)
-            if len(input_folders) < 2:
-                raise ValueError("Can't decide how to name the transformation. Use --output to specify path.")
-            else:
-                input_folder = input_folders[-2]
-                input_filename = input_folders[-1].split(".")[0]
-
+        if args.output is None or (type(args.output) is list and len(args.output) == 1):
             transform_folder = "{}_{}_{}{}".format(input_folder, args.context_size, args.context_unit,
                                                    "_{}".format(args.char_n_gram) if args.context_unit == "char" else "")
 
-            full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
+            if args.output is None:
+                full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
+            else:
+                full_transform_folder_path = os.path.join(args.output[0], transform_folder)
+
             os.makedirs(full_transform_folder_path, exist_ok=True)
 
             output_source_path = os.path.join(full_transform_folder_path, '{}_source'.format(input_filename))
@@ -278,8 +286,9 @@ def main(argv):
             open(output_target_path, 'w').close()
             print(full_transform_folder_path)
         else:
-            if len(args.output) < 2:
-                raise ValueError("You must specify both target and source output paths.")
+            if len(args.output) != 2:
+                raise ValueError("You must specify full target and source output file paths (including file name).")
+            full_transform_folder_path = None
             output_source_path = args.output[0]
             output_target_path = args.output[1]
 
@@ -289,7 +298,7 @@ def main(argv):
                         'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
                         'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
 
-    print(transformer_args)
+    print(args)
 
     transformer = Transformer(**transformer_args)
 
@@ -298,6 +307,7 @@ def main(argv):
                             skip_blank_lines=False, comment='#')[cols])
 
     if args.context_unit == 'char':
+        # uses subword-nmt to segment text into chargrams and then passes those to the Transformer
         from types import SimpleNamespace
         import numpy as np
         sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'subword-nmt'))
@@ -309,9 +319,33 @@ def main(argv):
         infile_df.loc[infile_df["word"].notnull(), ["word"]] = np.array([line.rstrip(' \t\n\r')
                                                                          for line in subword_nmt_output])[:, np.newaxis]
     elif args.context_unit == 'bpe':
-        # TODO: BPE processing should happen here
+        if args.bpe_codes_path:
+            bpe_codes_file_path = args.bpe_codes_path
+        elif full_transform_folder_path:
+            bpe_codes_file_path = os.path.join(full_transform_folder_path, "bpe_codes")
+        else:
+            raise ValueError("Specify output folder or bpe output folder to export BPE codes.")
+
+        # BPE processing
         sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'subword-nmt'))
-        from subword_nmt.learn_bpe import learn_bpe
+        from subword_nmt.apply_bpe import BPE
+
+        # only learn BPEs if bpe_codes file is unavailable
+        if not os.path.isfile(bpe_codes_file_path):
+            # as advised in subword-nmt's readme, we learn BPE jointly on the sources and targets
+            # because they share an alphabet (for the most part)
+            from subword_nmt.learn_bpe import learn_bpe
+            bpe_codes = open(bpe_codes_file_path, "w", encoding='utf-8')
+            learn_bpe(infile_df[["word", "lemma"]].dropna().astype(str).to_string(index=False, header=False).splitlines(),
+                      bpe_codes, args.bpe_operations)
+            bpe_codes.close()
+
+        with open(bpe_codes_file_path, encoding='utf-8') as bpe_codes:
+            # apply all merge operations, without vocabulary and glossaries
+            bpe = BPE(bpe_codes, -1, args.subword_separator, [], [])
+            infile_df.loc[infile_df["word"].notnull(), ["word", "lemma"]] = \
+                infile_df.loc[infile_df["word"].notnull(), ["word", "lemma"]].applymap(bpe.process_line)
+
 
     sentence_dfs = []
     sentence_indices = pd.isna(infile_df).all(axis=1)
