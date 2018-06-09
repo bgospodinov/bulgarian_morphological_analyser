@@ -276,6 +276,7 @@ def main(argv):
             # truncate output files or create them anew
             open(output_source_path, 'w').close()
             open(output_target_path, 'w').close()
+            print(full_transform_folder_path)
         else:
             if len(args.output) < 2:
                 raise ValueError("You must specify both target and source output paths.")
@@ -287,6 +288,8 @@ def main(argv):
                         'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
                         'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
                         'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
+
+    print(transformer_args)
 
     transformer = Transformer(**transformer_args)
 

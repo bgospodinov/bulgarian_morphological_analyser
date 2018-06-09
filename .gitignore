@@ -3,6 +3,7 @@ logs/*
 !/data/MorphoData-NewSplit/
 !/data/UD_Bulgarian-BTB/
 !/data/*.py
+/models/*
 baselines/morfette/models/*
 baselines/morfette/data/*
 *.jar

@@ -3,11 +3,11 @@ University of Edinburgh MSc project 2017/2018\
 Bogomil Gospodinov (s1312650@sms.ed.ac.uk)
 
 ## How to install
-1. Install conda dependencies `conda env create -f=msc.yml -n envname`
+1. Install conda dependencies `conda env create -f=msc.yml -n [envname]`
 1. Run `git submodule update --init` to initialise submodule dependencies
 
 ## Preprocessing Universal Dependencies datasets for lemmatization
-In order to be lemmatized by Nematus, each dataset partition has to first be transformed into a "source" and "target" language files, corresponding to the source and target language in a machine translation task.
+In order to be lemmatized by Nematus, each dataset partition has to first be transformed into parallel "source" and "target" language files, corresponding to the source and target language in a machine translation task.
  1. We start by transforming the training, dev and test sets into target and source files using the following script\
 	`python -m data.transform_ud --input [path-to-partition-file]`\
 	By default transform_ud.py outputs two files per partition (training, set or dev) inside the **input/** folder (relative to the script path). The files can be found in a directory with a name containing the name of the dataset and a subset of the script's arguments e.g. **input/MorphoData-NewSplit_20_char_1**. The name of the files will contain the name of the original input file with "_source" or "_target" appended to it. You can specify custom paths using --output [source_path] [target_path]. To overwrite existing files in an existing directory pass --overwrite.\
@@ -17,3 +17,5 @@ Type `python -m data.transform_ud -h` to list all options.
  `./nematus/data/build_dictionary.py [path_to_training_source] [path_to_training_target]`\
  Two .json dictionary files will be generated for the target and source vocabularies found in the training set. These will be placed in the same directory as the training files.
  
+## Training
+Look at `scripts/sample_train.sh` for an example training session.
