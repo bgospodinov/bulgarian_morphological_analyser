@@ -1,6 +1,6 @@
 #!/bin/bash
+source slurm_init.sh
 cd ..
-source activate msc
 
 # path to original dataset (relative to root dir of project)
 original_dataset=data/datasets/MorphoData-NewSplit
@@ -38,6 +38,6 @@ python ${nematus}/nematus/nmt.py \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
---dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
+--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json > ${model_dir}/`date '+%d/%m/%Y%H:%M:%S'`.out
 
 cd scripts/
