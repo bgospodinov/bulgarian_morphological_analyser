@@ -38,6 +38,6 @@ python ${nematus}/nematus/nmt.py \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
---dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json > ${model_dir}/`date '+%d/%m/%Y%H:%M:%S'`.out
+--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json > ${model_dir}/`date '+%Y-%m-%d-%H:%M:%S'`.out
 
 cd scripts/
