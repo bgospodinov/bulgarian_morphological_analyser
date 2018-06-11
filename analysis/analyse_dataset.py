@@ -14,7 +14,7 @@ if __name__ == "__main__":
     pd.set_option('display.max_columns', None)
 
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-    from data.preprocess_ud import preprocess_dataset, postprocess_dataset
+    from data.preprocess_ud import preprocess_dataset_for_train, preprocess_dataset_for_eval
     from config import config
     import argparse
     
@@ -47,11 +47,11 @@ if __name__ == "__main__":
                     names=cols,
                     usecols=args.cols)
         
-        partition_dfs["pre_all_tokens"][partition] = preprocess_dataset(partition_df)
+        partition_dfs["pre_all_tokens"][partition] = preprocess_dataset_for_train(partition_df)
 
         if args.postprocess:
             print("Postprocessing on.")
-            partition_dfs["all_tokens"][partition] = postprocess_dataset(partition_dfs["pre_all_tokens"][partition])
+            partition_dfs["all_tokens"][partition] = preprocess_dataset_for_eval(partition_dfs["pre_all_tokens"][partition])
         else:
             print("Postprocessing off.")
             partition_dfs["all_tokens"][partition] = partition_dfs["pre_all_tokens"][partition]

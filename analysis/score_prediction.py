@@ -11,7 +11,7 @@ if __name__ == "__main__":
     from config import config
     import argparse
     import pandas as pd
-    from data.preprocess_ud import preprocess_dataset, postprocess_dataset
+    from data.preprocess_ud import preprocess_dataset_for_train, preprocess_dataset_for_eval
 
     cols = list(config["DATASET"]["COLUMNS"].values())
 
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     dfs = {}
 
     for partition in ["training", "ground"]:
-        dfs[partition] = preprocess_dataset(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))
+        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))
 
     dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols, usecols=args.prediction_cols)
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     prediction_match = dfs["prediction"].join(dfs["ground"], lsuffix='_prediction', rsuffix='_truth')
     if args.postprocess:
         print("Postprocessing on.")
-        prediction_match = postprocess_dataset(prediction_match, prediction=True)
+        prediction_match = preprocess_dataset_for_eval(prediction_match, prediction=True)
     else:
         print("Postprocessing off.")
     prediction_match['lemma_match'] = prediction_match.apply(lambda row: row.lemma_prediction == row.lemma_truth,

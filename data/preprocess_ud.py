@@ -8,7 +8,7 @@ __status__ = "dev"
 import pandas as pd
 import re
 
-def preprocess_dataset(df):
+def preprocess_dataset_for_train(df):
     """
     Exludes punctuation (except parenthesis and hyphens), lowercases every entity,
     and preserves sentence boundaries (newlines) is important for Lemming parsing context properly.
@@ -25,7 +25,7 @@ def preprocess_dataset(df):
     return df[(~(df["tag"] == "punct") & (df["lemma"] != "punct")) | pd.isna(df["word"])]
 
 
-def postprocess_dataset(df, prediction=False):
+def preprocess_dataset_for_eval(df, prediction=False):
     """
     Excludes numerals and all non-cyrillic characters, as well as all proper nouns and other names.
     Removes all entities that we don't want to include in the final evaluation score.
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     cols = list(config["DATASET"]["COLUMNS"].values())
     dataset_path = sys.argv[1]
     df = pd.read_csv(dataset_path, sep='\s+', names=cols, skip_blank_lines=False, comment='#')
-    df = preprocess_dataset(df)
+    df = preprocess_dataset_for_train(df)
     buffer = StringIO()
     df.to_string(buffer, index=False, header=False, na_rep=' ')
     buffer.seek(0)

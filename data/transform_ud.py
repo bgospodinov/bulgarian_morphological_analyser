@@ -13,7 +13,7 @@ from itertools import accumulate
 from bisect import bisect
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from config import config
-from data.preprocess_ud import preprocess_dataset, postprocess_dataset
+from data.preprocess_ud import preprocess_dataset_for_train, preprocess_dataset_for_eval
 defaults = config["TRANSFORM"]["DEFAULTS"]
 cols = list(config["DATASET"]["COLUMNS"].values())
 
@@ -277,6 +277,8 @@ def main(argv):
             output_source_path = os.path.join(full_transform_folder_path, '{}_source'.format(input_filename))
             output_target_path = os.path.join(full_transform_folder_path, '{}_target'.format(input_filename))
 
+            print(full_transform_folder_path)
+
             if not args.overwrite and (os.path.isfile(output_source_path) or os.path.isfile(output_target_path)):
                 raise ValueError("Output files for {} already exist in {}. Pass --overwrite or delete them."
                                  .format(input_filename, full_transform_folder_path))
@@ -284,7 +286,6 @@ def main(argv):
             # truncate output files or create them anew
             open(output_source_path, 'w').close()
             open(output_target_path, 'w').close()
-            print(full_transform_folder_path)
         else:
             if len(args.output) != 2:
                 raise ValueError("You must specify full target and source output file paths (including file name).")
@@ -302,9 +303,9 @@ def main(argv):
 
     transformer = Transformer(**transformer_args)
 
-    infile_df = preprocess_dataset(pd.read_csv(args.input, sep='\s+', names=cols,
-                            usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],
-                            skip_blank_lines=False, comment='#')[cols])
+    infile_df = preprocess_dataset_for_train(pd.read_csv(args.input, sep='\s+', names=cols,
+                                                         usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],
+                                                         skip_blank_lines=False, comment='#')[cols])
 
     if args.context_unit == 'char':
         # uses subword-nmt to segment text into chargrams and then passes those to the Transformer
