@@ -7,7 +7,7 @@
 # path to original dataset (relative to root dir of project)
 original_dataset=data/datasets/MorphoData-NewSplit
 
-# slurm job id for logging purposes
+# if slurm job id is unavailable use datetime for logging purposes
 datetime_name=`date '+%Y-%m-%d_%H:%M:%S'`
 
 set -x
@@ -27,6 +27,7 @@ context_size=${context_size:=20}
 char_n_gram=${char_n_gram:=1}
 
 # training params
+patience=${patience:=1}
 enc_depth=${enc_depth:=2}
 dec_depth=${dec_depth:=2}
 embedding_size=${embedding_size:=300}
@@ -53,8 +54,8 @@ done
 
 set -x
 transform_folder_name=$( basename $transform_folder_path )
-model_name=${transform_folder_name}_m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}
-model_dir=models/$model_name
+model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}
+model_dir=models/${transform_folder_name}/$model_name
 set +x
 
 echo Copying data
@@ -75,8 +76,8 @@ python ${nematus}/nematus/nmt.py \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
---patience 2 \
---validFreq 5000 \
+--patience ${patience} \
+--validFreq 1000 \
 --saveFreq 0 \
 --maxlen 50 \
 --dispFreq 500 \
@@ -86,6 +87,6 @@ python ${nematus}/nematus/nmt.py \
 --embedding_size ${embedding_size} \
 --state_size ${state_size} \
 --dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json \
-&> ${model_dir}/${SLURM_JOB_ID}.out
+&> ${model_dir}/train-${SLURM_JOB_ID}.out
 
 cd $currentdir

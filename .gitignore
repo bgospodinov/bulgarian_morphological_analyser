@@ -1,4 +1,5 @@
-logs/*
+logs/
+*.out
 /data/*
 !/data/MorphoData-NewSplit/
 !/data/UD_Bulgarian-BTB/
