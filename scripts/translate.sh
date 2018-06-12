@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
+#SBATCH --gres-flags=enforce-binding
 #SBATCH --gres=gpu:1
 #SBATCH --mem=8000  # memory in Mb
 

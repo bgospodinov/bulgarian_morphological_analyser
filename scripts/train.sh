@@ -2,6 +2,7 @@
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --gres=gpu:1
+#SBATCH --gres-flags=enforce-binding
 #SBATCH --mem=8000  # memory in Mb
 
 # path to original dataset (relative to root dir of project)
