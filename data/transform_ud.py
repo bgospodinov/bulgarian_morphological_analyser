@@ -13,7 +13,7 @@ from itertools import accumulate
 from bisect import bisect
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from config import config
-from data.preprocess_ud import preprocess_dataset_for_train, preprocess_dataset_for_eval
+from data.preprocess_ud import preprocess_dataset_for_train
 defaults = config["TRANSFORM"]["DEFAULTS"]
 cols = list(config["DATASET"]["COLUMNS"].values())
 

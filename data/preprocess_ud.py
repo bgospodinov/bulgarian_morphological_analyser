@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-""" preprocess_ud.py: pre- and post-processing of UD datasets """
+""" preprocess_ud.py: pre-processing of UD datasets for training and evaluation """
 __author__ = "Bogomil Gospodinov"
 __email__ = "s1312650@sms.ed.ac.uk"
 __status__ = "dev"

@@ -15,26 +15,31 @@ if __name__ == "__main__":
 
     cols = list(config["DATASET"]["COLUMNS"].values())
 
-    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt ../data/datasets/MorphoData-NewSplit/dev-pre.txt
-    #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
+    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground ../data/datasets/MorphoData-NewSplit/dev.txt
+    #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--training", help="training file name", type=str,
-                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "training-pre.txt"))
+                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "training.txt"))
     parser.add_argument("prediction", help="file name of predictions", type=str)
-    parser.add_argument("ground", help="ground truth file name", type=str)
-    parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
-    parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
+    parser.add_argument("--ground", help="ground truth file name", type=str,
+                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "dev.txt"))
+    parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)",
+                        nargs='+', type=int, default=[0, 1, 2])
+    parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)",
+                        nargs='+', type=int, default=[0, 1, 2])
     parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
     args = parser.parse_args()
 
     dfs = {}
 
     for partition in ["training", "ground"]:
-        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))
+        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))\
+            .reset_index()
 
     dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols, usecols=args.prediction_cols)
 
+    print("{} ? {}".format(dfs["prediction"].shape[0], dfs["ground"].shape[0]), file=sys.stderr)
     assert dfs["prediction"].shape[0] == dfs["ground"].shape[0], "More rows predicted than necessary"
 
     def print_results(match):
