@@ -17,6 +17,15 @@ if __name__ == "__main__":
 
     #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground ../data/datasets/MorphoData-NewSplit/dev.txt
     #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
+    #mismatch test
+    #k = 1
+    #for i, lemma in enumerate(pred_df["lemma"].tolist()):
+    #    similarity = similar(lemma, ground_df.iloc[i]["lemma"])
+    #    print(i, lemma, ground_df.iloc[i]["lemma"], similarity)
+    #    if similarity == 0:
+    #        if k == 0:
+    #            break
+    #        k -= 1
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--training", help="training file name", type=str,

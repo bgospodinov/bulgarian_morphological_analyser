@@ -22,6 +22,7 @@ def postprocess_nematus(stream, tag_boundary):
     buffer = StringIO()
     for line in stream:
         if tag_boundary not in line:
+            buffer.write(line.rstrip() + '\t' + '\n')
             continue
         lemma_like, _, tag_like = re.sub(r"</?[^>]>|\s*", "", line).rpartition(tag_boundary)
         buffer.write(lemma_like + '\t' + tag_like + '\n')

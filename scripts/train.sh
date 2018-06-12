@@ -28,7 +28,7 @@ context_size=${context_size:=20}
 char_n_gram=${char_n_gram:=1}
 
 # training params
-patience=${patience:=1}
+patience=${patience:=2}
 enc_depth=${enc_depth:=2}
 dec_depth=${dec_depth:=2}
 embedding_size=${embedding_size:=300}
@@ -89,5 +89,19 @@ python ${nematus}/nematus/nmt.py \
 --state_size ${state_size} \
 --dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json \
 &> ${model_dir}/train-${SLURM_JOB_ID}.out
+
+echo Translating dev set
+python ${nematus}/nematus/translate.py \
+-m ${model_dir}/model.npz \
+-i ${model_dir}/data/dev_source \
+-o ${model_dir}/data/dev_hypothesis \
+-k 12 -n -p 1 \
+&> ${model_dir}/translate-${SLURM_JOB_ID}.out
+
+echo Postprocessing dev predictions
+python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction
+
+echo Calculating score
+python -m data.score_prediction ${model_dir}/data/dev_prediction > ${model_dir}/data/dev_score
 
 cd $currentdir
