@@ -17,6 +17,9 @@ if __name__ == "__main__":
 
     #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground ../data/datasets/MorphoData-NewSplit/dev.txt
     #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
+
+    # for fh in ../models/MorphoData-*/*/data/dev_prediction ; do python -m score_prediction ${fh} > ${fh%/*}/dev_score ; done
+
     #mismatch test
     #k = 1
     #for i, lemma in enumerate(pred_df["lemma"].tolist()):
@@ -52,9 +55,9 @@ if __name__ == "__main__":
     assert dfs["prediction"].shape[0] == dfs["ground"].shape[0], "More rows predicted than necessary"
 
     def print_results(match):
-        print(match["lemma_match"].value_counts(normalize=True))
-        print(match["tag_match"].value_counts(normalize=True))
-        print(match["joint_match"].value_counts(normalize=True))
+        print(match["lemma_match"].value_counts(normalize=True).sort_index(ascending=False))
+        print(match["tag_match"].value_counts(normalize=True).sort_index(ascending=False))
+        print(match["joint_match"].value_counts(normalize=True).sort_index(ascending=False))
         # prediction_match[prediction_match["joint_match"] == False]
         print("\n")
 

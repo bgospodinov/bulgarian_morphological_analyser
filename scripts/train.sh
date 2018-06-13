@@ -102,6 +102,6 @@ echo Postprocessing dev predictions
 python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction
 
 echo Calculating score
-python -m data.score_prediction ${model_dir}/data/dev_prediction > ${model_dir}/data/dev_score
+python -m analysis.score_prediction ${model_dir}/data/dev_prediction > ${model_dir}/data/dev_score
 
 cd $currentdir
