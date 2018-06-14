@@ -32,10 +32,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--training", help="training file name", type=str,
-                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "training.txt"))
+                        default=os.path.join("data", "datasets", config["DATASET"]["FOLDER"], "training.txt"))
     parser.add_argument("prediction", help="file name of predictions", type=str)
     parser.add_argument("--ground", help="ground truth file name", type=str,
-                        default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"], "dev.txt"))
+                        default=os.path.join("data", "datasets", config["DATASET"]["FOLDER"], "dev.txt"))
     parser.add_argument("--dataset_cols", help="list of column indices to read from dataset partitions (order doesnt matter)",
                         nargs='+', type=int, default=[0, 1, 2])
     parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)",
