@@ -50,7 +50,7 @@ for partition in training dev test ; do
 	--char_n_gram $char_n_gram \
 	2> /dev/null | sed -n 1p )
 	
-	[ -z "$transform_folder_path" ] && echo "No transform folder generated. Exiting." && exit
+	[ -z "$transform_folder_path" ] && echo "No transform folder found or generated. Exiting." && exit
 done
 
 set -x
@@ -72,13 +72,13 @@ python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${m
 
 echo Training
 python ${nematus}/nematus/nmt.py \
---model ${model_dir}/model.npz \
+--model ${model_dir}/model.npz.${SLURM_JOB_ID} \
 --source_dataset ${model_dir}/data/training_source \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
 --patience ${patience} \
---validFreq 1000 \
+--validFreq 5000 \
 --saveFreq 0 \
 --maxlen 50 \
 --dispFreq 500 \
@@ -92,16 +92,17 @@ python ${nematus}/nematus/nmt.py \
 
 echo Translating dev set
 python ${nematus}/nematus/translate.py \
--m ${model_dir}/model.npz \
+-m ${model_dir}/model.npz.${SLURM_JOB_ID} \
 -i ${model_dir}/data/dev_source \
--o ${model_dir}/data/dev_hypothesis \
+-o ${model_dir}/data/dev_hypothesis_run${SLURM_JOB_ID} \
 -k 12 -n -p 1 \
 &> ${model_dir}/translate-${SLURM_JOB_ID}.out
 
 echo Postprocessing dev predictions
-python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction
+python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis_run${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction_run${SLURM_JOB_ID}
 
 echo Calculating score
-python -m analysis.score_prediction ${model_dir}/data/dev_prediction > ${model_dir}/data/dev_score
+python -m analysis.score_prediction ${model_dir}/data/dev_prediction_run${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
 
+python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
 cd $currentdir

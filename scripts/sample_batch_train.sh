@@ -3,7 +3,11 @@
 
 mkdir -p logs
 
-for cs in 10 15 20 25 ; do
-	echo Launching\ context_size=$cs
-	context_size=$cs sbatch --output="logs/train-%j.out" train.sh
+for run in {1..3} ; do
+	echo Run $run
+	for attr in 10 15 20 25 ; do
+		echo Launching\ attribute=$attr
+		context_size=$attr sbatch --output="logs/train-%j.out" train.sh
+	done
+	sleep 120
 done

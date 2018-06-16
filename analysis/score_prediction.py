@@ -59,48 +59,48 @@ if __name__ == "__main__":
         for metric in ["lemma", "tag", "joint"]:
             res_bins = match["{}_match".format(metric)].value_counts(normalize=True).sort_index(ascending=False)
             res.append(str(round(res_bins[True], 5)))
-            print(res_bins)
+            print(res_bins, file=sys.stderr)
         # prediction_match[prediction_match["joint_match"] == False]
         return res
 
     excel_results = []
-    print(" Prediction results for {} ".format(args.prediction).upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]))
-    print("\n")
-    print("All tokens")
+    print(" Prediction results for {} ".format(args.prediction).upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]), file=sys.stderr)
+    print("\n", file=sys.stderr)
+    print("All tokens", file=sys.stderr)
     prediction_match = dfs["prediction"].join(dfs["ground"], lsuffix='_prediction', rsuffix='_truth')
     if args.postprocess:
-        print("Postprocessing on.")
+        print("Postprocessing on.", file=sys.stderr)
         prediction_match = preprocess_dataset_for_eval(prediction_match, prediction=True)
     else:
-        print("Postprocessing off.")
+        print("Postprocessing off.", file=sys.stderr)
     prediction_match['lemma_match'] = prediction_match.apply(lambda row: row.lemma_prediction == row.lemma_truth,
                                        axis=1)
     prediction_match['tag_match'] = prediction_match.apply(lambda row: row.tag_prediction == row.tag_truth, axis=1)
     prediction_match['joint_match'] = prediction_match.apply(
         lambda row: row.tag_prediction == row.tag_truth and row.lemma_prediction == row.lemma_truth, axis=1)
     excel_results.extend(print_and_list_results(prediction_match))
-    print("\n")
+    print("\n", file=sys.stderr)
 
-    print("Unseen tokens")
+    print("Unseen tokens", file=sys.stderr)
     training_words = dfs["training"]["word"].unique()
     prediction_match['seen'] = prediction_match.apply(lambda row: row.word_prediction in training_words, axis=1)
     excel_results.extend(print_and_list_results(prediction_match[prediction_match['seen'] == False]))
-    print("\n")
+    print("\n", file=sys.stderr)
 
-    print("Ambiguous tokens")
+    print("Ambiguous tokens", file=sys.stderr)
     ambiguous_index_ground = dfs["ground"].groupby("word").nunique()["lemma"] > 1
     ambiguous_index_training = dfs["training"].groupby("word").nunique()["lemma"] > 1
     joint_ambiguous_index = ambiguous_index_ground[ambiguous_index_ground == True].index.union(ambiguous_index_training[ambiguous_index_training == True].index)
     ambiguous_words = joint_ambiguous_index.tolist()
     prediction_match['ambiguous'] = prediction_match.apply(lambda row: row.word_prediction in ambiguous_words, axis=1)
     excel_results.extend(print_and_list_results(prediction_match[prediction_match['ambiguous'] == True]))
-    print("\n")
+    print("\n", file=sys.stderr)
 
     print(", ".join(excel_results))
 
-    print("Error analysis".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]))
-    print("Tagging errors")
-    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False))
-    print("\n")
-    print("\n")
+    print("Error analysis".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]), file=sys.stderr)
+    print("Tagging errors", file=sys.stderr)
+    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    print("\n", file=sys.stderr)
+    print("\n", file=sys.stderr)
 
