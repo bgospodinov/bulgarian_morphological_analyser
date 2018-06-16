@@ -1,3 +1,3 @@
 #!/bin/bash
 # Author: Bogomil Gospodinov
-rm -rfv ../models/Morpho-* ../data/input/ logs/
+rm -rfv ../models/ ../data/input/ logs/
