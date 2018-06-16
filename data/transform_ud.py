@@ -197,6 +197,7 @@ def main(argv):
         description="adapts an UD dataset to context-sensitive lemmatization")
 
     parser.add_argument("--input", help="file to be transformed", type=str)
+    parser.add_argument("--transform_appendix", help="appendix to transform folder name", type=str, default=None)
     parser.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int,
                         default=0)
     parser.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int,
@@ -264,8 +265,9 @@ def main(argv):
 
     if not args.test_case:
         if args.output is None or (type(args.output) is list and len(args.output) == 1):
-            transform_folder = "{}_{}_{}{}".format(input_folder, args.context_size, args.context_unit,
-                                                   "_{}".format(args.char_n_gram) if args.context_unit == "char" else "")
+            transform_folder = "{}_{}_{}{}{}".format(input_folder, args.context_size, args.context_unit,
+                                                    "_{}".format(args.char_n_gram) if args.context_unit == "char" else "",
+                                                    ".{}".format(args.transform_appendix) if args.transform_appendix else "")
 
             if args.output is None:
                 full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)

@@ -9,7 +9,4 @@ for run in {1..3} ; do
 		echo Launching\ attribute=$attr
 		context_size=$attr sbatch --output="logs/train-%j.out" train.sh
 	done
-	if [ "$run" -eq 1 ]; then
-		sleep 1000
-	fi
 done

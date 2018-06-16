@@ -48,6 +48,7 @@ for partition in training dev test ; do
 	--context_unit $context_unit \
 	--context_size $context_size \
 	--char_n_gram $char_n_gram \
+	--transform_appendix $SLURM_JOB_ID \
 	2> /dev/null | sed -n 1p )
 	
 	[ -z "$transform_folder_path" ] && echo "No transform folder found or generated. Exiting." && exit
@@ -56,7 +57,7 @@ done
 set -x
 transform_folder_name=$( basename $transform_folder_path )
 model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}
-model_dir=models/${transform_folder_name}/$model_name
+model_dir=models/${transform_folder_name%.*}/$model_name
 set +x
 
 echo Copying data
