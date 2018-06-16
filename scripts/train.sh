@@ -65,11 +65,15 @@ mkdir -p models/
 mkdir -p $model_dir
 mkdir -p $model_dir/data
 
-cp $transform_folder_path/* $model_dir/data/
+cp -n $transform_folder_path/* $model_dir/data/
 
-# build dictionary
-echo Building dictionaries
-python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
+# build dictionaries only if it doesnt exist
+if [[ ! -f $model_dir/data/training_source && ! -f $model_dir/data/training_target ]]; then
+	echo Building dictionaries
+	python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
+else
+	echo Dictionaries found and reused
+fi
 
 echo Training
 python ${nematus}/nematus/nmt.py \
