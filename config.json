@@ -21,6 +21,7 @@
             "CHAR_N_GRAM": 1,
             "CONTEXT_SIZE": 20,
             "CONTEXT_SPAN": 0,
+            "CONTEXT_TAGS": "none",
             "LEFT_CONTEXT_BOUNDARY": "<lc>",
             "RIGHT_CONTEXT_BOUNDARY": "<rc>",
             "WORD_BOUNDARY": "<s>",

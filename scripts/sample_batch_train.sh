@@ -3,10 +3,19 @@
 
 mkdir -p logs
 
-for run in {1..3} ; do
+runs=3
+
+declare -a attrs=(100 500 750 1000 1200)
+
+# 1 if the corresponding job should go to the LongJobs partition, 0 otherwise
+declare -a lj_pred=(0 0 0 1 1)
+
+for run in {1..${runs}} ; do
 	echo Run $run
-	for attr in 10 15 20 25 ; do
+	iter=0
+	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
-		context_size=$attr sbatch --output="logs/train-%j.out" train.sh
+		context_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition="LongJobs"' ) train.sh
+		((iter++))
 	done
 done

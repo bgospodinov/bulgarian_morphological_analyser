@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=8000  # memory in Mb
 
-[ -z "$model_dir" ] && echo "Export model_dir." && exit
+[ -z "$model_run_dir" ] && echo "Export full model_run_dir." && exit
 
 # if slurm job id is unavailable use datetime for logging purposes
 datetime_name=`date '+%Y-%m-%d_%H:%M:%S'`
@@ -20,7 +20,8 @@ base_dir=${base_dir:=..}
 # path to nematus (relative to root dir project)
 nematus=${nematus:=nematus}
 
-model_dir=${model_dir}
+model_run_dir=${model_run_dir}
+model_dir=${model_run_dir%/*}
 input_path=${input_path:=${model_dir}/data/dev_source}
 output_path=${output_path:=${model_dir}/data/dev_hypothesis}
 
@@ -32,7 +33,7 @@ cd $base_dir
 echo Translating
 
 python ${nematus}/nematus/translate.py \
--m ${model_dir}/model.npz \
+-m ${model_run_dir}/model.npz \
 -i ${input_path} \
 -o ${output_path} \
 -k 12 -n -p 1 \

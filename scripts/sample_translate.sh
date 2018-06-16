@@ -3,4 +3,4 @@
 
 mkdir -p logs
 
-model_dir="models/test-model" sbatch --output="logs/translate-%j.out" translate.sh
+model_dir="models/test_model/sample_run" sbatch --output="logs/translate-%j.out" translate.sh

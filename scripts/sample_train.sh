@@ -17,7 +17,7 @@ transform_folder_name=$( basename $transform_folder_path )
 nematus=nematus
 
 # folder name for the model
-model_name=test-model
+model_name=test_model
 model_dir=models/$model_name
 
 mkdir -p models/
@@ -34,7 +34,7 @@ python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${m
 echo Training
 
 python ${nematus}/nematus/nmt.py \
---model ${model_dir}/model.npz \
+--model ${model_dir}/sample_run/model.npz \
 --source_dataset ${model_dir}/data/training_source \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \

@@ -77,13 +77,13 @@ fi
 
 echo Training
 python ${nematus}/nematus/nmt.py \
---model ${model_dir}/model.npz.${SLURM_JOB_ID} \
+--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
 --source_dataset ${model_dir}/data/training_source \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
 --patience ${patience} \
---validFreq 5000 \
+--validFreq 3000 \
 --saveFreq 0 \
 --maxlen 50 \
 --dispFreq 500 \
@@ -97,17 +97,17 @@ python ${nematus}/nematus/nmt.py \
 
 echo Translating dev set
 python ${nematus}/nematus/translate.py \
--m ${model_dir}/model.npz.${SLURM_JOB_ID} \
+-m ${model_dir}/${SLURM_JOB_ID}/model.npz \
 -i ${model_dir}/data/dev_source \
--o ${model_dir}/data/dev_hypothesis_run${SLURM_JOB_ID} \
--k 12 -n -p 1 \
+-o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
+-k 12 -n -p 1 -v \
 &> ${model_dir}/translate-${SLURM_JOB_ID}.out
 
 echo Postprocessing dev predictions
-python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis_run${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction_run${SLURM_JOB_ID}
+python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
-python -m analysis.score_prediction ${model_dir}/data/dev_prediction_run${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
+python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
 
 python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
 cd $currentdir

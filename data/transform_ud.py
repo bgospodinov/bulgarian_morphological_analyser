@@ -23,6 +23,7 @@ class Transformer(object):
                  tag_unit=defaults["TAG_UNIT"],
                  context_size=defaults["CONTEXT_SIZE"],
                  context_char_size=None,
+                 context_tags=defaults["CONTEXT_TAGS"],
                  left_context_boundary=defaults["LEFT_CONTEXT_BOUNDARY"],
                  right_context_boundary=defaults["RIGHT_CONTEXT_BOUNDARY"],
                  word_boundary=defaults["WORD_BOUNDARY"],
@@ -34,6 +35,7 @@ class Transformer(object):
         self.example_boundary = example_boundary
         self.subword_separator = subword_separator
         self.word_boundary = word_boundary
+        self.context_tags = context_tags
         self.left_context_boundary = left_context_boundary
         self.right_context_boundary = right_context_boundary
         self.context_size = context_size
@@ -197,7 +199,7 @@ def main(argv):
         description="adapts an UD dataset to context-sensitive lemmatization")
 
     parser.add_argument("--input", help="file to be transformed", type=str)
-    parser.add_argument("--transform_appendix", help="appendix to transform folder name", type=str, default=None)
+    parser.add_argument("--transform_appendix", help="appendix to transform folder name (e.g. SLURM_JOB_ID or datetime)", type=str, default=None)
     parser.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int,
                         default=0)
     parser.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int,
@@ -224,14 +226,14 @@ def main(argv):
                         help="maximum span of a word in number of sentences on left and right of the sentence of the word, default: %(default)s))",
                         type=int,
                         default=defaults["CONTEXT_SPAN"])
+    parser.add_argument("--context_tags", help="whether and where to include tag in the context", choices=['none', 'left'],
+                        type=str, default=defaults["CONTEXT_TAGS"])
     parser.add_argument("--left_context_boundary", help="left context boundary special symbol (default: %(default)s)",
-                        type=str,
-                        default=defaults["LEFT_CONTEXT_BOUNDARY"])
+                        type=str, default=defaults["LEFT_CONTEXT_BOUNDARY"])
     parser.add_argument("--example_boundary", help="example boundary special symbol (default: %(default)s)", type=str,
                         default=defaults["EXAMPLE_BOUNDARY"])
     parser.add_argument("--right_context_boundary", help="right context boundary special symbol (default: %(default)s)",
-                        type=str,
-                        default=defaults["RIGHT_CONTEXT_BOUNDARY"])
+                        type=str, default=defaults["RIGHT_CONTEXT_BOUNDARY"])
     parser.add_argument("--word_boundary", help="word boundary special symbol (default: %(default)s)", type=str,
                         default=defaults["WORD_BOUNDARY"])
     parser.add_argument("--tag_boundary", help="tag boundary special symbol (default: %(default)s)", type=str,
@@ -297,6 +299,7 @@ def main(argv):
 
     transformer_args = {'word_unit': args.word_unit, 'tag_unit': args.tag_unit, 'context_size': args.context_size,
                         'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
+                        'context_tags': args.context_tags,
                         'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
                         'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
                         'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
