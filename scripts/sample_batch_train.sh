@@ -16,7 +16,7 @@ do
 	iter=0
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
-		context_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) train.sh
+		state_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) train.sh
 		((iter++))
 	done
 done

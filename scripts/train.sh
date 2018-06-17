@@ -67,8 +67,8 @@ mkdir -p $model_dir/data
 
 cp -n $transform_folder_path/* $model_dir/data/
 
-# build dictionaries only if it doesnt exist
-if [[ ! -f $model_dir/data/training_source && ! -f $model_dir/data/training_target ]]; then
+# build dictionaries only if they dont exist
+if [[ ! -f $model_dir/data/training_source.json && ! -f $model_dir/data/training_target.json ]]; then
 	echo Building dictionaries
 	python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
 else
