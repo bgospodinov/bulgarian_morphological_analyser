@@ -1,6 +1,5 @@
 #!/bin/bash
-source slurm_init.sh
-cd ..
+source scripts/slurm_init.sh
 
 # path to original dataset (relative to root dir of project)
 original_dataset=data/datasets/MorphoData-NewSplit
@@ -43,5 +42,3 @@ python ${nematus}/nematus/nmt.py \
 --validFreq 5000 \
 --saveFreq 0 \
 --dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json &> ${model_dir}/`date '+%Y-%m-%d-%H:%M:%S'`.out
-
-cd scripts/

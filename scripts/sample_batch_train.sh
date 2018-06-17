@@ -1,5 +1,6 @@
 #!/bin/bash
-. slurm_init.sh
+# Author: Bogomil Gospodinov
+. scripts/slurm_init.sh
 
 mkdir -p logs
 
@@ -16,7 +17,7 @@ do
 	iter=0
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
-		state_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) train.sh
+		state_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
 		((iter++))
 	done
 done

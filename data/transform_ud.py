@@ -81,8 +81,29 @@ class Transformer(object):
                 source_line.append(self.example_boundary)
 
             # computes left-hand side context
-            source_line.extend(self.compute_context(sentence_with_context_df.loc[:index - 1]))
+            lhs_df = sentence_with_context_df.loc[:index - 1]
+            left_context = self.compute_context(lhs_df)
 
+            # adds tags to lhs if necessary
+            if self.context_tags == "left" and left_context:
+                start = 0
+                tag_idx = lhs_df.shape[0] - 1
+                while start < len(left_context) and tag_idx >= 0:
+                    tag_el = sentence_with_context_df.iat[tag_idx, 2]
+                    if self.tag_unit == "word":
+                        tag_el = [tag_el]
+                    elif self.tag_unit == "char":
+                        tag_el = list(tag_el)
+                    left_context[len(left_context) - start:len(left_context) - start] = [self.tag_boundary] + tag_el
+                    start += len(tag_el) + 1
+                    tag_idx -= 1
+
+                    try:
+                        start = left_context[-1::-1].index(self.word_boundary, start) + 1
+                    except ValueError:
+                        break
+
+            source_line.extend(left_context)
             source_line.append(self.left_context_boundary)
 
             # represent the word on word- or character-level

@@ -5,6 +5,7 @@
 #SBATCH --gres-flags=enforce-binding
 #SBATCH --mem=8000  # memory in Mb
 
+# Author: Bogomil Gospodinov
 # path to original dataset (relative to root dir of project)
 original_dataset=data/datasets/MorphoData-NewSplit
 
@@ -14,9 +15,6 @@ datetime_name=`date '+%Y-%m-%d_%H:%M:%S'`
 set -x
 
 SLURM_JOB_ID=${SLURM_JOB_ID:=$datetime_name}
-
-# path to project root
-base_dir=${base_dir:=..}
 
 # path to nematus (relative to root dir project)
 nematus=${nematus:=nematus}
@@ -35,8 +33,6 @@ embedding_size=${embedding_size:=300}
 state_size=${state_size:=100}
 
 set +x
-currentdir=`pwd`
-cd $base_dir
 
 echo Transforming
 for partition in training dev test ; do
@@ -111,4 +107,3 @@ echo Calculating score
 python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
 
 python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
-cd $currentdir
