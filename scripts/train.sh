@@ -63,6 +63,7 @@ set +x
 echo Copying data
 mkdir -p models/
 mkdir -p $model_dir
+mkdir -p $model_dir/${SLURM_JOB_ID}
 mkdir -p $model_dir/data
 
 cp -n $transform_folder_path/* $model_dir/data/
