@@ -83,8 +83,11 @@ python ${nematus}/nematus/nmt.py \
 --validFreq 3000 \
 --saveFreq 0 \
 --maxlen 50 \
---dispFreq 500 \
---batch_size=60 \
+--dispFreq 100 \
+--sampleFreq 100 \
+--batch_size 60 \
+--use_dropout \
+--optimizer "adadelta" \
 --enc_depth $enc_depth \
 --dec_depth $dec_depth \
 --embedding_size ${embedding_size} \

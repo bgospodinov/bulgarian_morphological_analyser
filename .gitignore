@@ -5,6 +5,7 @@ logs/
 !/data/UD_Bulgarian-BTB/
 !/data/*.py
 /models/*
+baselines/lematus/*
 baselines/morfette/models/*
 baselines/morfette/data/*
 *.jar

@@ -18,4 +18,4 @@ Type `python -m data.transform_ud -h` to list all options.
  Two .json dictionary files will be generated for the target and source vocabularies found in the training set. These will be placed in the same directory as the training files.
  
 ## Training
-Look at `scripts/sample_train.sh` or `scripts/sample_batch_train.sh` for example training sessions. Execute `scripts/sample_translate.sh` after sample_train.sh for sample translation. All scripts must be executed from within the scripts/ folder.
+Look at `scripts/sample_train.sh` or `scripts/sample_batch_train.sh` for example training sessions. Execute `scripts/sample_translate.sh` after sample_train.sh for sample translation. All scripts must be executed from the root dir of the project.
