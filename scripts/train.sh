@@ -38,6 +38,8 @@ echo Transforming
 for partition in training dev test ; do
 	input_file=${original_dataset}/${partition}.txt
 	echo Transforming ${input_file}
+	set -x
+	
 	transform_folder_path=$( python -m data.transform_ud \
 	--input $input_file \
 	--tag_unit $tag_unit \
@@ -45,7 +47,9 @@ for partition in training dev test ; do
 	--context_size $context_size \
 	--char_n_gram $char_n_gram \
 	--transform_appendix $SLURM_JOB_ID \
-	2> /dev/null | sed -n 1p )
+	2>&1 | sed -n 1p )
+	
+	set +x
 	
 	[ -z "$transform_folder_path" ] && echo "No transform folder found or generated. Exiting." && exit
 done
