@@ -31,5 +31,4 @@ python ${nematus}/nematus/translate.py \
 -m ${model_run_dir}/model.npz \
 -i ${input_path} \
 -o ${output_path} \
--k 12 -n -p 1 \
-&> ${model_dir}/translate-${SLURM_JOB_ID}.out
+-k 12 -n -p 1 -v

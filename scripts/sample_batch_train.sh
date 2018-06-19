@@ -17,7 +17,12 @@ do
 	iter=0
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
-		state_size=$attr sbatch --output="logs/train-%j.out" --job-name="${run}-${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
+
+		state_size=$attr sbatch \
+			-v --output="logs/train-%u-%j-%x.out" --error="logs/train-%u-%j-%x.err" \
+			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
+			--job-name="${run}_${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
+
 		((iter++))
 	done
 done

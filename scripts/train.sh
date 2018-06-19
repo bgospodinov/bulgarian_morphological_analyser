@@ -109,16 +109,14 @@ echo Training
 --dec_depth $dec_depth \
 --embedding_size ${embedding_size} \
 --state_size ${state_size} \
---dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json \
-&> ${model_dir}/train-${SLURM_JOB_ID}.out
+--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
 
 echo Translating dev set
 /usr/bin/time -f %e python ${nematus}/nematus/translate.py \
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
 -i ${model_dir}/data/dev_source \
 -o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
--k 12 -n -p 1 -v \
-&> ${model_dir}/translate-${SLURM_JOB_ID}.out
+-k 12 -n -p 1 -v
 
 echo Postprocessing dev predictions
 /usr/bin/time -f %e python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
