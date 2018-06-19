@@ -292,7 +292,7 @@ def main(argv):
                                                     "_{}".format(args.char_n_gram) if args.context_unit == "char" else "",
                                                     ".{}".format(args.transform_appendix) if args.transform_appendix else "")
 
-            if args.output is None:
+            if args.output is None or not args.output or '' in args.output:
                 full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
             else:
                 full_transform_folder_path = os.path.join(args.output[0], transform_folder)

@@ -14,6 +14,7 @@ datetime_name=`date '+%Y-%m-%d_%H:%M:%S'`
 
 set -x
 
+SLURM_ENABLED=${SLURM_JOB_ID:+1}
 SLURM_JOB_ID=${SLURM_JOB_ID:=$datetime_name}
 
 # path to nematus (relative to root dir project)
@@ -34,20 +35,31 @@ state_size=${state_size:=100}
 
 set +x
 
+if [[ -n "$SLURM_ENABLED" ]]; then
+	set -x
+	$tmp_original_dataset=${TMPDIR}/${original_dataset##*/}
+	set +x
+	/usr/bin/time -f %e cp -urv ${original_dataset} $tmp_original_dataset
+	set -x
+	$original_dataset=$tmp_original_dataset
+	set +x
+fi
+
 echo Transforming
 for partition in training dev test ; do
 	input_file=${original_dataset}/${partition}.txt
 	echo Transforming ${input_file}
 	set -x
 	
-	transform_folder_path=$( python -m data.transform_ud \
+	transform_folder_path=$( /usr/bin/time -f %e python -m data.transform_ud \
 	--input $input_file \
+	--output $original_dataset \
 	--tag_unit $tag_unit \
 	--context_unit $context_unit \
 	--context_size $context_size \
 	--char_n_gram $char_n_gram \
 	--transform_appendix $SLURM_JOB_ID \
-	2>&1 | sed -n 1p )
+	| sed -n 1p )
 	
 	set +x
 	
@@ -66,23 +78,24 @@ mkdir -p $model_dir
 mkdir -p $model_dir/${SLURM_JOB_ID}
 mkdir -p $model_dir/data
 
-cp -n $transform_folder_path/* $model_dir/data/
+/usr/bin/time -f %e cp -n $transform_folder_path/* $model_dir/data/
 
 # build dictionaries only if they dont exist
 if [[ ! -f $model_dir/data/training_source.json && ! -f $model_dir/data/training_target.json ]]; then
 	echo Building dictionaries
-	python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
+	/usr/bin/time -f %e python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
 else
 	echo Dictionaries found and reused
 fi
 
 echo Training
-python ${nematus}/nematus/nmt.py \
+/usr/bin/time -f %e python ${nematus}/nematus/nmt.py \
 --model ${model_dir}/${SLURM_JOB_ID}/model.npz \
 --source_dataset ${model_dir}/data/training_source \
 --target_dataset ${model_dir}/data/training_target \
 --valid_source_dataset ${model_dir}/data/dev_source \
 --valid_target_dataset ${model_dir}/data/dev_target \
+--keep_train_set_in_memory \
 --patience ${patience} \
 --validFreq 3000 \
 --saveFreq 0 \
@@ -100,7 +113,7 @@ python ${nematus}/nematus/nmt.py \
 &> ${model_dir}/train-${SLURM_JOB_ID}.out
 
 echo Translating dev set
-python ${nematus}/nematus/translate.py \
+/usr/bin/time -f %e python ${nematus}/nematus/translate.py \
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
 -i ${model_dir}/data/dev_source \
 -o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
@@ -108,9 +121,10 @@ python ${nematus}/nematus/translate.py \
 &> ${model_dir}/translate-${SLURM_JOB_ID}.out
 
 echo Postprocessing dev predictions
-python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
+/usr/bin/time -f %e python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
-python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
+/usr/bin/time -f %e python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
 
-python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
+echo Averaging
+/usr/bin/time -f %e python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score

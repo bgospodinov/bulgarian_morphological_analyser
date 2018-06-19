@@ -5,3 +5,4 @@
 *.awk text eol=lf
 *.txt text
 *.py text
+*.xml text
