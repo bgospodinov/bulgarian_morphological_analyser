@@ -1,7 +1,7 @@
 [submodule "nematus"]
 	path = nematus
 	url = git@github.com:bgospodinov/nematus.git
-	branch = py36
+	branch = msc
 [submodule "subword-nmt"]
 	path = subword-nmt
 	url = git@github.com:rsennrich/subword-nmt.git
