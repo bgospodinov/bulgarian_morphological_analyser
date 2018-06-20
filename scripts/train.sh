@@ -36,12 +36,9 @@ state_size=${state_size:=100}
 set +x
 
 if [[ -n "$SLURM_ENABLED" ]]; then
-	set -x
-	$tmp_original_dataset=${TMPDIR}/${original_dataset##*/}
-	set +x
 	/usr/bin/time -f %e cp -urv ${original_dataset} ${TMPDIR}
 	set -x
-	$original_dataset=$tmp_original_dataset
+	original_dataset=${TMPDIR}/${original_dataset##*/}
 	set +x
 fi
 
@@ -53,7 +50,7 @@ for partition in training dev test ; do
 	
 	transform_folder_path=$( /usr/bin/time -f %e python -m data.transform_ud \
 	--input $input_file \
-	--output $original_dataset \
+	--output ${TMPDIR} \
 	--tag_unit $tag_unit \
 	--context_unit $context_unit \
 	--context_size $context_size \
