@@ -108,6 +108,10 @@ echo Training
 --state_size ${state_size} \
 --dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
 
+if [ $? -ne 0 ]; then
+	exit
+fi
+
 echo Translating dev set
 /usr/bin/time -f %e python ${nematus}/nematus/translate.py \
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
