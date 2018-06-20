@@ -39,7 +39,7 @@ if [[ -n "$SLURM_ENABLED" ]]; then
 	set -x
 	$tmp_original_dataset=${TMPDIR}/${original_dataset##*/}
 	set +x
-	/usr/bin/time -f %e cp -urv ${original_dataset} $tmp_original_dataset
+	/usr/bin/time -f %e cp -urv ${original_dataset} ${TMPDIR}
 	set -x
 	$original_dataset=$tmp_original_dataset
 	set +x

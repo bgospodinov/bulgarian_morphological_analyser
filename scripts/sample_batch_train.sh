@@ -19,7 +19,7 @@ do
 		echo Launching\ attribute=$attr
 
 		state_size=$attr sbatch \
-			-v --output="logs/train-%u-%j-%x.out" --error="logs/train-%u-%j-%x.err" \
+			--output="logs/%j_%x.out" --error="logs/%j_%x.err" \
 			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 			--job-name="${run}_${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
 
