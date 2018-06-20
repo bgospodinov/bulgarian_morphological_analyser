@@ -28,6 +28,8 @@ char_n_gram=${char_n_gram:=1}
 
 # training params
 patience=${patience:=2}
+optimizer=${optimizer:=adadelta}
+learning_rate=${learning_rate:=1.0}
 enc_depth=${enc_depth:=2}
 dec_depth=${dec_depth:=2}
 embedding_size=${embedding_size:=300}
@@ -101,7 +103,8 @@ echo Training
 --sampleFreq 100 \
 --batch_size 60 \
 --use_dropout \
---optimizer "adadelta" \
+--optimizer ${optimizer} \
+--learning_rate ${learning_rate} \
 --enc_depth $enc_depth \
 --dec_depth $dec_depth \
 --embedding_size ${embedding_size} \
