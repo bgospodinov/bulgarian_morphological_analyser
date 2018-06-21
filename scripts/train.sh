@@ -17,6 +17,7 @@ set -x
 SLURM_ENABLED=${SLURM_JOB_ID:+1}
 SLURM_JOB_ID=${SLURM_JOB_ID:=$datetime_name}
 SLURM_ORIGINAL_JOB_ID=${SLURM_ORIGINAL_JOB_ID}
+skip_resume_training=${skip_resume_training:+1}
 
 # path to nematus (relative to root dir project)
 nematus=${nematus:=nematus}
@@ -142,13 +143,18 @@ else
 		echo No models for $SLURM_ORIGINAL_JOB_ID found in models/.
 		exit -1
 	fi
-	echo Resuming training
-	/usr/bin/time -f %e python ${nematus}/nematus/nmt.py \
-	--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
-	--load_model_config \
-	--reload latest_checkpoint
+
+	if [ -z "$skip_resume_training" ]; then
+		echo Resuming training
+		/usr/bin/time -f %e python ${nematus}/nematus/nmt.py \
+		--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
+		--load_model_config \
+		--reload latest_checkpoint
+	else
+		echo Skipping over training...
+	fi
 fi
-	
+
 echo Translating dev set
 /usr/bin/time -f %e python ${nematus}/nematus/translate.py \
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
@@ -160,7 +166,10 @@ echo Postprocessing dev predictions
 /usr/bin/time -f %e python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
-/usr/bin/time -f %e python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} >> ${model_dir}/data/dev_scores
+/usr/bin/time -f %e python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
+
+echo Concatenating
+cat ${model_dir}/data/dev_score.* > ${model_dir}/data/dev_scores
 
 echo Averaging
 /usr/bin/time -f %e python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score

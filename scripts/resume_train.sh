@@ -15,12 +15,16 @@ for model_path in models/*/m*/[0-9]* ; do
 	fi
 done
 
+if [ ${#jobids[@]} -eq 0 ]; then
+	echo "No jobs to rerun."
+	exit 0
+fi
+
 echo Rerun ${jobids[*]} ?
 
 read -p "Are you sure? (Yy/n) " -n 1 -r
 echo # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 	[[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 
