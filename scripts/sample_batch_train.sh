@@ -9,7 +9,7 @@ runs=3
 declare -a attrs=(100 500 750 1000 1200)
 
 # 1 if the corresponding job should go to the LongJobs partition, 0 otherwise
-declare -a lj_pred=(0 0 0 1 1)
+declare -a lj_pred=(0 0 0 0 0)
 
 for (( run=1; run<=$runs; run++ ))
 do
@@ -18,7 +18,7 @@ do
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
 
-		state_size=$attr sbatch \
+		state_size=$attr seed=$run sbatch \
 			--output="logs/%x.%j.log" --error="logs/%x.%j.log" \
 			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 			--job-name="${run}_${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
