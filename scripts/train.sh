@@ -18,6 +18,7 @@ SLURM_ENABLED=${SLURM_JOB_ID:+1}
 SLURM_JOB_ID=${SLURM_JOB_ID:=$datetime_name}
 SLURM_ORIGINAL_JOB_ID=${SLURM_ORIGINAL_JOB_ID}
 skip_resume_training=${skip_resume_training:+1}
+seed=${seed:=0}
 
 # path to nematus (relative to root dir project)
 nematus=${nematus:=nematus}
@@ -35,8 +36,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	# training params
 	patience=${patience:=2}
-	optimizer=${optimizer:=adadelta}
-	learning_rate=${learning_rate:=1.0}
+	optimizer=${optimizer:=adam}
+	learning_rate=${learning_rate:=0.0001}
 	enc_depth=${enc_depth:=2}
 	dec_depth=${dec_depth:=2}
 	embedding_size=${embedding_size:=300}
@@ -126,6 +127,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--dec_depth $dec_depth \
 	--embedding_size ${embedding_size} \
 	--state_size ${state_size} \
+	--random_seed "${seed}" \
 	--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
 
 	if [ $? -ne 0 ]; then
