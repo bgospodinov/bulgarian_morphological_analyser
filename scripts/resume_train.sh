@@ -8,6 +8,7 @@ slurm_active_jobs=$( squeue --format="%.18i %.9P %.20j" -u $(whoami) | awk '{ OR
 
 declare -a jobids=()
 
+shopt -s nullglob
 for model_path in models/*/m*/[0-9]* ; do
 	model_id=${model_path##*/};
 	if [[ ! -f ${model_path%/*}/data/dev_prediction.${model_id} && -z "`grep $model_id <<< "$slurm_active_jobs"`" ]]; then
