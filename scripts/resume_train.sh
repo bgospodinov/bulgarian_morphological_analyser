@@ -32,8 +32,13 @@ fi
 for jobid in "${jobids[@]}" ; do
 	echo Relaunching\ jobid=$jobid
 
+	log_file=$(find logs/ -path \*${jobid}.log -print -quit)
+	log_file=${log_file:="logs/%x.%j.log"}
+	echo $log_file
+
 	SLURM_ORIGINAL_JOB_ID=$jobid sbatch \
-		--output="logs/%x.%j.log" --error="logs/%x.%j.log" \
+		--output=${log_file} --error=${log_file} \
+		--open-mode=append \
 		--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 		--job-name="resume_${jobid}" scripts/train.sh
 

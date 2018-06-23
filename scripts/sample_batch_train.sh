@@ -20,6 +20,7 @@ do
 
 		state_size=$attr seed=$run sbatch \
 			--output="logs/%x.%j.log" --error="logs/%x.%j.log" \
+			--open-mode=append \
 			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 			--job-name="${run}_${attr}" $( (( ${lj_pred[$iter]} == 1 )) && printf %s '--partition=LongJobs' ) scripts/train.sh
 
