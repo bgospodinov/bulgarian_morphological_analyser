@@ -16,6 +16,7 @@ for jobid in "${jobids[@]}" ; do
 	SLURM_ORIGINAL_JOB_ID=$jobid skip_resume_training=1 sbatch \
 		--output=${log_file} --error=${log_file} \
 		--open-mode=append \
+		--partition=Standard,Short \
 		--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 		--job-name="resume_${jobid}" scripts/train.sh
 

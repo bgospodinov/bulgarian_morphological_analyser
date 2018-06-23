@@ -40,6 +40,7 @@ for jobid in "${jobids[@]}" ; do
 		--output=${log_file} --error=${log_file} \
 		--open-mode=append \
 		--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
+		--partition=Standard,Short \
 		--job-name="resume_${jobid}" scripts/train.sh
 
 done
