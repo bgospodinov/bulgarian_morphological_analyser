@@ -86,7 +86,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	set -x
 	transform_folder_name=$( basename $transform_folder_path )
-	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}
+	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}_${optimizer}_${learning_rate}
 	model_dir=models/${transform_folder_name%.*}/$model_name
 	set +x
 

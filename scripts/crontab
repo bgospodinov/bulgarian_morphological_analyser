@@ -1,1 +1,1 @@
-@hourly cd ~s1312650/msc_project && { yes | ./scripts/resume_train.sh ; } >> logs/resume.log
+*/10 * * * * cd ~s1312650/msc_project && { yes | ./scripts/resume_train.sh ; } >> logs/resume.log

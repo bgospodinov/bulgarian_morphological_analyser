@@ -6,7 +6,7 @@ mkdir -p logs
 
 runs=3
 
-declare -a attrs=(100 500 750 1000 1200)
+declare -a attrs=(100 300 500 750 1000)
 
 # 1 if the corresponding job should go to the LongJobs partition, 0 otherwise
 declare -a lj_pred=(0 0 0 0 0)
