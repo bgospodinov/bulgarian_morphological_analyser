@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # UD --folder ../data/UD_Bulgarian-BTB --cols 1 2 4 --training bg_btb-ud-train.conllu --dev bg_btb-ud-dev.conllu --test bg_btb-ud-test.conllu
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder", help="dataset folder path", type=str, 
-                            default=os.path.join(os.path.pardir, "data", "datasets", config["DATASET"]["FOLDER"]))
+                            default=os.path.join("data", "datasets", config["DATASET"]["FOLDER"]))
     parser.add_argument("--cols", help="list of column indices to read (order doesnt matter)", nargs='+', type=int, default=[0, 1, 2])
     
     for partition in config["DATASET"]["PARTITIONS"]:
