@@ -51,16 +51,6 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		set -x
 		original_dataset=${TMPDIR}/${original_dataset##*/}
 		set +x
-
-		term_handler()
-		{
-			echo "function term_handler called. Exiting..."
-			# do whatever cleanup you want here
-			rm -rfv $original_dataset
-			echo $original_dataset deleted
-		}
-		# associate the function "term_handler" with the TERM or EXIT signals
-		trap 'term_handler' TERM EXIT
 	fi
 
 	echo Transforming
@@ -83,6 +73,18 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		
 		[ -z "$transform_folder_path" ] && echo "No transform folder found or generated. Exiting." && exit
 	done
+
+	if [[ -n "$SLURM_ENABLED" ]]; then
+		term_handler()
+		{
+			echo "function term_handler called. Exiting..."
+			# do whatever cleanup you want here
+			rm -rfv $transform_folder_path
+			echo $transform_folder_path deleted
+		}
+		# associate the function "term_handler" with the TERM or EXIT signals
+		trap 'term_handler' TERM EXIT
+	fi
 
 	set -x
 	transform_folder_name=$( basename $transform_folder_path )
