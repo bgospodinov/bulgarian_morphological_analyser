@@ -116,6 +116,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--keep_train_set_in_memory \
 	--patience ${patience} \
 	--validFreq 3000 \
+	--validBurnIn 10000 \
 	--saveFreq 0 \
 	--maxlen 50 \
 	--dispFreq 100 \
