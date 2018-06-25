@@ -37,12 +37,14 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	# training params
 	patience=${patience:=2}
-	optimizer=${optimizer:=adam}
-	learning_rate=${learning_rate:=0.0001}
-	enc_depth=${enc_depth:=2}
-	dec_depth=${dec_depth:=2}
+	optimizer=${optimizer:=adadelta}
+	learning_rate=${learning_rate:=1.0}
+	enc_depth=${enc_depth:=3}
+	dec_depth=${dec_depth:=1}
 	embedding_size=${embedding_size:=300}
-	state_size=${state_size:=100}
+	state_size=${state_size:=300}
+	dropout_embedding=${dropout_embedding:=0.2}
+	dropout_hidden=${dropout_hidden:=0.2}
 
 	set +x
 
@@ -125,6 +127,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--sampleFreq 100 \
 	--batch_size 60 \
 	--use_dropout \
+	--dropout_embedding ${dropout_embedding} \
+	--dropout_hidden ${dropout_hidden} \
 	--optimizer ${optimizer} \
 	--learning_rate ${learning_rate} \
 	--enc_depth $enc_depth \
