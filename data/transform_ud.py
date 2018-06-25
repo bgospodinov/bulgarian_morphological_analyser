@@ -42,7 +42,7 @@ class Transformer(object):
         self.word_unit = word_unit
         self.context_char_size = context_char_size
 
-        # compute closing tag for each training example
+        # compute closing tag to end training examples
         if self.example_boundary is not None:
             pos_close_tag = self.example_boundary.find('<') + 1
             self.close_tag = self.example_boundary[:pos_close_tag] + '/' + self.example_boundary[pos_close_tag:]
@@ -74,6 +74,7 @@ class Transformer(object):
             # we want to ignore subword separation for the word for which we calculate context
             # because it is always represent either wholly or on character-level
             wordform_clean = row["word"].replace(self.subword_separator + " ", "")
+            lemma_clean = row["lemma"].replace(self.subword_separator + " ", "")
 
             source_line = []
 
@@ -142,7 +143,7 @@ class Transformer(object):
             if self.example_boundary is not None:
                 target_line.append(self.example_boundary)
 
-            target_lemma = row["lemma"]
+            target_lemma = lemma_clean
             target_tag = row["tag"]
 
             if self.word_unit == 'word':
@@ -215,64 +216,82 @@ def main(argv):
     import argparse
     from io import StringIO
 
+    # argument parsing
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description="adapts an UD dataset to context-sensitive lemmatization")
 
-    parser.add_argument("--input", help="file to be transformed", type=str)
-    parser.add_argument("--transform_appendix", help="appendix to transform folder name (e.g. SLURM_JOB_ID or datetime)", type=str, default=None)
-    parser.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int,
+    io_group = parser.add_argument_group('io')
+    io_group.add_argument("--input", help="file to be transformed", type=str)
+    io_group.add_argument("--output", help="output source and target files", nargs='+', type=str, default=None)
+    io_group.add_argument("--transform_appendix", help="appendix to transform folder name (e.g. SLURM_JOB_ID or datetime)",
+                          type=str, default=None)
+    io_group.add_argument("--word_column_index", help="index of word column in the file (zero-indexed)", type=int,
                         default=0)
-    parser.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int,
+    io_group.add_argument("--lemma_column_index", help="index of lemma column in the file (zero-indexed)", type=int,
                         default=1)
-    parser.add_argument("--tag_column_index", help="index of tag column in the file (zero-indexed)", type=int,
+    io_group.add_argument("--tag_column_index", help="index of tag column in the file (zero-indexed)", type=int,
                         default=2)
-    parser.add_argument("--output", help="output source and target files", nargs='+', type=str, default=None)
-    parser.add_argument("--context_unit", help="type of context representation", choices=['char', 'bpe', 'word'],
-                        type=str, default=defaults["CONTEXT_UNIT"])
-    parser.add_argument("--word_unit", help="type of word representation", choices=['char', 'word'],
+    io_group.add_argument('--debug', dest='debug', help="debug mode prints target/source file to stdout"
+                                                        " instead of writing to the file system", action='store_true')
+    io_group.add_argument('--overwrite', dest='overwrite', action='store_true')
+    io_group.add_argument("--print_file", help="which file to output (source/target) in debug mode", choices=['source', 'target'],
+                        type=str, default=defaults["PRINT_FILE"])
+
+    repr_group = parser.add_argument_group('representation')
+    repr_group.add_argument("--mode", help="mode of transformation",
+                            choices=['word_and_context', 'sentence_to_sentence'],
+                            type=str, default=defaults["MODE"])
+    repr_group.add_argument("--word_unit", help="type of word representation", choices=['char', 'word', 'bpe'],
                         type=str, default=defaults["WORD_UNIT"])
-    parser.add_argument("--tag_unit", help="type of tag representation", choices=['char', 'word'],
+    repr_group.add_argument("--tag_unit", help="type of tag representation", choices=['char', 'word'],
                         type=str, default=defaults["TAG_UNIT"])
-    parser.add_argument("--char_n_gram",
-                        help="size of char-n-gram context (only used if --context_unit is char, default: %(default)s)",
-                        type=int, default=defaults["CHAR_N_GRAM"])
-    parser.add_argument("--context_size",
+    repr_group.add_argument("--context_unit", help="type of context representation", choices=['char', 'bpe', 'word'],
+                           type=str, default=defaults["CONTEXT_UNIT"])
+    repr_group.add_argument("--char_n_gram_mode",
+                           help="size of char-n-grams (only used if --context_unit is char"
+                                "or if --mode is sentence_to_sentence and --word_unit is char, default: %(default)s)",
+                           type=int, default=defaults["CHAR_N_GRAM"])
+
+    ctx_group = parser.add_argument_group('context')
+    ctx_group.add_argument("--context_size",
                         help="size of context representation (in respective units) on left and right (0 to use full span)",
                         type=int, default=defaults["CONTEXT_SIZE"])
-    parser.add_argument("--context_char_size",
+    ctx_group.add_argument("--context_char_size",
                         help="size of context representation (in characters) on left and right (0 to use full span, has precedence over --context_size)",
                         type=int, default=argparse.SUPPRESS)
-    parser.add_argument("--context_span",
+    ctx_group.add_argument("--context_span",
                         help="maximum span of a word in number of sentences on left and right of the sentence of the word, default: %(default)s))",
                         type=int,
                         default=defaults["CONTEXT_SPAN"])
-    parser.add_argument("--context_tags", help="whether and where to include tag in the context", choices=['none', 'left'],
+    ctx_group.add_argument("--context_tags", help="whether and where to include tag in the context", choices=['none', 'left'],
                         type=str, default=defaults["CONTEXT_TAGS"])
-    parser.add_argument("--left_context_boundary", help="left context boundary special symbol (default: %(default)s)",
-                        type=str, default=defaults["LEFT_CONTEXT_BOUNDARY"])
-    parser.add_argument("--example_boundary", help="example boundary special symbol (default: %(default)s)", type=str,
-                        default=defaults["EXAMPLE_BOUNDARY"])
-    parser.add_argument("--right_context_boundary", help="right context boundary special symbol (default: %(default)s)",
-                        type=str, default=defaults["RIGHT_CONTEXT_BOUNDARY"])
-    parser.add_argument("--word_boundary", help="word boundary special symbol (default: %(default)s)", type=str,
-                        default=defaults["WORD_BOUNDARY"])
-    parser.add_argument("--tag_boundary", help="tag boundary special symbol (default: %(default)s)", type=str,
-                        default=defaults["TAG_BOUNDARY"])
-    parser.add_argument('--subword_separator', type=str, default=defaults["SUBWORD_SEPARATOR"], metavar='STR',
-                        help="separator between non-final BPE subword units (default: '%(default)s'))")
-    parser.add_argument("--bpe_operations", help="number of BPE merge operations to be learned "
+
+    bpe_group = parser.add_argument_group('bpe')
+    bpe_group.add_argument("--bpe_operations", help="number of BPE merge operations to be learned "
                                                  "(corresponds to number of symbols/char-n-grams/codes)",
                         type=int, default=defaults["BPE_OPERATIONS"])
-    parser.add_argument("--bpe_codes_path", help="full file path to export BPE codes to or to read them from if available",
+    bpe_group.add_argument("--bpe_codes_path",
+                        help="full file path to export BPE codes to or to read them from if available",
                         type=str, default=None)
-    parser.add_argument('--test_case', dest='test_case', action='store_true')
-    parser.add_argument('--overwrite', dest='overwrite', action='store_true')
-    parser.add_argument("--print_file", help="which file to output (source/target)", choices=['source', 'target'],
-                        type=str, default=defaults["PRINT_FILE"])
+
+    boundary_group = parser.add_argument_group('boundaries')
+    boundary_group.add_argument("--left_context_boundary", help="left context boundary special symbol (default: %(default)s)",
+                        type=str, default=defaults["LEFT_CONTEXT_BOUNDARY"])
+    boundary_group.add_argument("--example_boundary", help="example boundary special symbol (default: %(default)s)", type=str,
+                        default=defaults["EXAMPLE_BOUNDARY"])
+    boundary_group.add_argument("--right_context_boundary", help="right context boundary special symbol (default: %(default)s)",
+                        type=str, default=defaults["RIGHT_CONTEXT_BOUNDARY"])
+    boundary_group.add_argument("--word_boundary", help="word boundary special symbol (default: %(default)s)", type=str,
+                        default=defaults["WORD_BOUNDARY"])
+    boundary_group.add_argument("--tag_boundary", help="tag boundary special symbol (default: %(default)s)", type=str,
+                        default=defaults["TAG_BOUNDARY"])
+    boundary_group.add_argument('--subword_separator', type=str, default=defaults["SUBWORD_SEPARATOR"], metavar='STR',
+                        help="separator between non-final BPE subword units (default: '%(default)s'))")
 
     args = parser.parse_args(argv)
 
+    # determining input
     if args.input is None:
         if args.output is None:
             raise ValueError(
@@ -286,14 +305,24 @@ def main(argv):
             input_folder = input_folders[-2]
             input_filename = input_folders[-1].split(".")[0]
 
-    if not args.test_case:
+    # determining output
+    if not args.debug:
         if args.output is None or (type(args.output) is list and len(args.output) == 1):
-            transform_folder = "{}_{}_{}{}{}".format(input_folder, args.context_size, args.context_unit,
-                                                    "_{}".format(args.char_n_gram) if args.context_unit == "char" else "",
-                                                    ".{}".format(args.transform_appendix) if args.transform_appendix else "")
+            transform_folder = "{}_{}_{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
+
+                                                           ("_" + ((str(args.context_size) + "u") if not hasattr(args, 'context_char_size') else (str(args.context_char_size) + "ch")))
+                                                           if args.mode == 'word_and_context' else "",
+
+                                                           ("_" + ("c" + args.context_unit)) if args.mode == "word_and_context" else "",
+
+                                                           "_n{}".format(args.char_n_gram_mode)
+                                                           if ((args.mode == 'word_and_context' and args.context_unit == "char")
+                                                               or (args.mode == 'sentence_to_sentence' and args.word_unit == 'char')) else "",
+
+                                                           ".{}".format(args.transform_appendix) if args.transform_appendix else "")
 
             if args.output is None or not args.output or '' in args.output:
-                full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', transform_folder)
+                full_transform_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input', args.mode, transform_folder)
             else:
                 full_transform_folder_path = os.path.join(args.output[0], transform_folder)
 
@@ -318,40 +347,41 @@ def main(argv):
             output_source_path = args.output[0]
             output_target_path = args.output[1]
 
-    transformer_args = {'word_unit': args.word_unit, 'tag_unit': args.tag_unit, 'context_size': args.context_size,
-                        'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
-                        'context_tags': args.context_tags,
-                        'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
-                        'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
-                        'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
+    print(args, file=sys.stderr)
 
-    print(args)
-
-    transformer = Transformer(**transformer_args)
-
+    # loading file
     infile_df = preprocess_dataset_for_train(pd.read_csv(args.input, sep='\s+', names=cols,
                                                          usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],
                                                          skip_blank_lines=False, comment='#')[cols])
+    infile_df = infile_df.reset_index(drop=True)
 
-    if args.context_unit == 'char':
-        # uses subword-nmt to segment text into chargrams and then passes those to the Transformer
+    # subword preprocessing of the input file
+    if (args.mode == 'word_and_context' and args.context_unit == 'char') or (args.mode == 'sentence_to_sentence' and args.word_unit == 'char'):
+        # uses subword-nmt to segment text into chargrams
         from types import SimpleNamespace
         import numpy as np
         sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'subword-nmt'))
         from subword_nmt.segment_char_ngrams import segment_char_ngrams
-        subword_nmt_output = StringIO()
-        segment_char_ngrams(SimpleNamespace(input=infile_df["word"].dropna().astype(str), vocab={}, n=args.char_n_gram,
-                                            output=subword_nmt_output, separator=args.subword_separator))
-        subword_nmt_output.seek(0)
-        infile_df.loc[infile_df["word"].notnull(), ["word"]] = np.array([line.rstrip(' \t\n\r')
-                                                                         for line in subword_nmt_output])[:, np.newaxis]
-    elif args.context_unit == 'bpe':
+
+        def segment(col):
+            subword_nmt_output = StringIO()
+            segment_char_ngrams(SimpleNamespace(input=infile_df[col].dropna().astype(str), vocab={}, n=args.char_n_gram_mode,
+                                output=subword_nmt_output, separator=args.subword_separator))
+            subword_nmt_output.seek(0)
+            infile_df.loc[infile_df[col].notnull(), [col]] = np.array([line.rstrip(' \t\n\r')
+                                                                             for line in subword_nmt_output])[:, np.newaxis]
+            subword_nmt_output.truncate(0)
+
+        segment("word")
+        if args.mode == 'sentence_to_sentence' and args.word_unit == 'char':
+            segment("lemma")
+    elif (args.mode == 'word_and_context' and args.context_unit == 'bpe') or (args.mode == 'sentence_to_sentence' and args.word_unit == 'bpe'):
         if args.bpe_codes_path:
             bpe_codes_file_path = args.bpe_codes_path
         elif full_transform_folder_path:
             bpe_codes_file_path = os.path.join(full_transform_folder_path, "bpe_codes")
         else:
-            raise ValueError("Specify output folder or bpe output folder to export BPE codes.")
+            raise ValueError("Specify transformation output folder or bpe output file path in order to export BPE codes.")
 
         # BPE processing
         sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'subword-nmt'))
@@ -373,30 +403,89 @@ def main(argv):
             infile_df.loc[infile_df["word"].notnull(), ["word", "lemma"]] = \
                 infile_df.loc[infile_df["word"].notnull(), ["word", "lemma"]].applymap(bpe.process_line)
 
-
-    sentence_dfs = []
     sentence_indices = pd.isna(infile_df).all(axis=1)
-    sentence_iterator = (i for i, e in sentence_indices.to_dict().items() if e is True)
+    sentence_end_iterator = (i for i, e in sentence_indices.to_dict().items() if e is True)
 
-    sentence_start = 0
-    for sentence_end in sentence_iterator:
-        sentence_dfs.append(infile_df.loc[sentence_start:sentence_end - 1])
-        sentence_start = sentence_end + 1
+    # per-mode specific processing
+    if args.mode == 'word_and_context':
+        sentence_dfs = []
+        transformer_args = {'word_unit': args.word_unit, 'tag_unit': args.tag_unit, 'context_size': args.context_size,
+                            'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
+                            'context_tags': args.context_tags,
+                            'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
+                            'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
+                            'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
 
-    for sentence_df in sentence_dfs:
-        # TODO: add additional context according to CONTEXT_SPAN to line before passing it below
-        output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
+        transformer = Transformer(**transformer_args)
 
-        if args.test_case:
-            if args.print_file == 'source':
-                print("\n".join(output_source_lines))
+        sentence_start = 0
+        for sentence_end in sentence_end_iterator:
+            sentence_dfs.append(infile_df.loc[sentence_start:sentence_end - 1])
+            sentence_start = sentence_end + 1
+
+        for sentence_df in sentence_dfs:
+            # TODO: add additional context according to CONTEXT_SPAN to line before passing it below
+            output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
+
+            if args.debug:
+                if args.print_file == 'source':
+                    print("\n".join(output_source_lines))
+                else:
+                    print("\n".join(output_target_lines))
             else:
-                print("\n".join(output_target_lines))
-        else:
-            with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
-                    open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
-                outsourcefile.write("\n".join(output_source_lines) + "\n")
-                outtargetfile.write("\n".join(output_target_lines) + "\n")
+                with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
+                        open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
+                    outsourcefile.write("\n".join(output_source_lines) + "\n")
+                    outtargetfile.write("\n".join(output_target_lines) + "\n")
+    elif args.mode == 'sentence_to_sentence':
+        sentence_start = 0
+
+        if args.example_boundary is not None:
+            pos_close_tag = args.example_boundary.find('<') + 1
+            open_tag = args.example_boundary
+            close_tag = open_tag[:pos_close_tag] + '/' + open_tag[pos_close_tag:]
+
+        for sentence_end in sentence_end_iterator:
+            output_source_line = [open_tag]
+            output_target_line = [open_tag]
+
+            for sentence_idx in range(sentence_start, sentence_end):
+                subwords = re.split("\s*{}\s*".format(args.subword_separator),
+                                    infile_df.at[sentence_idx, "word"])
+                lemma = re.split("\s*{}\s*".format(args.subword_separator),
+                                 infile_df.at[sentence_idx, "lemma"])
+                tag = infile_df.at[sentence_idx, "tag"]
+
+                output_source_line.extend(subwords)
+                output_source_line.append(args.word_boundary)
+
+                output_target_line.extend(lemma)
+                output_target_line.append(args.tag_boundary)
+                if args.tag_unit == "word":
+                    output_target_line.append(tag)
+                else:
+                    output_target_line.extend(tag)
+                output_target_line.append(args.word_boundary)
+
+            sentence_start = sentence_end + 1
+
+            output_source_line.pop()
+            output_target_line.pop()
+
+            output_source_line.append(close_tag)
+            output_target_line.append(close_tag)
+
+            if args.debug:
+                if args.print_file == 'source':
+                    print(" ".join(output_source_line))
+                else:
+                    print(" ".join(output_target_line))
+                print("\n")
+            else:
+                with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
+                        open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
+                    outsourcefile.write(" ".join(output_source_line) + "\n")
+                    outtargetfile.write(" ".join(output_target_line) + "\n")
 
 
 if __name__ == "__main__":

@@ -33,6 +33,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	context_unit=${context_unit:=char}
 	context_size=${context_size:=20}
 	char_n_gram=${char_n_gram:=1}
+	transform_mode=${transform_mode:=word_and_context}
 	output_dir=${TMPDIR:-data/input/}
 
 	# training params
@@ -66,6 +67,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		transform_folder_path=$( /usr/bin/time -f %e python -m data.transform_ud \
 		--input $input_file \
 		--output $output_dir \
+		--mode $transform_mode \
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \
 		--context_size $context_size \

@@ -17,6 +17,7 @@
 			"CONTEXT_UNIT": "char",
             "WORD_UNIT": "char",
 			"TAG_UNIT": "word",
+			"MODE": "word_and_context",
 			"PRINT_FILE": "source",
             "CHAR_N_GRAM": 1,
             "CONTEXT_SIZE": 20,

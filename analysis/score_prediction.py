@@ -15,8 +15,8 @@ if __name__ == "__main__":
 
     cols = list(config["DATASET"]["COLUMNS"].values())
 
-    #BTB ../baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground ../data/datasets/MorphoData-NewSplit/dev.txt
-    #UD ../baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground ../baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
+    #BTB baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground data/datasets/MorphoData-NewSplit/dev.txt
+    #UD baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
 
     # for fh in ../models/MorphoData-*/*/data/dev_prediction ; do python -m score_prediction ${fh} > ${fh%/*}/dev_score ; done
 
