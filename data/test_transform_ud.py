@@ -28,13 +28,13 @@ defaults = config["TRANSFORM"]["DEFAULTS"]
 args_run = []
 
 for char_n_gram_param in [1, 2, 3]:
-    args_run.append({'context_unit': 'char', 'char_n_gram': char_n_gram_param, 'context_size': None, 'context_char_size': 25})
+    args_run.append({'context_unit': 'char', 'char_n_gram_mode': char_n_gram_param, 'context_size': None, 'context_char_size': 25})
 
 for context_size_param in [2, 5, 10]:
-    args_run.append({'context_unit': 'word', 'char_n_gram': None, 'context_size': context_size_param, 'context_char_size': None})
+    args_run.append({'context_unit': 'word', 'char_n_gram_mode': None, 'context_size': context_size_param, 'context_char_size': None})
 
 for context_char_size_param in [5, 10, 25]:
-    args_run.append({'context_unit': 'char', 'char_n_gram': 2, 'context_size': None, 'context_char_size': context_char_size_param})
+    args_run.append({'context_unit': 'char', 'char_n_gram_mode': 2, 'context_size': None, 'context_char_size': context_char_size_param})
 
 
 class TestTransformUD(unittest.TestCase):
@@ -56,7 +56,7 @@ class TestTransformUD(unittest.TestCase):
             if v:
                 argv.append("--{}".format(k))
                 argv.append(str(v))
-        argv.append("--test_case")
+        argv.append("--debug")
         return argv
 
     def merge_into_words(self, list):

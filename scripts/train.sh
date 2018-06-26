@@ -71,7 +71,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \
 		--context_size $context_size \
-		--char_n_gram $char_n_gram \
+		--char_n_gram_mode $char_n_gram \
 		--transform_appendix $SLURM_JOB_ID \
 		| sed -n 1p )
 

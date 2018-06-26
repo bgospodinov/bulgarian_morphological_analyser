@@ -298,7 +298,7 @@ def main(argv):
                 "Can't decide how to name the transformation because you feed from stdin. Use --output to specify path.")
         args.input = sys.stdin
     else:
-        input_folders = re.split("/+|\\+", args.input)
+        input_folders = re.split("/+|\\\\+", args.input)
         if len(input_folders) < 2:
             raise ValueError("Can't decide how to name the transformation. Use --output to specify path.")
         else:
