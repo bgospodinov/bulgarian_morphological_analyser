@@ -44,7 +44,9 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	embedding_size=${embedding_size:=300}
 	state_size=${state_size:=300}
 	dropout_embedding=${dropout_embedding:=0.2}
-	dropout_hidden=${dropout_hidden:=0.2}
+	dropout_hidden=${dropout_hidden:=0.3}
+	dropout_source=${dropout_source:=0.0}
+	dropout_target=${dropout_target:=0.0}
 
 	set +x
 
@@ -90,7 +92,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	set -x
 	transform_folder_name=$( basename $transform_folder_path )
-	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}_${optimizer}_${learning_rate}
+	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}_${dropout_embedding}_${dropout_hidden}_${dropout_source}_${dropout_target}_${optimizer}_${learning_rate}
 	model_dir=models/${transform_folder_name%.*}/$model_name
 	set +x
 
@@ -129,6 +131,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--use_dropout \
 	--dropout_embedding ${dropout_embedding} \
 	--dropout_hidden ${dropout_hidden} \
+	--dropout_source ${dropout_source} \
+	--dropout_target ${dropout_target} \
 	--optimizer ${optimizer} \
 	--learning_rate ${learning_rate} \
 	--enc_depth $enc_depth \
