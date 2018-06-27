@@ -11,7 +11,7 @@ declare -a jobids=()
 shopt -s nullglob
 for model_path in models/*/m*/[0-9]* ; do
 	model_id=${model_path##*/};
-	if [[ ! -f ${model_path%/*}/data/dev_prediction.${model_id} && -z "`grep $model_id <<< "$slurm_active_jobs"`" ]]; then
+	if [[ ! -f ${model_path%/*}/data/dev_score.${model_id} && -z "`grep $model_id <<< "$slurm_active_jobs"`" ]]; then
 		jobids+=($model_id)
 	fi
 done
