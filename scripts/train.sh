@@ -49,6 +49,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	dropout_source=${dropout_source:=0.0}
 	dropout_target=${dropout_target:=0.0}
 	output_hidden_activation=${output_hidden_activation:=tanh}
+	decay_c=${decay_c:=0.0}
 
 	set +x
 
@@ -95,7 +96,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	set -x
 	transform_folder_name=$( basename $transform_folder_path )
-	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}_${output_hidden_activation}_${dropout_embedding}_${dropout_hidden}_${dropout_source}_${dropout_target}_${optimizer}_${learning_rate}
+	model_name=m${enc_depth}_${dec_depth}_${embedding_size}_${state_size}_${output_hidden_activation}_${decay_c}_${dropout_embedding}_${dropout_hidden}_${dropout_source}_${dropout_target}_${optimizer}_${learning_rate}
 	model_dir=models/${transform_folder_name%.*}/$model_name
 	set +x
 
@@ -138,6 +139,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--dropout_target ${dropout_target} \
 	--optimizer ${optimizer} \
 	--learning_rate ${learning_rate} \
+	--decay_c ${decay_c} \
 	--enc_depth $enc_depth \
 	--dec_depth $dec_depth \
 	--embedding_size ${embedding_size} \
