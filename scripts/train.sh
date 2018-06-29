@@ -14,6 +14,9 @@ datetime_name=`date +%s`
 
 set -x
 
+PYTHON_INTERPRETER_PATH=$(which python)
+CONDA_DEFAULT_ENV_NAME=$CONDA_DEFAULT_ENV
+CONDA_PREFIX_PATH=$CONDA_PREFIX
 SLURMD_NODENAME=${SLURMD_NODENAME}
 SLURM_JOB_NODELIST=${SLURM_JOB_NODELIST}
 SLURM_JOB_PARTITION=${SLURM_JOB_PARTITION}
@@ -27,6 +30,8 @@ seed=${seed:=0}
 nematus=${nematus:=nematus}
 
 set +x
+
+conda list
 
 if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	set -x
