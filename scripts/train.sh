@@ -33,6 +33,7 @@ nematus=${nematus:=nematus}
 
 set +x
 
+echo $PATH
 conda list
 
 if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
