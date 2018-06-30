@@ -45,6 +45,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	context_size=${context_size:=20}
 	char_n_gram=${char_n_gram:=1}
 	transform_mode=${transform_mode:=word_and_context}
+	context_tags=${context_tags:=none}
 	output_dir=${TMPDIR:-data/input/}
 
 	# training params
@@ -81,6 +82,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--input $input_file \
 		--output $output_dir \
 		--mode $transform_mode \
+		--context_tags $context_tags \
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \
 		--context_size $context_size \

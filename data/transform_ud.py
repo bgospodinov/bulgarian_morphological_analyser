@@ -308,7 +308,7 @@ def main(argv):
     # determining output
     if not args.debug:
         if args.output is None or (type(args.output) is list and len(args.output) == 1):
-            transform_folder = "{}_{}_{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
+            transform_folder = "{}_{}_{}{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
 
                                                            ("_" + ((str(args.context_size) + "u") if not hasattr(args, 'context_char_size') else (str(args.context_char_size) + "ch")))
                                                            if args.mode == 'word_and_context' else "",
@@ -318,6 +318,8 @@ def main(argv):
                                                            "_n{}".format(args.char_n_gram_mode)
                                                            if ((args.mode == 'word_and_context' and args.context_unit == "char")
                                                                or (args.mode == 'sentence_to_sentence' and args.word_unit == 'char')) else "",
+
+                                                           "_ct" if args.context_tags == 'left' else "",
 
                                                            ".{}".format(args.transform_appendix) if args.transform_appendix else "")
 
