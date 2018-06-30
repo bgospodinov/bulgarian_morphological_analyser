@@ -11,12 +11,14 @@ original_dataset=data/datasets/MorphoData-NewSplit
 
 # if slurm job id is unavailable use datetime for logging purposes
 datetime_name=`date +%s`
+set -e
 
 set -x
 
-PYTHON_INTERPRETER_PATH=$(which python)
+PYTHON_INTERPRETER_DEFAULT_PATH=$(which python)
 CONDA_DEFAULT_ENV_NAME=$CONDA_DEFAULT_ENV
 CONDA_PREFIX_PATH=$CONDA_PREFIX
+PYTHON_INTERPRETER_PATH=$CONDA_PREFIX/bin/python
 SLURMD_NODENAME=${SLURMD_NODENAME}
 SLURM_JOB_NODELIST=${SLURM_JOB_NODELIST}
 SLURM_JOB_PARTITION=${SLURM_JOB_PARTITION}
@@ -74,7 +76,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		echo Transforming ${input_file}
 		set -x
 
-		transform_folder_path=$( /usr/bin/time -f %e python -m data.transform_ud \
+		transform_folder_path=$( /usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.transform_ud \
 		--input $input_file \
 		--output $output_dir \
 		--mode $transform_mode \
@@ -119,13 +121,13 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	# build dictionaries only if they dont exist
 	if [[ ! -f $model_dir/data/training_source.json && ! -f $model_dir/data/training_target.json ]]; then
 		echo Building dictionaries
-		/usr/bin/time -f %e python ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
+		/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH ${nematus}/data/build_dictionary.py ${model_dir}/data/training_source ${model_dir}/data/training_target
 	else
 		echo Dictionaries found and reused
 	fi
 
 	echo Training
-	/usr/bin/time -f %e python ${nematus}/nematus/nmt.py \
+	/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH ${nematus}/nematus/nmt.py \
 	--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
 	--source_dataset ${model_dir}/data/training_source \
 	--target_dataset ${model_dir}/data/training_target \
@@ -156,10 +158,6 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--random_seed "${seed}" \
 	--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
 
-	if [ $? -ne 0 ]; then
-		exit -1
-	fi
-
 else
 	echo Reloading model for job $SLURM_ORIGINAL_JOB_ID
 	set -x
@@ -174,7 +172,7 @@ else
 
 	if [ -z "$skip_resume_training" ]; then
 		echo Resuming training
-		/usr/bin/time -f %e python ${nematus}/nematus/nmt.py \
+		/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH ${nematus}/nematus/nmt.py \
 		--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
 		--load_model_config \
 		--reload latest_checkpoint
@@ -184,20 +182,20 @@ else
 fi
 
 echo Translating dev set
-/usr/bin/time -f %e python ${nematus}/nematus/translate.py \
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH ${nematus}/nematus/translate.py \
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
 -i ${model_dir}/data/dev_source \
 -o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
 -k 12 -n -p 1 -v
 
 echo Postprocessing dev predictions
-/usr/bin/time -f %e python -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
-/usr/bin/time -f %e python -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
 
 echo Concatenating
 cat ${model_dir}/data/dev_score.* > ${model_dir}/data/dev_scores
 
 echo Averaging
-/usr/bin/time -f %e python -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m analysis.average ${model_dir}/data/dev_scores > ${model_dir}/data/dev_avg_score
