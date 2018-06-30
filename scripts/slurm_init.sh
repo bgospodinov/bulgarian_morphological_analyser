@@ -12,7 +12,7 @@ export LIBRARY_PATH=${CUDNN_HOME}/lib64:$LIBRARY_PATH
 
 export CPATH=${CUDNN_HOME}/include:$CPATH
 
-export PATH=${CUDA_HOME}/bin:${PATH}
+export PATH=${CUDA_HOME}/bin:~s1312650/miniconda3/bin:${PATH}
 
 export PYTHON_PATH=$PATH
 
