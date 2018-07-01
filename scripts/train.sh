@@ -61,6 +61,10 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	dropout_target=${dropout_target:=0.0}
 	output_hidden_activation=${output_hidden_activation:=tanh}
 	decay_c=${decay_c:=0.0}
+	maxlen=${maxlen:=50}
+	valid_burn_in=${valid_burn_in:=10000}
+	valid_freq=${valid_freq:=3000}
+	
 
 	set +x
 
@@ -139,10 +143,10 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--valid_target_dataset ${model_dir}/data/dev_target \
 	--keep_train_set_in_memory \
 	--patience ${patience} \
-	--validFreq 3000 \
-	--validBurnIn 10000 \
+	--validFreq $valid_freq \
+	--validBurnIn $valid_burn_in \
 	--saveFreq 0 \
-	--maxlen 50 \
+	--maxlen $maxlen \
 	--dispFreq 100 \
 	--sampleFreq 100 \
 	--batch_size 60 \
