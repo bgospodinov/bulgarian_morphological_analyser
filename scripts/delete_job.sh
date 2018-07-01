@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Bogomil Gospodinov
+jobid=$1
 if [ "$#" -ne 1 ]; then
 	echo 'Usage: ./delete_job.sh [job-id]'
 	exit 1

@@ -11,7 +11,6 @@ original_dataset=data/datasets/MorphoData-NewSplit
 
 # if slurm job id is unavailable use datetime for logging purposes
 datetime_name=`date +%s`
-set -e
 
 set -x
 
@@ -129,6 +128,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		echo Dictionaries found and reused
 	fi
 
+	set -e
+
 	echo Training
 	/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH ${nematus}/nematus/nmt.py \
 	--model ${model_dir}/${SLURM_JOB_ID}/model.npz \
@@ -162,6 +163,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--dictionaries ${model_dir}/data/training_source.json ${model_dir}/data/training_target.json
 
 else
+	set -e
+
 	echo Reloading model for job $SLURM_ORIGINAL_JOB_ID
 	set -x
 	SLURM_JOB_ID=$SLURM_ORIGINAL_JOB_ID
