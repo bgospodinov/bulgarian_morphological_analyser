@@ -62,6 +62,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	output_hidden_activation=${output_hidden_activation:=tanh}
 	decay_c=${decay_c:=0.0}
 	maxlen=${maxlen:=50}
+	translation_maxlen=${translation_maxlen:=$maxlen}
 	valid_burn_in=${valid_burn_in:=10000}
 	valid_freq=${valid_freq:=3000}
 	
@@ -147,6 +148,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--validBurnIn $valid_burn_in \
 	--saveFreq 0 \
 	--maxlen $maxlen \
+	--translation_maxlen $translation_maxlen \
 	--dispFreq 100 \
 	--sampleFreq 100 \
 	--batch_size 60 \
