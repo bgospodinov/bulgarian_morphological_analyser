@@ -65,6 +65,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	translation_maxlen=${translation_maxlen:=$maxlen}
 	valid_burn_in=${valid_burn_in:=10000}
 	valid_freq=${valid_freq:=3000}
+	batch_size=${batch_size:=60}
+	valid_batch_size=${valid_batch_size:=60}
 	
 
 	set +x
@@ -151,7 +153,8 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--translation_maxlen $translation_maxlen \
 	--dispFreq 100 \
 	--sampleFreq 100 \
-	--batch_size 60 \
+	--batch_size $batch_size \
+	--valid_batch_size $valid_batch_size \
 	--use_dropout \
 	--dropout_embedding ${dropout_embedding} \
 	--dropout_hidden ${dropout_hidden} \
