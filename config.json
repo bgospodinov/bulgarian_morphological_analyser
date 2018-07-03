@@ -16,7 +16,7 @@
 		"DEFAULTS": {
 			"CONTEXT_UNIT": "char",
             "WORD_UNIT": "char",
-			"TAG_UNIT": "word",
+			"TAG_UNIT": "char",
 			"MODE": "word_and_context",
 			"PRINT_FILE": "source",
             "CHAR_N_GRAM": 1,
@@ -27,6 +27,7 @@
             "RIGHT_CONTEXT_BOUNDARY": "<rc>",
             "WORD_BOUNDARY": "<s>",
 			"TAG_BOUNDARY": "+",
+			"SENTENCE_SPLIT_TAG": "<*>",
 			"EXAMPLE_BOUNDARY": "<w>",
 			"SUBWORD_SEPARATOR": "@@",
 			"BPE_OPERATIONS": 500

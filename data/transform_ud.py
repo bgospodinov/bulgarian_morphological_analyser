@@ -252,6 +252,8 @@ def main(argv):
                            help="size of char-n-grams (only used if --context_unit is char"
                                 "or if --mode is sentence_to_sentence and --word_unit is char, default: %(default)s)",
                            type=int, default=defaults["CHAR_N_GRAM"])
+    repr_group.add_argument("--sentence_size", help="maximum size of sentence in sentence_to_sentence mode",
+                           type=int, default=argparse.SUPPRESS)
 
     ctx_group = parser.add_argument_group('context')
     ctx_group.add_argument("--context_size",
@@ -451,12 +453,18 @@ def main(argv):
             output_source_line = [open_tag]
             output_target_line = [open_tag]
 
+            last_split_pos = 0
+
             for sentence_idx in range(sentence_start, sentence_end):
                 subwords = re.split("\s*{}\s*".format(args.subword_separator),
                                     infile_df.at[sentence_idx, "word"])
                 lemma = re.split("\s*{}\s*".format(args.subword_separator),
                                  infile_df.at[sentence_idx, "lemma"])
                 tag = infile_df.at[sentence_idx, "tag"]
+
+                # inserts a breaking point at the position before this word+tag were inserted in both the source and the target
+                output_source_insertion_point = len(output_source_line)
+                output_target_insertion_point = len(output_target_line)
 
                 output_source_line.extend(subwords)
                 output_source_line.append(args.word_boundary)
@@ -469,6 +477,15 @@ def main(argv):
                     output_target_line.extend(tag)
                 output_target_line.append(args.word_boundary)
 
+                # if the target translation overflows (target sentence is guaranteed to be longer in size)
+                # sanity check: awk 'NF > 50 { print NR, NF }' dev_source | wc -l
+                last_split_size = len(output_target_line) - last_split_pos
+                if hasattr(args, 'sentence_size') and last_split_size > args.sentence_size:
+                    output_source_line.insert(output_source_insertion_point, defaults["SENTENCE_SPLIT_TAG"])
+                    output_target_line.insert(output_target_insertion_point, defaults["SENTENCE_SPLIT_TAG"])
+                    # set to 1, for internal slices to account for the opening <w> sentence boundary tag
+                    last_split_pos = output_target_insertion_point
+
             sentence_start = sentence_end + 1
 
             output_source_line.pop()
@@ -477,17 +494,49 @@ def main(argv):
             output_source_line.append(close_tag)
             output_target_line.append(close_tag)
 
-            if args.debug:
-                if args.print_file == 'source':
-                    print(" ".join(output_source_line))
+            assert output_source_line.count(defaults["SENTENCE_SPLIT_TAG"]) == output_target_line.count(defaults["SENTENCE_SPLIT_TAG"]), \
+                "Sentence splits in sentence_to_sentence mode are wrong."
+
+            # split sentences if necessary
+            split_cond = True
+            end_source_line_split_pos = 0
+            end_target_line_split_pos = 0
+
+            while split_cond:
+                try:
+                    start_source_line_pos = end_source_line_split_pos
+                    start_target_line_pos = end_target_line_split_pos
+                    end_source_line_split_pos = output_source_line.index(defaults["SENTENCE_SPLIT_TAG"], end_source_line_split_pos) + 1
+                    end_target_line_split_pos = output_target_line.index(defaults["SENTENCE_SPLIT_TAG"], end_target_line_split_pos) + 1
+                except ValueError:
+                    split_cond = False
+                    end_source_line_split_pos = len(output_source_line) + 1
+                    end_target_line_split_pos = len(output_target_line) + 1
+
+                output_source_line_split = output_source_line[start_source_line_pos:end_source_line_split_pos - 1]
+                output_target_line_split = output_target_line[start_target_line_pos:end_target_line_split_pos - 1]
+
+                if output_source_line_split[-1] == defaults["WORD_BOUNDARY"]:
+                    output_source_line_split[-1] = close_tag
+                if output_source_line_split[0] != open_tag:
+                    output_source_line_split.insert(0, open_tag)
+
+                if output_target_line_split[-1] == defaults["WORD_BOUNDARY"]:
+                    output_target_line_split[-1] = close_tag
+                if output_target_line_split[0] != open_tag:
+                    output_target_line_split.insert(0, open_tag)
+
+                if args.debug:
+                    if args.print_file == 'source':
+                        print(" ".join(output_source_line_split))
+                    else:
+                        print(" ".join(output_target_line_split))
+                    print("\n")
                 else:
-                    print(" ".join(output_target_line))
-                print("\n")
-            else:
-                with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
-                        open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
-                    outsourcefile.write(" ".join(output_source_line) + "\n")
-                    outtargetfile.write(" ".join(output_target_line) + "\n")
+                    with open(output_source_path, 'a+', encoding='utf-8') as outsourcefile, \
+                            open(output_target_path, 'a+', encoding='utf-8') as outtargetfile:
+                        outsourcefile.write(" ".join(output_source_line_split) + "\n")
+                        outtargetfile.write(" ".join(output_target_line_split) + "\n")
 
 
 if __name__ == "__main__":

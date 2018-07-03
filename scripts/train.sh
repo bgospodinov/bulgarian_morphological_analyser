@@ -63,6 +63,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	decay_c=${decay_c:=0.0}
 	maxlen=${maxlen:=50}
 	translation_maxlen=${translation_maxlen:=$maxlen}
+	sentence_size=${sentence_size:=$maxlen}
 	valid_burn_in=${valid_burn_in:=10000}
 	valid_freq=${valid_freq:=3000}
 	batch_size=${batch_size:=60}
@@ -88,6 +89,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--input $input_file \
 		--output $output_dir \
 		--mode $transform_mode \
+		--sentence_size $sentence_size \
 		--context_tags $context_tags \
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \
