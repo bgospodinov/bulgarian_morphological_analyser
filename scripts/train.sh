@@ -196,6 +196,14 @@ else
 	else
 		echo Skipping over training...
 	fi
+	
+	log_file=$(find logs/ -path \*${SLURM_JOB_ID}.log -print -quit)
+	log_file=${log_file:="logs/%x.%j.log"}
+	echo $log_file found
+	set -x
+	transform_mode=`grep "transform_mode" $log_file | head -n 1 | sed 's/.*=//'`
+	transform_mode=${transform_mode:='word_and_context'}
+	set +x
 fi
 
 echo Translating dev set
