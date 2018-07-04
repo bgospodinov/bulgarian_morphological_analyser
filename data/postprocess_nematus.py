@@ -88,7 +88,7 @@ if __name__ == "__main__":
         ground_f.seek(0)
 
         ground_f_lc = ground_df["word"].isnull().sum()
-
+        print("{} ? {}".format(pred_f_lc, ground_f_lc), file=sys.stderr)
         assert pred_f_lc == ground_f_lc, "Number of predicted sentences must be the same as in original partition file."
 
         ground_f, pred_f = postprocess_sentence_to_sentence(ground_f, pred_f, config["TRANSFORM"]["DEFAULTS"]["TAG_BOUNDARY"])
