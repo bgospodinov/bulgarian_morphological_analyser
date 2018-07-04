@@ -321,6 +321,10 @@ def main(argv):
                                                            if ((args.mode == 'word_and_context' and args.context_unit == "char")
                                                                or (args.mode == 'sentence_to_sentence' and args.word_unit == 'char')) else "",
 
+                                                           "_n{}".format(args.bpe_operations)
+                                                           if ((args.mode == 'word_and_context' and args.context_unit == "bpe")
+                                                               or (args.mode == 'sentence_to_sentence' and args.word_unit == 'bpe')) else "",
+
                                                            "_ct" if args.context_tags == 'left' else "",
 
                                                            ".{}".format(args.transform_appendix) if args.transform_appendix else "")

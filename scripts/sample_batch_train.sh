@@ -18,7 +18,7 @@ do
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
 
-		state_size=$attr seed=$run transform_mode=word_and_context sbatch \
+		state_size=$attr seed=$run transform_mode=word_and_context --begin=now+0hour sbatch \
 			--output="logs/%x.%j.log" --error="logs/%x.%j.log" \
 			--open-mode=append \
 			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
