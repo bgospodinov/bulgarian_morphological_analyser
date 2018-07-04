@@ -214,9 +214,13 @@ echo Translating dev set
 -k 12 -n -p 1 -v
 
 if [ "$transform_mode" = "sentence_to_sentence" ] ; then
-	ground_file=${model_dir}/data/dev_score
+	set -x
+	ground_file=${model_dir}/data/dev_source
+	set +x
 else
+	set -x
 	ground_file="data/datasets/MorphoData-NewSplit/dev.txt"
+	set +x
 fi
 
 echo Postprocessing dev predictions
