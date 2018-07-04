@@ -18,8 +18,9 @@ do
 	for attr in "${attrs[@]}" ; do
 		echo Launching\ attribute=$attr
 
-		state_size=$attr seed=$run transform_mode=word_and_context --begin=now+0hour sbatch \
+		state_size=$attr seed=$run transform_mode=word_and_context sbatch \
 			--output="logs/%x.%j.log" --error="logs/%x.%j.log" \
+			--begin=now+0hour \
 			--open-mode=append \
 			--mail-type=END,FAIL --mail-user="$(whoami)@sms.ed.ac.uk" \
 			--job-name="${run}_${attr}" --partition=$( (( ${lj_pred[$iter]} == 1 )) && printf %s 'LongJobs' || printf %s 'Standard,Short' ) scripts/train.sh
