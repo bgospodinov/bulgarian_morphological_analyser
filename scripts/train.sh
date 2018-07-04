@@ -213,8 +213,14 @@ echo Translating dev set
 -o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
 -k 12 -n -p 1 -v
 
+if [ "$transform_mode" = "sentence_to_sentence" ] ; then
+	ground_file=${model_dir}/data/dev_score
+else
+	ground_file="data/datasets/MorphoData-NewSplit/dev.txt"
+fi
+
 echo Postprocessing dev predictions
-/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} data/datasets/MorphoData-NewSplit/dev.txt --${transform_mode} > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} $ground_file --${transform_mode} > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
 /usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
