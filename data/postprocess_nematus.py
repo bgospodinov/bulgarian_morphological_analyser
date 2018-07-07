@@ -78,6 +78,8 @@ def postprocess_sentence_to_sentence(ground_stream, pred_stream):
         pred_line = next(pred_stream)
 
         for word in pred_line.split("<s>"):
+            if sent_sz == 0:
+                break
             word = word.strip()
             pred_buffer.write(word + '\n')
             sent_sz -= 1
