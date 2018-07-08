@@ -56,11 +56,17 @@ if __name__ == "__main__":
 
     def print_and_list_results(match):
         res = []
+        if match.empty:
+            return res
         for metric in ["lemma", "tag", "joint"]:
             res_bins = match["{}_match".format(metric)].value_counts(normalize=True).sort_index(ascending=False)
-            res.append(str(round(res_bins[True], 5)))
+            if True in res_bins:
+                res.append(str(round(res_bins[True], 5)))
+            else:
+                res.append(0)
             print(res_bins, file=sys.stderr)
         # prediction_match[prediction_match["joint_match"] == False]
+        print("{} number of tokens".format(match.shape[0]), file=sys.stderr)
         return res
 
     excel_results = []
@@ -81,10 +87,10 @@ if __name__ == "__main__":
     excel_results.extend(print_and_list_results(prediction_match))
     print("\n", file=sys.stderr)
 
-    print("Unseen tokens", file=sys.stderr)
+    print("Predicting unseen tokens", file=sys.stderr)
     training_words = dfs["training"]["word"].unique()
-    prediction_match['seen'] = prediction_match.apply(lambda row: row.word_prediction in training_words, axis=1)
-    excel_results.extend(print_and_list_results(prediction_match[prediction_match['seen'] == False]))
+    prediction_match['seen_word'] = prediction_match.apply(lambda row: row.word_truth in training_words, axis=1)
+    excel_results.extend(print_and_list_results(prediction_match[prediction_match['seen_word'] == False]))
     print("\n", file=sys.stderr)
 
     print("Ambiguous tokens", file=sys.stderr)
@@ -99,6 +105,20 @@ if __name__ == "__main__":
     print(", ".join(excel_results))
 
     print("Error analysis".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]), file=sys.stderr)
+    # how many times did the model manage to predict tags unseen during training
+    print("Predicting unseen tags [IGNORED IN RESULTS]", file=sys.stderr)
+    training_tags = dfs["training"]["tag"].unique()
+    prediction_match['seen_tag'] = prediction_match.apply(lambda row: row.tag_truth in training_tags, axis=1)
+    print_and_list_results(prediction_match[prediction_match['seen_tag'] == False])
+    print("\n", file=sys.stderr)
+
+    # how many times did the model predict tags that didnt exist in reality
+    print("Predicted non-existent tags [IGNORED IN RESULTS]", file=sys.stderr)
+    ground_tags = dfs["ground"]["tag"].unique()
+    prediction_match['existent_tag'] = prediction_match.apply(lambda row: row.tag_prediction in training_tags or row.tag_prediction in ground_tags, axis=1)
+    print_and_list_results(prediction_match[prediction_match['existent_tag'] == False])
+    print("\n", file=sys.stderr)
+
     print("Tagging errors", file=sys.stderr)
     print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
     print("\n", file=sys.stderr)
