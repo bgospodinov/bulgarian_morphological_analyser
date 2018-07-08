@@ -40,9 +40,10 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 
 	# transform params
 	tag_unit=${tag_unit:=char}
+	word_unit=${word_unit:=char}
 	context_unit=${context_unit:=char}
 	context_size=${context_size:=20}
-	char_n_gram=${char_n_gram:=1}
+	char_n_gram_mode=${char_n_gram_mode:=1}
 	transform_mode=${transform_mode:=word_and_context}
 	context_tags=${context_tags:=none}
 	bpe_operations=${bpe_operations:=500}
@@ -92,11 +93,12 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--mode $transform_mode \
 		--sentence_size $sentence_size \
 		--context_tags $context_tags \
+		--word_unit $word_unit \
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \
 		--bpe_operations $bpe_operations \
 		--context_size $context_size \
-		--char_n_gram_mode $char_n_gram \
+		--char_n_gram_mode $char_n_gram_mode \
 		--transform_appendix $SLURM_JOB_ID \
 		| sed -n 1p )
 
