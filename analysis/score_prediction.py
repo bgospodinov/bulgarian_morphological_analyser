@@ -18,6 +18,7 @@ if __name__ == "__main__":
     #BTB baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground data/datasets/MorphoData-NewSplit/dev.txt
     #UD baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
     #hypertuned "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_20u_cchar_n1__30062018\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.131784"
+    # "E:\msc_backup\MorphoData-NewSplit_wchar_tword_20u_cchar_n1\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.141028"
     # for fh in ../models/MorphoData-*/*/data/dev_prediction ; do python -m score_prediction ${fh} > ${fh%/*}/dev_score ; done
 
     #mismatch test
@@ -105,6 +106,22 @@ if __name__ == "__main__":
     print(", ".join(excel_results))
 
     print("Error analysis".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"]), file=sys.stderr)
+    print("Lemmatization error statistics", file=sys.stderr)
+    print_and_list_results(prediction_match[prediction_match["lemma_match"] == False])
+    print("\n", file=sys.stderr)
+
+    print("Lemmatization error by whether a token is ambiguous (True) or not (False)", file=sys.stderr)
+    print(
+        prediction_match[(prediction_match["lemma_match"] == False)]["ambiguous"].value_counts(
+            normalize=True).sort_index(ascending=False), file=sys.stderr)
+    print("\n", file=sys.stderr)
+
+    print("Lemmatization error by whether a token is seen (True) or not (False) in training", file=sys.stderr)
+    print(
+        prediction_match[(prediction_match["lemma_match"] == False)]["seen_word"].value_counts(
+            normalize=True).sort_index(ascending=False), file=sys.stderr)
+    print("\n", file=sys.stderr)
+
     # how many times did the model manage to predict tags unseen during training
     print("Predicting unseen tags [IGNORED IN RESULTS]", file=sys.stderr)
     training_tags = dfs["training"]["tag"].unique()
@@ -120,13 +137,28 @@ if __name__ == "__main__":
     print("\n", file=sys.stderr)
 
     print("Tagging errors", file=sys.stderr)
-    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])[
+              "word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
     print("\n", file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization errors", file=sys.stderr)
-    print(prediction_match[prediction_match["lemma_match"] == False].groupby(["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    print(prediction_match[prediction_match["lemma_match"] == False].groupby(["lemma_prediction", "lemma_truth"])[
+              "word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
     print("\n", file=sys.stderr)
+
+    print("Lemmatization error among ambiguous tokens", file=sys.stderr)
+    print(
+        prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["ambiguous"] == True)].groupby(
+            ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(
+            ascending=False), file=sys.stderr)
+    print("\n", file=sys.stderr)
+
+    print("Lemmatization error among unseen tokens", file=sys.stderr)
+    print(
+        prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["seen_word"] == False)].groupby(
+            ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(
+            ascending=False), file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization errors by tags", file=sys.stderr)
