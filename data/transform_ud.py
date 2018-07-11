@@ -22,6 +22,7 @@ cols = list(config["DATASET"]["COLUMNS"].values())
 class Transformer(object):
     def __init__(self, word_unit=defaults["WORD_UNIT"],
                  tag_unit=defaults["TAG_UNIT"],
+                 tag_first=defaults["TAG_FIRST"],
                  context_size=defaults["CONTEXT_SIZE"],
                  context_char_size=None,
                  context_tags=defaults["CONTEXT_TAGS"],
@@ -32,6 +33,7 @@ class Transformer(object):
                  tag_boundary=defaults["TAG_BOUNDARY"],
                  subword_separator=defaults["SUBWORD_SEPARATOR"]):
         self.tag_unit = tag_unit
+        self.tag_first = tag_first
         self.tag_boundary = tag_boundary
         self.example_boundary = example_boundary
         self.subword_separator = subword_separator
@@ -87,6 +89,7 @@ class Transformer(object):
             left_context = self.compute_context(lhs_df)
 
             # adds tags to lhs if necessary
+            # TODO: support for tag_first in context_tags
             if self.context_tags == "left" and left_context:
                 start = 0
                 tag_idx = lhs_df.shape[0] - 1
@@ -147,17 +150,26 @@ class Transformer(object):
             target_lemma = lemma_clean
             target_tag = row["tag"]
 
+            if self.tag_first:
+                if self.tag_unit == 'word':
+                    target_line.append(target_tag)
+                else:
+                    target_line.extend(target_tag)
+
+                target_line.append(self.tag_boundary)
+
             if self.word_unit == 'word':
                 target_line.append(target_lemma)
             else:
                 target_line.extend(target_lemma)
 
-            target_line.append(self.tag_boundary)
+            if not self.tag_first:
+                target_line.append(self.tag_boundary)
 
-            if self.tag_unit == 'word':
-                target_line.append(target_tag)
-            else:
-                target_line.extend(target_tag)
+                if self.tag_unit == 'word':
+                    target_line.append(target_tag)
+                else:
+                    target_line.extend(target_tag)
 
             if self.example_boundary is not None:
                 target_line.append(self.close_tag)
@@ -255,6 +267,8 @@ def main(argv):
                            type=int, default=defaults["CHAR_N_GRAM"])
     repr_group.add_argument("--sentence_size", help="maximum size of sentence in sentence_to_sentence mode",
                            type=int, default=argparse.SUPPRESS)
+    repr_group.add_argument('--tag_first', action='store_true', help="if true tags will be printed before "
+                                                                     "words in source and target files")
 
     ctx_group = parser.add_argument_group('context')
     ctx_group.add_argument("--context_size",
@@ -311,7 +325,7 @@ def main(argv):
     # determining output
     if not args.debug:
         if args.output is None or (type(args.output) is list and len(args.output) == 1):
-            transform_folder = "{}_{}_{}{}{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
+            transform_folder = "{}_{}_{}{}{}{}{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
 
                                                            ("_" + ((str(args.context_size) + "u") if not hasattr(args, 'context_char_size') else (str(args.context_char_size) + "ch")))
                                                            if args.mode == 'word_and_context' else "",
@@ -327,6 +341,8 @@ def main(argv):
                                                                or (args.mode == 'sentence_to_sentence' and args.word_unit == 'bpe')) else "",
 
                                                            "_ct" if args.context_tags == 'left' else "",
+
+                                                           "_tf" if args.tag_first else "",
 
                                                            "_cs{}".format(args.context_span) if args.mode == 'word_and_context' else "",
 
@@ -422,7 +438,7 @@ def main(argv):
         sentence_dfs = []
         transformer_args = {'word_unit': args.word_unit, 'tag_unit': args.tag_unit, 'context_size': args.context_size,
                             'context_char_size': args.context_char_size if hasattr(args, 'context_char_size') else None,
-                            'context_tags': args.context_tags,
+                            'context_tags': args.context_tags, 'tag_first': args.tag_first,
                             'left_context_boundary': args.left_context_boundary, 'tag_boundary': args.tag_boundary,
                             'right_context_boundary': args.right_context_boundary, 'word_boundary': args.word_boundary,
                             'example_boundary': args.example_boundary, 'subword_separator': args.subword_separator}
@@ -488,12 +504,19 @@ def main(argv):
                 output_source_line.extend(subwords)
                 output_source_line.append(args.word_boundary)
 
-                output_target_line.extend(lemma)
-                output_target_line.append(args.tag_boundary)
+                if not args.tag_first:
+                    output_target_line.extend(lemma)
+                    output_target_line.append(args.tag_boundary)
+
                 if args.tag_unit == "word":
                     output_target_line.append(tag)
                 else:
                     output_target_line.extend(tag)
+
+                if args.tag_first:
+                    output_target_line.append(args.tag_boundary)
+                    output_target_line.extend(lemma)
+
                 output_target_line.append(args.word_boundary)
 
                 # if the target translation overflows (target sentence is guaranteed to be longer in size)

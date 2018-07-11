@@ -17,6 +17,7 @@
 			"CONTEXT_UNIT": "char",
             "WORD_UNIT": "char",
 			"TAG_UNIT": "char",
+			"TAG_FIRST": false,
 			"MODE": "word_and_context",
 			"PRINT_FILE": "source",
             "CHAR_N_GRAM": 1,
