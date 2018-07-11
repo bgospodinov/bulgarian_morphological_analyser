@@ -42,6 +42,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	tag_unit=${tag_unit:=char}
 	word_unit=${word_unit:=char}
 	context_unit=${context_unit:=char}
+	context_span=${context_span:=0}
 	context_size=${context_size:=20}
 	char_n_gram_mode=${char_n_gram_mode:=1}
 	transform_mode=${transform_mode:=word_and_context}
@@ -93,6 +94,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--mode $transform_mode \
 		--sentence_size $sentence_size \
 		--context_tags $context_tags \
+		--context_span $context_span \
 		--word_unit $word_unit \
 		--tag_unit $tag_unit \
 		--context_unit $context_unit \

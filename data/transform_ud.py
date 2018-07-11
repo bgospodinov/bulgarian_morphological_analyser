@@ -9,6 +9,7 @@ import sys
 import os
 import pandas as pd
 import re
+import logging
 from itertools import accumulate
 from bisect import bisect
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -327,6 +328,8 @@ def main(argv):
 
                                                            "_ct" if args.context_tags == 'left' else "",
 
+                                                           "_cs{}".format(args.context_span) if args.mode == 'word_and_context' else "",
+
                                                            ".{}".format(args.transform_appendix) if args.transform_appendix else "")
 
             if args.output is None or not args.output or '' in args.output:
@@ -431,9 +434,21 @@ def main(argv):
             sentence_dfs.append(infile_df.loc[sentence_start:sentence_end - 1])
             sentence_start = sentence_end + 1
 
-        for sentence_df in sentence_dfs:
-            # TODO: add additional context according to CONTEXT_SPAN to line before passing it below
-            output_source_lines, output_target_lines = transformer.process_sentence(sentence_df)
+        for sentence_df_idx, sentence_df in enumerate(sentence_dfs):
+            # adds additional context according to CONTEXT_SPAN to sentence below
+            lc_df = pd.DataFrame()
+            rc_df = pd.DataFrame()
+
+            if args.context_span > 0:
+                lc_df_ls = sentence_dfs[max(sentence_df_idx - args.context_span, 0):sentence_df_idx]
+                if lc_df_ls:
+                    lc_df = pd.concat(lc_df_ls)
+
+                rc_df_ls = sentence_dfs[sentence_df_idx + 1:min(sentence_df_idx + 1 + args.context_span, len(sentence_dfs) - 1)]
+                if rc_df_ls:
+                    rc_df = pd.concat(rc_df_ls)
+
+            output_source_lines, output_target_lines = transformer.process_sentence(sentence_df, lc_df, rc_df)
 
             if args.debug:
                 if args.print_file == 'source':
@@ -544,4 +559,6 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    level = logging.DEBUG
+    logging.basicConfig(level=level, format='%(asctime)s %(levelname)s: %(message)s')
     main(sys.argv[1:])
