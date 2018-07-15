@@ -327,7 +327,7 @@ def main(argv):
         if args.output is None or (type(args.output) is list and len(args.output) == 1):
             transform_folder = "{}_{}_{}{}{}{}{}{}{}{}{}".format(input_folder, "w" + args.word_unit, "t" + args.tag_unit,
 
-                                                           ("_" + ((str(args.context_size) + "u") if not hasattr(args, 'context_char_size') else (str(args.context_char_size) + "ch")))
+                                                           ("_" + (("{:02d}u".format(args.context_size)) if not hasattr(args, 'context_char_size') else (str(args.context_char_size) + "ch")))
                                                            if args.mode == 'word_and_context' else "",
 
                                                            ("_" + ("c" + args.context_unit)) if args.mode == "word_and_context" else "",
