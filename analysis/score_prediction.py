@@ -51,8 +51,14 @@ if __name__ == "__main__":
     spyder_result = {}
 
     for partition in ["training", "ground"]:
-        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))\
+        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', skip_blank_lines=(partition != "ground"), names=cols, usecols=args.dataset_cols))\
             .reset_index()
+
+    # add end-of-sentence column to ground truth table
+    dfs["ground"]["eos"] = dfs["ground"]["word"].shift(-1).isnull()
+    dfs["ground"].drop("index", axis=1, inplace=True)
+    dfs["ground"].dropna(inplace=True)
+    dfs["ground"] = dfs["ground"].reset_index()
 
     dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols, usecols=args.prediction_cols)
 
