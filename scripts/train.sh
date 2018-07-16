@@ -71,6 +71,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	valid_freq=${valid_freq:=3000}
 	batch_size=${batch_size:=60}
 	valid_batch_size=${valid_batch_size:=60}
+	beam_size=${beam_size:=12}
 	
 
 	set +x
@@ -161,6 +162,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	--translation_maxlen $translation_maxlen \
 	--dispFreq 100 \
 	--sampleFreq 100 \
+	--beam_size ${beam_size} \
 	--batch_size $batch_size \
 	--valid_batch_size $valid_batch_size \
 	--use_dropout \
@@ -217,7 +219,7 @@ echo Translating dev set
 -m ${model_dir}/${SLURM_JOB_ID}/model.npz \
 -i ${model_dir}/data/dev_source \
 -o ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} \
--k 12 -n -p 1 -v
+-k 0 -n -p 1 -v
 
 if [ "$transform_mode" = "sentence_to_sentence" ] ; then
 	set -x
