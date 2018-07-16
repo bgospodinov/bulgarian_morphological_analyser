@@ -1,8 +1,9 @@
 logs/
 *.out
 /data/*
-!/data/MorphoData-NewSplit/
-!/data/UD_Bulgarian-BTB/
+!/data/datasets/MorphoData-NewSplit/
+!/data/datasets/UD_Bulgarian-BTB/
+!/data/results/
 !/data/*.py
 /models/*
 baselines/lematus/*

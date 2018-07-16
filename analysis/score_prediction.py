@@ -43,6 +43,7 @@ if __name__ == "__main__":
     parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)",
                         nargs='+', type=int, default=[0, 1, 2])
     parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
+    parser.add_argument('--pickle', action='store_true')
     parser.add_argument("--job_name", help="job name when exporting", type=str)
     args = parser.parse_args()
 
@@ -171,25 +172,26 @@ if __name__ == "__main__":
     print("\n", file=sys.stderr)
     print("\n", file=sys.stderr)
 
-    # for easy exporting of spyder data
-    try:
-        prediction_matches
-    except NameError:
-        prediction_matches = {}
+    if args.pickle:
+        # for easy exporting of spyder data
+        try:
+            prediction_matches
+        except NameError:
+            prediction_matches = {}
 
-    try:
-        spyder_results
-    except NameError:
-        spyder_results = {}
+        try:
+            spyder_results
+        except NameError:
+            spyder_results = {}
 
-    if args.job_name:
-        job_name = args.job_name
-    else:
-        prediction_path_split = args.prediction.split("prediction.")
-        if len(prediction_path_split) == 2:
-            job_name = prediction_path_split[-1]
+        if args.job_name:
+            job_name = args.job_name
         else:
-            job_name = "dev"
+            prediction_path_split = args.prediction.split("prediction.")
+            if len(prediction_path_split) == 2:
+                job_name = prediction_path_split[-1]
+            else:
+                job_name = "dev"
 
-    prediction_matches[job_name] = prediction_match
-    spyder_results[job_name] = spyder_result
+        prediction_matches[job_name] = prediction_match
+        spyder_results[job_name] = spyder_result
