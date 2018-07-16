@@ -17,7 +17,8 @@ if __name__ == "__main__":
 
     #BTB baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground data/datasets/MorphoData-NewSplit/dev.txt
     #UD baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
-    #hypertuned "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_20u_cchar_n1__30062018\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.131784"
+    #hypertune_word_and_context "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_20u_cchar_n1__30062018\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.131784"
+    #context_word_and_context "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_10u_cbpe_n5000\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.137598"
     # "E:\msc_backup\MorphoData-NewSplit_wchar_tword_20u_cchar_n1\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.141028"
     # for fh in ../models/MorphoData-*/*/data/dev_prediction ; do python -m score_prediction ${fh} > ${fh%/*}/dev_score ; done
 
@@ -42,9 +43,11 @@ if __name__ == "__main__":
     parser.add_argument("--prediction_cols", help="list of column indices to read from prediction file (order doesnt matter)",
                         nargs='+', type=int, default=[0, 1, 2])
     parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
+    parser.add_argument("--job_name", help="job name when exporting", type=str)
     args = parser.parse_args()
 
     dfs = {}
+    spyder_result = {}
 
     for partition in ["training", "ground"]:
         dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', names=cols, usecols=args.dataset_cols))\
@@ -111,58 +114,82 @@ if __name__ == "__main__":
     print("\n", file=sys.stderr)
 
     print("Lemmatization error by whether a token is ambiguous (True) or not (False)", file=sys.stderr)
-    print(
-        prediction_match[(prediction_match["lemma_match"] == False)]["ambiguous"].value_counts(
-            normalize=True).sort_index(ascending=False), file=sys.stderr)
+    spyder_result["lemma_error_by_ambiguity_stats"] = prediction_match[(prediction_match["lemma_match"] == False)]["ambiguous"].value_counts(normalize=True).sort_index(ascending=False)
+    print(spyder_result["lemma_error_by_ambiguity_stats"], file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization error by whether a token is seen (True) or not (False) in training", file=sys.stderr)
-    print(
-        prediction_match[(prediction_match["lemma_match"] == False)]["seen_word"].value_counts(
-            normalize=True).sort_index(ascending=False), file=sys.stderr)
+    spyder_result["lemma_error_by_seen_stats"] = prediction_match[(prediction_match["lemma_match"] == False)]["seen_word"].value_counts(normalize=True).sort_index(ascending=False)
+    print(spyder_result["lemma_error_by_seen_stats"], file=sys.stderr)
     print("\n", file=sys.stderr)
 
     # how many times did the model manage to predict tags unseen during training
     print("Predicting unseen tags [IGNORED IN RESULTS]", file=sys.stderr)
     training_tags = dfs["training"]["tag"].unique()
     prediction_match['seen_tag'] = prediction_match.apply(lambda row: row.tag_truth in training_tags, axis=1)
-    print_and_list_results(prediction_match[prediction_match['seen_tag'] == False])
+    spyder_result["unseen_tag"] = prediction_match[prediction_match['seen_tag'] == False]
+    print_and_list_results(spyder_result["unseen_tag"])
     print("\n", file=sys.stderr)
 
     # how many times did the model predict tags that didnt exist in reality
     print("Predicted non-existent tags [IGNORED IN RESULTS]", file=sys.stderr)
     ground_tags = dfs["ground"]["tag"].unique()
     prediction_match['existent_tag'] = prediction_match.apply(lambda row: row.tag_prediction in training_tags or row.tag_prediction in ground_tags, axis=1)
-    print_and_list_results(prediction_match[prediction_match['existent_tag'] == False])
+    spyder_result["existent_tag"] = prediction_match[prediction_match['existent_tag'] == False]
+    print_and_list_results(spyder_result["existent_tag"])
     print("\n", file=sys.stderr)
 
     print("Tagging errors", file=sys.stderr)
-    print(prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])[
-              "word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    spyder_result["tag_error"] = prediction_match[prediction_match["tag_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"]\
+        .count().sort_index(ascending=True).sort_values(ascending=False)
+    print(spyder_result["tag_error"], file=sys.stderr)
     print("\n", file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization errors", file=sys.stderr)
-    print(prediction_match[prediction_match["lemma_match"] == False].groupby(["lemma_prediction", "lemma_truth"])[
-              "word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    spyder_result["lemma_error"] = prediction_match[prediction_match["lemma_match"] == False].groupby(["lemma_prediction", "lemma_truth"])["word_prediction"]\
+                                        .count().sort_index(ascending=True).sort_values(ascending=False)
+    print(spyder_result["lemma_error"], file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization error among ambiguous tokens", file=sys.stderr)
-    print(
-        prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["ambiguous"] == True)].groupby(
-            ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(
-            ascending=False), file=sys.stderr)
+    spyder_result["lemma_error_by_ambiguity"] = prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["ambiguous"] == True)].groupby(
+        ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False)
+    print(spyder_result["lemma_error_by_ambiguity"], file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization error among unseen tokens", file=sys.stderr)
-    print(
-        prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["seen_word"] == False)].groupby(
-            ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(
-            ascending=False), file=sys.stderr)
+    spyder_result["lemma_error_by_seen"] = prediction_match[(prediction_match["lemma_match"] == False) & (prediction_match["seen_word"] == False)].groupby(
+        ["lemma_prediction", "lemma_truth"])["word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False)
+    print(spyder_result["lemma_error_by_seen"], file=sys.stderr)
     print("\n", file=sys.stderr)
 
     print("Lemmatization errors by tags", file=sys.stderr)
-    print(prediction_match[prediction_match["lemma_match"] == False].groupby(["tag_prediction", "tag_truth"])[
-              "word_prediction"].count().sort_index(ascending=True).sort_values(ascending=False), file=sys.stderr)
+    spyder_result["lemma_error_by_tag"] = prediction_match[prediction_match["lemma_match"] == False].groupby(["tag_prediction", "tag_truth"])["word_prediction"]\
+                                               .count().sort_index(ascending=True).sort_values(ascending=False)
+    print(spyder_result["lemma_error_by_tag"], file=sys.stderr)
     print("\n", file=sys.stderr)
     print("\n", file=sys.stderr)
+
+    # for easy exporting of spyder data
+    try:
+        prediction_matches
+    except NameError:
+        prediction_matches = {}
+
+    try:
+        spyder_results
+    except NameError:
+        spyder_results = {}
+
+    if args.job_name:
+        job_name = args.job_name
+    else:
+        prediction_path_split = args.prediction.split("prediction.")
+        if len(prediction_path_split) == 2:
+            job_name = prediction_path_split[-1]
+        else:
+            job_name = "dev"
+
+    prediction_matches[job_name] = prediction_match
+    spyder_results[job_name] = spyder_result
