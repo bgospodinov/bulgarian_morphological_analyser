@@ -31,6 +31,7 @@ if __name__ == "__main__":
                             type=str, 
                             default="{}.txt".format(partition))
     parser.add_argument('--no_postprocessing', dest='postprocess', action='store_false')
+    parser.add_argument('--unknown_tag', help="default tag to use in naive baseline if lemma is unknown", type=str, default=None)
 
     args = parser.parse_args()
     
@@ -64,7 +65,9 @@ if __name__ == "__main__":
 
         partition_types[partition] = types
     del types, partition
-    
+
+    tag_frequency = partition_dfs["all_tokens"]["training"].groupby(["tag"]).count()["word"].sort_values(ascending=False)
+
     print(" Dataset statistics ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print(("{:<20}" * 5).format("", "Word tokens", *["{} types".format(c).capitalize() for c in cols]))
     
@@ -135,7 +138,7 @@ if __name__ == "__main__":
     # naive baseline
     print(" Naive baseline ".upper().center(config["PPRINT"]["TITLE_LENGTH"], config["PPRINT"]["TITLE_CH"],))
     print("1) Assign each word form the most frequent lemma from the training set; otherwise assume every wordform is its own lemma.")
-    print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; unknowns are wrong.")
+    print("2) Assign each word type the POS tag it was most frequently seen with in the training dataset; unknowns words are assigned the {} tag.".format(args.unknown_tag or "unknown"))
     print("\n")
     
     # memoized baseline MFT tags and lemmata
@@ -170,6 +173,9 @@ if __name__ == "__main__":
                         if c == config["DATASET"]["COLUMNS"]["LEMMA"]:
                             # interpolating lemmata
                             y_pred[c] = y_pred[c].fillna(y_pred[config["DATASET"]["COLUMNS"]["WORD"]])
+                        elif args.unknown_tag and c == config["DATASET"]["COLUMNS"]["TAG"]:
+                            # interpolating tags
+                            y_pred[c] = y_pred[c].fillna(args.unknown_tag)
 
                         pred_mask = (y_pred[c] == y_test)
                         acc.append(1 - pred_mask.value_counts(normalize=True).loc[False])
