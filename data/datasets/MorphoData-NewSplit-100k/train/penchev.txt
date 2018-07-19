@@ -1,0 +1,5683 @@
+
+1	Върна	върна-(се)	Vpptf-o2s
+2	ли	ли	Ti
+3	книгата	книга	Ncfsd
+4	на	на	R
+5	Петър	петър	Npmsi
+6	?	?	punct
+
+1	-	-	punct
+2	Върнах	върна-(се)	Vpptf-o1s
+3	я	аз	Ppetas3f
+4	.	.	punct
+
+1	Върна	върна-(се)	Vpptf-o2s
+2	ли	ли	Ti
+3	книгата	книга	Ncfsd
+4	на	на	R
+5	Петър	петър	Npmsi
+6	?	?	punct
+
+1	-	-	punct
+2	Върнах	върна-(се)	Vpptf-o1s
+3	я	аз	Ppetas3f
+4	.	.	punct
+
+1	Истината	истина	Ncfsd
+2	е	съм	Vxitf-r3s
+3	,	,	punct
+4	че	че	Cs
+5	има	има	Vnitf-r3s
+6	друг	друг	Amsi
+7	.	.	punct
+
+1	Къде	къде	Pil
+2	си	съм	Vxitf-r2s
+3	?	?	punct
+
+1	-	-	punct
+2	Тук	там	Pdl
+3	съм	съм	Vxitf-r1s
+4	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	е	съм	Vxitf-r3s
+3	?	?	punct
+
+1	-	-	punct
+2	Аз	аз	Ppe-os1
+3	съм	съм	Vxitf-r1s
+4	.	.	punct
+
+1	Не	не	Tn
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	мислеше	мисля	Vpitf-m3s
+5	повече	повече	Md--i
+6	.	.	punct
+
+1	Узнах	узная	Vpptf-o1s
+2	новината	новина	Ncfsd
+3	от	от	R
+4	него	аз	Ppelas3m
+5	.	.	punct
+
+1	Узнах	узная	Vpptf-o1s
+2	новината	новина	Ncfsd
+3	от	от	R
+4	него	аз	Ppelas3m
+5	.	.	punct
+
+1	Не	не	Tn
+2	знам	знам	Vpiif-r1s
+3	кого	кой	Pie-as-m
+4	да	да	Tx
+5	питам	питам-(се)	Vpitf-r1s
+6	.	.	punct
+
+1	Не	не	Tn
+2	е	съм	Vxitf-r3s
+3	да	да	Tx
+4	не	не	Tn
+5	съм	съм	Vxitf-r1s
+6	знаел	знам	Vpiicam-smi
+7	.	.	punct
+
+1	Стори	сторя-(се)	Vpptf-o3s
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	,	,	punct
+5	че	че	Cs
+6	той	аз	Ppe-os3m
+7	е	съм	Vxitf-r3s
+8	един	един	Pfe-os-mi
+9	приятел	приятел	Ncmsi
+10	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	чел	чета	Vpitcao-smi
+4	всички	всеки	Pce-op
+5	нейни	мой	Psol-p3-if
+6	книги	книга	Ncfpi
+7	.	.	punct
+
+1	Връзка	връзка	Ncfsi
+2	лук	лук	Ncmsi
+3	струва	струвам	Vpiif-r3s
+4	два	два	Mcmpi
+5	лева	лев	Ncmt
+6	.	.	punct
+
+1	Там	там	Pdl
+2	имаше	имам	Vnitf-m3s
+3	повече	повече	Md--i
+4	студенти	студент	Ncmpi
+5	отколкото	колкото	Prq
+6	студентки	студентка	Ncfpi
+7	.	.	punct
+
+1	Не	не	Tn
+2	е	съм	Vxitf-r3s
+3	както	както	Prm
+4	ти	аз	Ppe-os2
+5	мислиш	мисля	Vpitf-r2s
+6	.	.	punct
+
+1	Казват	казвам-(се)	Vpitf-r3p
+2	,	,	punct
+3	че	че	Cs
+4	им	аз	Ppetdp3
+5	се	се	Ppxta
+6	помага	помагам	Vpiif-r3s
+7	.	.	punct
+
+1	Кажи	кажа	Vpptz--2s
+2	й	аз	Ppetds3f
+3	нещо	някой	Pfe-os-ni
+4	,	,	punct
+5	което	който	Pre-os-n
+6	да	да	Tx
+7	я	аз	Ppetas3f
+8	зарадва	зарадвам-(се)	Vpptf-r3s
+9	.	.	punct
+
+1	Трудно	трудно	Dm
+2	е	съм	Vxitf-r3s
+3	да	да	Tx
+4	я	аз	Ppetas3f
+5	накараш	накарам-(се)	Vpptf-r2s
+6	да	да	Tx
+7	признае	призная-(се)	Vpptf-r3s
+8	.	.	punct
+
+1	Видях	видя-(се)	Vpptf-o1s
+2	него	аз	Ppelas3m
+3	и	и	Cp
+4	нея	аз	Ppelas3f
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	не	не	Tn
+3	ГОВОРИ	говоря	Vpitf-r3s
+4	само	само	Dd
+5	за	за	R
+6	тебе	аз	Ppelas2
+7	.	.	punct
+
+1	Спря	спра-(се)	Vpptf-o3s
+2	ме	аз	Ppetas1
+3	един	един	Pfe-os-mi
+4	непознат	непознат	Amsi
+5	човек	човек	Ncmsi
+6	.	.	punct
+
+1	Един	един	Pfe-os-mi
+2	непознат	непознат	Amsi
+3	човек	човек	Ncmsi
+4	ме	аз	Ppetas1
+5	спря	спра-(се)	Vpptf-o3s
+6	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	не	не	Tn
+4	съм	съм	Vxitf-r1s
+5	му	аз	Ppetds3m
+6	го	аз	Ppetas3m
+7	давал	давам-(се)	Vpitcao-smi
+8	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	не	не	Tn
+4	му	аз	Ppetds3m
+5	го	аз	Ppetas3m
+6	бях	съм	Vxitf-t1s
+7	дал	дам-(се)	Vpptcao-smi
+8	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	не	не	Tn
+4	бях	съм	Vxitf-t1s
+5	му	аз	Ppetds3m
+6	го	аз	Ppetas3m
+7	дал	дам-(се)	Vpptcao-smi
+8	.	.	punct
+
+1	Искаше	искам	Vnitf-m3s
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	да	да	Tx
+5	му	аз	Ppetds3m
+6	бях	съм	Vxitf-t1s
+7	веднага	веднага	Dt
+8	казал	кажа	Vpptcao-smi
+9	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	да	да	Tx
+3	съм	съм	Vxitf-r1s
+4	заминал	замина	Vpptcao-smi
+5	.	.	punct
+
+1	Предпочитах	предпочитам	Vpitf-m1s
+2	да	да	Tx
+3	бях	съм	Vxitf-t1s
+4	му	аз	Ppetds3m
+5	го	аз	Ppetas3m
+6	давал	давам-(се)	Vpitcao-smi
+7	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	съм	съм	Vxitf-r1s
+4	му	аз	Ppetds3m
+5	го	аз	Ppetas3m
+6	давал	давам-(се)	Vpitcao-smi
+7	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	му	аз	Ppetds3m
+4	го	аз	Ppetas3m
+5	бях	съм	Vxitf-t1s
+6	дал	дам-(се)	Vpptcao-smi
+7	.	.	punct
+
+1	Предпочитам	предпочитам	Vpitf-r1s
+2	да	да	Tx
+3	бях	съм	Vxitf-t1s
+4	му	аз	Ppetds3m
+5	го	аз	Ppetas3m
+6	дал	дам-(се)	Vpptcao-smi
+7	.	.	punct
+
+1	Забравих	забравя-(се)	Vpptf-o1s
+2	да	да	Tx
+3	искам	искам	Vpitf-r1s
+4	това	този	Pde-os-n
+5	.	.	punct
+
+1	Забравих	забравя-(се)	Vpptf-o1s
+2	,	,	punct
+3	че	че	Cs
+4	искам	искам	Vpitf-r1s
+5	това	този	Pde-os-n
+6	.	.	punct
+
+1	Историята	история	Ncfsd
+2	ми	аз	Ppetds1
+3	е	съм	Vxitf-r3s
+4	позната	познат	Afsi
+5	.	.	punct
+
+1	Надявах	надявам-се	Vpiif-m1s
+2	се	се	Ppxta
+3	да	да	Tx
+4	каже	кажа	Vpptf-r3s
+5	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	кажа	кажа	Vpptf-r1s
+4	кой	кой	Pie-os-m
+5	да	да	Tx
+6	остане	остана	Vppif-r3s
+7	.	.	punct
+
+1	Надявах	надявам-се	Vpiif-m1s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	щеше	ща	Vpitf-m3s
+6	да	да	Tx
+7	каже	кажа	Vpptf-r3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	щеше	ща	Vpitf-m3s
+3	да	да	Tx
+4	каже	кажа	Vpptf-r3s
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	нямаше	нямам	Vnitf-m3s
+3	да	да	Tx
+4	каже	кажа	Vpptf-r3s
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	щя	ща	Vpitf-o3s
+3	да	да	Tx
+4	каже	кажа	Vpptf-r3s
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	поиска	поискам	Vpptf-o3s
+3	да	да	Tx
+4	каже	кажа	Vpptf-r3s
+5	.	.	punct
+
+1	Знам	знам	Vpiif-r1s
+2	кого	кой	Pie-as-m
+3	да	да	Tx
+4	повикам	повикам	Vpptf-r1s
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	не	не	Tn
+3	щя	ща	Vpitf-o3s
+4	да	да	Tx
+5	каже	кажа	Vpptf-r3s
+6	.	.	punct
+
+1	Да	да	Tx
+2	беше	съм	Vxitf-t2s
+3	му	аз	Ppetds3m
+4	се	се	Ppxta
+5	обадил	обадя-(се)	Vpptcao-smi
+6	.	.	punct
+
+1	Да	да	Tx
+2	беше	съм	Vxitf-t2s
+3	му	аз	Ppetds3m
+4	се	се	Ppxta
+5	обадил	обадя-(се)	Vpptcao-smi
+6	,	,	punct
+7	може	може	Vniif-r3s
+8	би	съм	Vxitu-o3s
+9	щеше	ща	Vpitf-m3s
+10	да	да	Tx
+11	разбере	разбера-(се)	Vpptf-r3s
+12	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	си	съм	Vxitf-r2s
+3	правил	правя-(се)	Vpitcao-smi
+4	през	през	R
+5	всичките	всичкия	Pcq--p--d
+6	тези	този	Pde-op
+7	години	година	Ncfpi
+8	?	?	punct
+
+1	Целият	цял	Amsf
+2	този	този	Pde-os-m
+3	шум	шум	Ncmsi
+4	беше	съм	Vxitf-t3s
+5	излишен	излишен	Amsi
+6	.	.	punct
+
+1	Вземи	взема	Vpptz--2s
+2	писмото	писмо	Ncnsd
+3	на	на	R
+4	масата	маса	Ncfsd
+5	.	.	punct
+
+1	Петте	пет	Mc-pd
+2	книги	книга	Ncfpi
+3	изгоряха	изгоря	Vppif-o3p
+4	всичките	всичкия	Pcq--p--d
+5	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	всички	всеки	Pce-op
+3	чакаха	чакам	Vpitf-m3p
+4	вече	вече	Dt
+5	дълго	дълго	Dq
+6	.	.	punct
+
+1	Всичките	всичкия	Pcq--p--d
+2	пет	пет	Mc-pi
+3	книги	книга	Ncfpi
+4	изгоряха	изгоря	Vppif-o3p
+5	.	.	punct
+
+1	Хора	хора	Nc-li
+2	много	много	Md--i
+3	дойдоха	дойда	Vppif-o3p
+4	тогава	тогава	Pdt
+5	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	чел	чета	Vpitcao-smi
+4	всичките	всичкия	Pcq--p--d
+5	нейни	мой	Psol-p3-if
+6	книги	книга	Ncfpi
+7	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	изяде	изям-(се)	Vpptf-o3s
+3	всичкото	всичкия	Pcq--s-nd
+4	синьо	син	Ansi
+5	сирене	сирене	Ncnsi
+6	.	.	punct
+
+1	Едно	един	Pfe-os-ni
+2	негово	мой	Psol-s3nim
+3	забравяне	забравяне	Ncnsi
+4	на	на	R
+5	своите	свой	Psxlop--d
+6	задължения	задължение	Ncnpi
+7	му	мой	Ppetds3m
+8	навреди	навредя	Vppif-o3s
+9	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	е	съм	Vxitf-r3s
+3	за	за	R
+4	тебе	аз	Ppelas2
+5	от	от	R
+6	нас	аз	Ppelap1
+7	.	.	punct
+
+1	Стори	сторя-(се)	Vpptf-o3s
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	,	,	punct
+5	че	че	Cs
+6	е	съм	Vxitf-r3s
+7	един	един	Pfe-os-mi
+8	приятел	приятел	Ncmsi
+9	.	.	punct
+
+1	Взех	взема	Vpptf-o1s
+2	нещо	някой	Pfe-os-ni
+3	за	за	R
+4	един	един	Pfe-os-mi
+5	приятел	приятел	Ncmsi
+6	.	.	punct
+
+1	Взех	взема	Vpptf-o1s
+2	те	аз	Ppetas2
+3	за	за	R
+4	директора	директор	Ncmsh
+5	.	.	punct
+
+1	Плати	платя	Vpptf-o3s
+2	ли	ли	Ti
+3	?	?	punct
+
+1	-	-	punct
+2	Платих	платя	Vpptf-o1s
+3	.	.	punct
+
+1	Ще	ще	Tx
+2	те	аз	Ppetas2
+3	питам	питам-(се)	Vpitf-r1s
+4	нещо	някой	Pfe-os-ni
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	вероятно	вероятно	Dd
+4	да	да	Tx
+5	замине	замина	Vpptf-r3s
+6	.	.	punct
+
+1	Вероятно	вероятно	Dd
+2	е	съм	Vxitf-r3s
+3	той	аз	Ppe-os3m
+4	да	да	Tx
+5	замине	замина	Vpptf-r3s
+6	.	.	punct
+
+1	Не	не	Tn
+2	бива	бива	Vnitf-r3s
+3	ти	аз	Ppe-os2
+4	да	да	Tx
+5	оставаш	оставам	Vpiif-r2s
+6	.	.	punct
+
+1	Може	може	Vniif-r3s
+2	ти	аз	Ppe-os2
+3	да	да	Tx
+4	заминеш	замина	Vpptf-r2s
+5	.	.	punct
+
+1	Трябва	трябва	Vniif-r3s
+2	да	да	Tx
+3	можеш	мога	Vpiif-r2s
+4	да	да	Tx
+5	продължиш	продължа	Vpptf-r2s
+6	да	да	Tx
+7	бягаш	бягам	Vpiif-r2s
+8	.	.	punct
+
+1	Трябва	трябва	Vniif-r3s
+2	ти	аз	Ppe-os2
+3	да	да	Tx
+4	заминеш	замина	Vpptf-r2s
+5	.	.	punct
+
+1	Не	не	Tn
+2	иде	иде	Vniif-r3s
+3	ти	аз	Ppe-os2
+4	да	да	Tx
+5	оставаш	оставам	Vpiif-r2s
+6	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	ти	аз	Ppe-os2
+3	да	да	Tx
+4	заминеш	замина	Vpptf-r2s
+5	.	.	punct
+
+1	На	на	R
+2	кого	кой	Pie-as-m
+3	трябва	трябва	Vniif-r3s
+4	да	да	Tx
+5	можеш	мога	Vpiif-r2s
+6	да	да	Tx
+7	забраниш	забраня	Vpptf-r2s
+8	да	да	Tx
+9	идва	идвам	Vpiif-r3s
+10	?	?	punct
+
+1	Да	да	Tx
+2	забраниш	забраня	Vpptf-r2s
+3	да	да	Tx
+4	идва	идвам	Vpiif-r3s
+5	на	на	R
+6	кого	кой	Pie-as-m
+7	трябва	трябва	Vniif-r3s
+8	да	да	Tx
+9	можеш	мога	Vpiif-r2s
+10	?	?	punct
+
+1	Помолих	помоля-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	ме	аз	Ppetas1
+5	почака	почакам	Vpptf-r3s
+6	да	да	Tx
+7	поговорим	поговоря	Vpptf-r1p
+8	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	да	да	Tx
+3	отидеш	отида-(си)	Vppif-r2s
+4	да	да	Tx
+5	говориш	говоря	Vpitf-r2s
+6	с	с	R
+7	него	аз	Ppelas3m
+8	.	.	punct
+
+1	Да	да	Tx
+2	го	аз	Ppetas3m
+3	помолиш	помоля-(се)	Vpptf-r2s
+4	да	да	Tx
+5	й	аз	Ppetds3f
+6	забрани	забраня	Vpptf-r3s
+7	да	да	Tx
+8	настоява	настоявам-(се)	Vpiif-r3s
+9	да	да	Tx
+10	идва	идвам	Vpiif-r3s
+11	искам	искам	Vpitf-r1s
+12	да	да	Tx
+13	решиш	реша	Vpptf-r2s
+14	.	.	punct
+
+1	Кого	кой	Pie-as-m
+2	посмя	посмея-се	Vppif-o2s
+3	да	да	Tx
+4	помолиш	помоля-(се)	Vpptf-r2s
+5	да	да	Tx
+6	й	аз	Ppetds3f
+7	забрани	забраня	Vpptf-r3s
+8	да	да	Tx
+9	идва	идвам	Vpiif-r3s
+10	?	?	punct
+
+1	Да	да	Tx
+2	й	аз	Ppetds3f
+3	забрани	забраня	Vpptf-r3s
+4	да	да	Tx
+5	идва	идвам	Vpiif-r3s
+6	кого	кой	Pie-as-m
+7	посмя	посмея-се	Vppif-o2s
+8	да	да	Tx
+9	помолиш	помоля-(се)	Vpptf-r2s
+10	?	?	punct
+
+1	Мислиш	мисля	Vpitf-r2s
+2	,	,	punct
+3	че	че	Cs
+4	пееш	пея	Vpitf-r2s
+5	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	за	за	R
+3	експедицията	експедиция	Ncfsd
+4	,	,	punct
+5	че	че	Cs
+6	е	съм	Vxitf-r3s
+7	заминала	замина	Vpptcao-sfi
+8	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	да	да	Tx
+3	пия	пия	Vpitf-r1s
+4	вода	вода	Ncfsi
+5	.	.	punct
+
+1	Къде	къде	Pil
+2	видя	видя-(се)	Vpptf-o2s
+3	да	да	Tx
+4	отива	отивам-(си)	Vpiif-r3s
+5	?	?	punct
+
+1	Ние	аз	Ppe-op1
+2	сме	съм	Vxitf-r1p
+3	тия	този	Pde-op
+4	,	,	punct
+5	които	който	Pre-op
+6	търсите	търся	Vpitf-r2p
+7	.	.	punct
+
+1	Къде	къде	Pil
+2	видя	видя-(се)	Vpptf-o2s
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	отишъл	отида-(си)	Vppicao-smi
+7	?	?	punct
+
+1	Крадецът	крадец	Ncmsf
+2	,	,	punct
+3	който	който	Pre-os-m
+4	сте	съм	Vxitf-r2p
+5	Вие	аз	Pph-os2
+6	,	,	punct
+7	е	съм	Vxitf-r3s
+8	избягал	избягам	Vppicao-smi
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	разбра	разбера-(се)	Vpptf-o3s
+3	всичко	всеки	Pce-os-n
+4	,	,	punct
+5	когато	когато	Prt
+6	погледите	поглед	Ncmpd
+7	им	техен	Pszt--3
+8	се	се	Ppxta
+9	срещнаха	срещна-(се)	Vpptf-o3p
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	разбра	разбера-(се)	Vpptf-o3s
+3	всичко	всеки	Pce-os-n
+4	,	,	punct
+5	когато	когато	Prt
+6	погледите	поглед	Ncmpd
+7	им	техен	Pszt--3
+8	се	се	Ppxta
+9	срещнаха	срещна-(се)	Vpptf-o3p
+10	.	.	punct
+
+1	Това	този	Pde-os-n
+2	е	съм	Vxitf-r3s
+3	къщата	къща	Ncfsd
+4	,	,	punct
+5	в	в	R
+6	която	който	Pre-os-f
+7	живееше	живея	Vpitf-m3s
+8	той	аз	Ppe-os3m
+9	.	.	punct
+
+1	Търся	търся	Vpitf-r1s
+2	път	път	Ncmsi
+3	да	да	Tx
+4	води	водя	Vpitf-r3s
+5	към	към	R
+6	върха	връх	Ncmsh
+7	.	.	punct
+
+1	Знам	знам	Vpiif-r1s
+2	къде	къде	Pil
+3	да	да	Tx
+4	отида	отида-(си)	Vppif-r1s
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	иска	искам	Vpitf-r3s
+3	съвет	съвет	Ncmsi
+4	дали	дали	Ti
+5	да	да	Tx
+6	чака	чакам	Vpitf-r3s
+7	.	.	punct
+
+1	Занимаваше	занимавам-(се)	Vpitf-m3s
+2	ги	аз	Ppetap3
+3	въпросът	въпрос	Ncmsf
+4	,	,	punct
+5	къде	къде	Pil
+6	е	съм	Vxitf-r3s
+7	той	аз	Ppe-os3m
+8	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	дам	дам-(се)	Vpptf-r1s
+4	колкото	колкото	Prq
+5	искаш	искам	Vpitf-r2s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	съгласи	съглася-се	Vppif-o3s
+4	едва	едва	Dq
+5	тогава	тогава	Pdt
+6	,	,	punct
+7	когато	когато	Prt
+8	му	аз	Ppetds3m
+9	показах	покажа-(се)	Vpptf-o1s
+10	документите	документ	Ncmpd
+11	.	.	punct
+
+1	Бягаше	бягам	Vpiif-m3s
+2	,	,	punct
+3	като	като	Cs
+4	че	че	Cs
+5	ли	ли	Ti
+6	го	аз	Ppetas3m
+7	гонят	гоня-(се)	Vpitf-r3p
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	говореше	говоря	Vpitf-m3s
+3	понякога	някога	Pft
+4	дълго	дълго	Dq
+5	,	,	punct
+6	когато	когато	Prt
+7	му	аз	Ppetds3m
+8	беше	съм	Vxitf-t3s
+9	интересно	интересно	Dm
+10	.	.	punct
+
+1	Пречиш	преча-(се)	Vpiif-r2s
+2	на	на	R
+3	другите	друг	A-pd
+4	както	както	Prm
+5	си	съм	Vxitf-r2s
+6	застанал	застана	Vppicao-smi
+7	.	.	punct
+
+1	Говореше	говоря	Vpitf-m3s
+2	,	,	punct
+3	както	както	Prm
+4	си	се	Ppxtd
+5	знаеше	знам	Vpiif-m3s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	извика	извикам	Vpptf-o3s
+3	така	така	Pdm
+4	силно	силно	Dm
+5	,	,	punct
+6	че	че	Cs
+7	всички	всеки	Pce-op
+8	го	аз	Ppetas3m
+9	чуха	чуя	Vpptf-o3p
+10	.	.	punct
+
+1	Отивам	отивам-(си)	Vpiif-r1s
+2	в	в	R
+3	магазина	магазин	Ncmsh
+4	да	да	Tx
+5	купя	купя	Vpptf-r1s
+6	нещо	някой	Pfe-os-ni
+7	.	.	punct
+
+1	Седни	седна	Vppiz--2s
+2	да	да	Tx
+3	си	се	Ppxtd
+4	починеш	почина-(си)	Vppif-r2s
+5	.	.	punct
+
+1	Когато	когато	Prt
+2	да	да	Tx
+3	изляза	изляза	Vppif-r1s
+4	,	,	punct
+5	се	се	Ppxta
+6	сетих	сетя-се	Vppif-o1s
+7	за	за	R
+8	нещо	някой	Pfe-os-ni
+9	.	.	punct
+
+1	Неговите	негов	Psol-p3-dm
+2	разкази	разказ	Ncmpi
+3	за	за	R
+4	себе	себе	Ppxla
+5	си	си	T
+6	се	се	Ppxta
+7	харесват	харесвам-(се)	Vpitf-r3p
+8	.	.	punct
+
+1	Оставиха	оставя-(се)	Vpptf-o3p
+2	детето	дете	Ncnsd
+3	при	при	R
+4	баба	баба	Ncfsi
+5	му	мой	Psot--3--n
+6	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	беше	съм	Vxitf-t3s
+3	оставено	оставя-(се)	Vpptcv--sni
+4	при	при	R
+5	баба	баба	Ncfsi
+6	си	свой	Psxto
+7	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	беше	съм	Vxitf-t3s
+3	оставено	оставя-(се)	Vpptcv--sni
+4	при	при	R
+5	баба	баба	Ncfsi
+6	му	мой	Psot--3--n
+7	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	беше	съм	Vxitf-t3s
+3	оставено	оставя-(се)	Vpptcv--sni
+4	при	при	R
+5	баба	баба	Ncfsi
+6	му	мой	Psot--3--n
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	го	аз	Ppetas3m
+3	изпрати	изпратя	Vpptf-o3s
+4	ядосана	ядосам-(се)	Vpptcv--sfi
+5	на	на	R
+6	себе	себе	Ppxla
+7	си	си	T
+8	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	го	аз	Ppetas3m
+3	изпрати	изпратя	Vpptf-o3s
+4	ядосан	ядосам-(се)	Vpptcv--smi
+5	на	на	R
+6	себе	себе	Ppxla
+7	си	си	T
+8	.	.	punct
+
+1	Някои	някой	Pfe-op
+2	предполагат	предполагам	Vpitf-r3p
+3	,	,	punct
+4	че	че	Cs
+5	любовта	любов	Ncfsd
+6	към	към	R
+7	себе	себе	Ppxla
+8	си	си	T
+9	е	съм	Vxitf-r3s
+10	вечна	вечен	Afsi
+11	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	нарече	нарека-(се)	Vpptf-o3s
+4	глупак	глупак	Ncmsi
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	го	аз	Ppetas3m
+3	нарече	нарека-(се)	Vpptf-o3s
+4	глупак	глупак	Ncmsi
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	го	аз	Ppetas3m
+3	представи	представя-(се)	Vpptf-o3s
+4	за	за	R
+5	лекар	лекар	Ncmsi
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	представи	представя-(се)	Vpptf-o3s
+4	за	за	R
+5	лекар	лекар	Ncmsi
+6	.	.	punct
+
+1	На	на	R
+2	студента	студент	Ncmsh
+3	му	аз	Ppetds3m
+4	помогнаха	помогна	Vppif-o3p
+5	.	.	punct
+
+1	На	на	R
+2	студента	студент	Ncmsh
+3	на	на	R
+4	него	аз	Ppelas3m
+5	му	аз	Ppetds3m
+6	помогнаха	помогна	Vppif-o3p
+7	.	.	punct
+
+1	Него	аз	Ppelas3m
+2	го	аз	Ppetas3m
+3	изпитаха	изпитам	Vpptf-o3p
+4	студента	студент	Ncmsh
+5	.	.	punct
+
+1	Помогнаха	помогна	Vppif-o3p
+2	му	аз	Ppetds3m
+3	на	на	R
+4	студента	студент	Ncmsh
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	студентът	студент	Ncmsf
+3	ще	ще	Tx
+4	дойде	дойда	Vppif-r3s
+5	утре	утре	Dt
+6	.	.	punct
+
+1	Колкото	колкото	Prq
+2	до	до	R
+3	студента	студент	Ncmsh
+4	,	,	punct
+5	него	аз	Ppelas3m
+6	го	аз	Ppetas3m
+7	изпитаха	изпитам	Vpptf-o3p
+8	.	.	punct
+
+1	Колкото	колкото	Prq
+2	до	до	R
+3	студента	студент	Ncmsh
+4	,	,	punct
+5	той	аз	Ppe-os3m
+6	ще	ще	Tx
+7	дойде	дойда	Vppif-r3s
+8	утре	утре	Dt
+9	.	.	punct
+
+1	Хората	хора	Nc-ld
+2	те	аз	Ppe-op3
+3	ги	аз	Ppetap3
+4	видяха	видя-(се)	Vpptf-o3p
+5	.	.	punct
+
+1	Хората	хора	Nc-ld
+2	те	аз	Ppe-op3
+3	ги	аз	Ppetap3
+4	видяха	видя-(се)	Vpptf-o3p
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	директорът	директор	Ncmsf
+3	не	не	Tn
+4	може	мога	Vpiif-r3s
+5	да	да	Tx
+6	го	аз	Ppetas3n
+7	реши	реша	Vpptf-r3s
+8	,	,	punct
+9	та	та	Cc
+10	аз	аз	Ppe-os1
+11	ли	ли	Ti
+12	.	.	punct
+
+1	Когото	който	Pre-as-m
+2	го	аз	Ppetas3m
+3	мързи	мързи-ме	Vnitf-r3s
+4	,	,	punct
+5	да	да	Tx
+6	не	не	Tn
+7	става	ставам	Vpiif-r3s
+8	.	.	punct
+
+1	Кого	кой	Pie-as-m
+2	го	аз	Ppetas3m
+3	е	съм	Vxitf-r3s
+4	срам	срам	Ncmsi
+5	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	го	аз	Ppetas3m
+3	е	съм	Vxitf-r3s
+4	грижа	грижа	Ncfsi
+5	?	?	punct
+
+1	Когото	който	Pre-as-m
+2	го	аз	Ppetas3m
+3	не	не	Tn
+4	е	съм	Vxitf-r3s
+5	страх	страх	Ncmsi
+6	,	,	punct
+7	да	да	Tx
+8	каже	кажа	Vpptf-r3s
+9	.	.	punct
+
+1	Кажи	кажа	Vpptz--2s
+2	им	аз	Ppetdp3
+3	го	аз	Ppetas3n
+4	това	този	Pde-os-n
+5	на	на	R
+6	тях	аз	Ppelap3
+7	.	.	punct
+
+1	След	след	R
+2	една	един	Mcfsi
+3	седмица	седмица	Ncfsi
+4	ли	ли	Ti
+5	Иван	иван	Npmsi
+6	ще	ще	Tx
+7	замине	замина	Vpptf-r3s
+8	?	?	punct
+
+1	Срещна	срещна-(се)	Vpptf-o3s
+2	рецензента	рецензент	Ncmsh
+3	си	свой	Psxto
+4	ли	ли	Ti
+5	Иван	иван	Npmsi
+6	?	?	punct
+
+1	Срещна	срещна-(се)	Vpptf-o3s
+2	ли	ли	Ti
+3	Иван	иван	Npmsi
+4	рецензента	рецензент	Ncmsh
+5	си	свой	Psxto
+6	?	?	punct
+
+1	Дал	дам-(се)	Vpptcao-smi
+2	ли	ли	Ti
+3	си	съм	Vxitf-r2s
+4	му	аз	Ppetds3m
+5	я	аз	Ppetas3f
+6	?	?	punct
+
+1	Дал	дам-(се)	Vpptcao-smi
+2	ли	ли	Ti
+3	му	аз	Ppetds3m
+4	я	аз	Ppetas3f
+5	е	съм	Vxitf-r3s
+6	?	?	punct
+
+1	Даде	дам-(се)	Vpptf-o2s
+2	ли	ли	Ti
+3	сено	сено	Ncnsi
+4	на	на	R
+5	магарето	магаре	Ncnsd
+6	Иван	иван	Npmsi
+7	вчера	вчера	Dt
+8	?	?	punct
+
+1	Не	не	Tn
+2	знам	знам	Vpiif-r1s
+3	къде	къде	Pil
+4	и	и	Cp
+5	защо	защо	Pic
+6	отива	отивам-(си)	Vpiif-r3s
+7	.	.	punct
+
+1	От	от	R
+2	кой	кой	Pie-os-m
+3	автор	автор	Ncmsi
+4	предпочиташ	предпочитам	Vpitf-r2s
+5	книга	книга	Ncfsi
+6	?	?	punct
+
+1	Коя	кой	Pie-os-f
+2	книга	книга	Ncfsi
+3	предпочиташ	предпочитам	Vpitf-r2s
+4	от	от	R
+5	тоя	този	Pde-os-m
+6	автор	автор	Ncmsi
+7	?	?	punct
+
+1	Това	този	Pde-os-n
+2	е	съм	Vxitf-r3s
+3	човекът	човек	Ncmsf
+4	,	,	punct
+5	дето	който	Pre--s
+6	тя	аз	Ppe-os3f
+7	твърдеше	твърдя	Vpitf-m3s
+8	,	,	punct
+9	че	че	Cs
+10	е	съм	Vxitf-r3s
+11	видяла	видя-(се)	Vpptcao-sfi
+12	у	у	R
+13	нас	аз	Ppelap1
+14	.	.	punct
+
+1	Това	този	Pde-os-n
+2	е	съм	Vxitf-r3s
+3	човекът	човек	Ncmsf
+4	,	,	punct
+5	дето	който	Pre--s
+6	тя	аз	Ppe-os3f
+7	търсеше	търся	Vpitf-m3s
+8	.	.	punct
+
+1	Нося	нося-(се)	Vpitf-r1s
+2	ти	аз	Ppetds2
+3	книги	книга	Ncfpi
+4	да	да	Tx
+5	четеш	чета	Vpitf-r2s
+6	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	дошъл	дойда	Vppicao-smi
+7	?	?	punct
+
+1	Това	този	Pde-os-n
+2	е	съм	Vxitf-r3s
+3	човекът	човек	Ncmsf
+4	,	,	punct
+5	който	който	Pre-os-m
+6	ти	аз	Ppe-os2
+7	се	се	Ppxta
+8	чудеше	чудя-(се)	Vpitf-m3s
+9	дали	дали	Ti
+10	е	съм	Vxitf-r3s
+11	дошъл	дойда	Vppicao-smi
+12	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	се	се	Ppxta
+3	чудиш	чудя-(се)	Vpitf-r2s
+4	дали	дали	Ti
+5	е	съм	Vxitf-r3s
+6	дошъл	дойда	Vppicao-smi
+7	?	?	punct
+
+1	Петър	петър	Npmsi
+2	се	се	Ppxta
+3	предполага	предполагам	Vnitf-r3s
+4	,	,	punct
+5	че	че	Cs
+6	Иван	иван	Npmsi
+7	го	аз	Ppetas3m
+8	е	съм	Vxitf-r3s
+9	видял	видя-(се)	Vpptcao-smi
+10	.	.	punct
+
+1	На	на	R
+2	Иван	иван	Npmsi
+3	му	аз	Ppetds3m
+4	е	съм	Vxitf-r3s
+5	трудно	трудно	Dm
+6	да	да	Tx
+7	разбере	разбера-(се)	Vpptf-r3s
+8	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	беше	съм	Vxitf-t3s
+3	прочетена	прочета	Vpptcv--sfi
+4	,	,	punct
+5	преди	преди	R
+6	да	да	Tx
+7	бъде	бъда	Vyptf-r3s
+8	купена	купя	Vpptcv--sfi
+9	.	.	punct
+
+1	Беше	съм	Vxitf-t3s
+2	прочетена	прочета	Vpptcv--sfi
+3	книгата	книга	Ncfsd
+4	,	,	punct
+5	преди	преди	R
+6	да	да	Tx
+7	бъде	бъда	Vyptf-r3s
+8	купена	купя	Vpptcv--sfi
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	го	аз	Ppetas3m
+3	прочете	прочета	Vpptf-o3s
+4	,	,	punct
+5	без	без	R
+6	да	да	Tx
+7	го	аз	Ppetas3m
+8	запомни	запомня	Vpptf-r3s
+9	.	.	punct
+
+1	Не	не	Tn
+2	подписвай	подписвам-(се)	Vpitz--2s
+3	,	,	punct
+4	без	без	R
+5	да	да	Tx
+6	прочетеш	прочета	Vpptf-r2s
+7	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	подписваш	подписвам-(се)	Vpitf-r2s
+3	,	,	punct
+4	без	без	R
+5	да	да	Tx
+6	прочетеш	прочета	Vpptf-r2s
+7	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	поздравяваш	поздравявам	Vpitf-r2s
+3	без	без	R
+4	да	да	Tx
+5	познаваш	познавам	Vpitf-r2s
+6	?	?	punct
+
+1	Какво	какъв	Pia--s-n
+2	търсиш	търся	Vpitf-r2s
+3	да	да	Tx
+4	вземеш	взема	Vpptf-r2s
+5	?	?	punct
+
+1	Някакъв	някакъв	Pfa--s-m
+2	човек	човек	Ncmsi
+3	те	аз	Ppetas2
+4	търси	търся	Vpitf-r3s
+5	.	.	punct
+
+1	Някой	някой	Pfe-os-m
+2	се	се	Ppxta
+3	кара	карам-се	Vpiif-r3s
+4	някъде	някъде	Pfl
+5	.	.	punct
+
+1	Надявам	надявам-се	Vpiif-r1s
+2	се	се	Ppxta
+3	да	да	Tx
+4	се	се	Ppxta
+5	тръгне	тръгна-(си)	Vppif-r3s
+6	навреме	навреме	Dt
+7	.	.	punct
+
+1	Седналият	седна	Vppicao-smf
+2	до	до	R
+3	нея	аз	Ppelas3f
+4	студент	студент	Ncmsi
+5	стана	стана	Vppif-o3s
+6	.	.	punct
+
+1	Писмото	писмо	Ncnsd
+2	вземи	взема	Vpptz--2s
+3	на	на	R
+4	масата	маса	Ncfsd
+5	.	.	punct
+
+1	На	на	R
+2	КЪЩАТА	къща	Ncfsd
+3	той	аз	Ppe-os3m
+4	поправи	поправя-(се)	Vpptf-o3s
+5	покрива	покрив	Ncmsh
+6	.	.	punct
+
+1	Говорих	говоря	Vpitf-o1s
+2	за	за	R
+3	нея	аз	Ppelas3f
+4	и	и	Cp
+5	за	за	R
+6	тебе	аз	Ppelas2
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	обича	обичам	Vpitf-r3s
+3	,	,	punct
+4	а	а	Cp
+5	тя	аз	Ppe-os3f
+6	мрази	мразя	Vpitf-r3s
+7	българския	български	Amsh
+8	синтаксис	синтаксис	Ncmsi
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	обича	обичам	Vpitf-r3s
+3	българския	български	Amsh
+4	синтаксис	синтаксис	Ncmsi
+5	,	,	punct
+6	а	а	Cp
+7	тя	аз	Ppe-os3f
+8	го	аз	Ppetas3m
+9	мрази	мразя	Vpitf-r3s
+10	.	.	punct
+
+1	Един	един	Pfe-os-mi
+2	уморен	уморя-(се)	Vpptcv--smi
+3	студент	студент	Ncmsi
+4	влезе	вляза	Vppif-o3s
+5	.	.	punct
+
+1	С	с	R
+2	него	аз	Ppelas3m
+3	ще	ще	Tx
+4	говоря	говоря	Vpitf-r1s
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	носеше	нося-(се)	Vpitf-m3s
+3	две	два	Mcfpi
+4	големи	голям	A-pi
+5	филии	филия	Ncfpi
+6	ръжен	ръжен	Amsi
+7	хляб	хляб	Ncmsi
+8	.	.	punct
+
+1	Почна	почна-(се)	Vpptf-o3s
+2	се	се	Ppxta
+3	борба	борба	Ncfsi
+4	страшна	страшен	Afsi
+5	,	,	punct
+6	яростна	яростен	Afsi
+7	и	и	Cp
+8	бясна	бесен	Afsi
+9	.	.	punct
+
+1	Лавина	лавина	Ncfsi
+2	сватбари	сватбар	Ncmpi
+3	навлезе	навляза	Vppif-o3s
+4	в	в	R
+5	двора	двор	Ncmsh
+6	.	.	punct
+
+1	Букет	букет	Ncmsi
+2	цветя	цвете	Ncnpi
+3	лежеше	лежа	Vpiif-m3s
+4	на	на	R
+5	масата	маса	Ncfsd
+6	.	.	punct
+
+1	Вода	вода	Ncfsi
+2	нося	нося-(се)	Vpitf-r1s
+3	,	,	punct
+4	жаден	жаден	Amsi
+5	ходя	ходя-(си)	Vpitf-r1s
+6	.	.	punct
+
+1	Кола	кола	Ncfsi
+2	с	с	R
+3	дърва	дърво	Ncnpi
+4	минава	минавам-(се)	Vpitf-r3s
+5	по	по	R
+6	улицата	улица	Ncfsd
+7	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	хляб	хляб	Ncmsi
+3	ли	ли	Ti
+4	носиш	нося-(се)	Vpitf-r2s
+5	?	?	punct
+
+1	Лавина	лавина	Ncfsi
+2	сватбари	сватбар	Ncmpi
+3	навлязоха	навляза	Vppif-o3p
+4	в	в	R
+5	двора	двор	Ncmsh
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	донесе	донеса	Vpptf-o3s
+3	две	два	Mcfpi
+4	големи	голям	A-pi
+5	филии	филия	Ncfpi
+6	.	.	punct
+
+1	Всеки	всеки	Pce-os-m
+2	в	в	R
+3	тая	този	Pde-os-f
+4	стая	стая	Ncfsi
+5	знае	знам	Vpiif-r3s
+6	по	по	R
+7	два	два	Mcmpi
+8	езика	език	Ncmt
+9	.	.	punct
+
+1	Всеки	всеки	Pce-os-m
+2	в	в	R
+3	тая	този	Pde-os-f
+4	стая	стая	Ncfsi
+5	знае	знам	Vpiif-r3s
+6	два	два	Mcmpi
+7	езика	език	Ncmt
+8	.	.	punct
+
+1	Два	два	Mcmpi
+2	езика	език	Ncmt
+3	се	се	Ppxta
+4	знаят	знам	Vpiif-r3p
+5	от	от	R
+6	всеки	всеки	Pce-os-m
+7	в	в	R
+8	тая	този	Pde-os-f
+9	стая	стая	Ncfsi
+10	.	.	punct
+
+1	Магданоз	магданоз	Ncmsi
+2	купих	купя	Vpptf-o1s
+3	само	само	Dd
+4	една	един	Mcfsi
+5	връзка	връзка	Ncfsi
+6	.	.	punct
+
+1	Много	много	Md--i
+2	хора	хора	Nc-li
+3	дойдоха	дойда	Vppif-o3p
+4	тогава	тогава	Pdt
+5	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	чакаха	чакам	Vpitf-m3p
+3	всички	всеки	Pce-op
+4	вече	вече	Dt
+5	дълго	дълго	Dq
+6	.	.	punct
+
+1	Всички	всеки	Pce-op
+2	те	аз	Ppetas2
+3	чакаха	чакам	Vpitf-m3p
+4	вече	вече	Dt
+5	дълго	дълго	Dq
+6	.	.	punct
+
+1	Всички	всеки	Pce-op
+2	те	аз	Ppe-op3
+3	чакаха	чакам	Vpitf-m3p
+4	вече	вече	Dt
+5	дълго	дълго	Dq
+6	.	.	punct
+
+1	Книги	книга	Ncfpi
+2	донесе	донеса	Vpptf-o3s
+3	само	само	Dd
+4	пет	пет	Mc-pi
+5	.	.	punct
+
+1	Книги	книга	Ncfpi
+2	донесе	донеса	Vpptf-o3s
+3	много	много	Md--i
+4	малко	малко	Md--i
+5	.	.	punct
+
+1	Пазиш	пазя-(се)	Vpitf-r2s
+2	ли	ли	Ti
+3	вестника	вестник	Ncmsh
+4	от	от	R
+5	вчера	вчера	Dt
+6	.	.	punct
+
+1	Помниш	помня	Vpitf-r2s
+2	ли	ли	Ti
+3	дъжда	дъжд	Ncmsh
+4	вчера	вчера	Dt
+5	.	.	punct
+
+1	Пазиш	пазя-(се)	Vpitf-r2s
+2	ли	ли	Ti
+3	вестника	вестник	Ncmsh
+4	от	от	R
+5	оня	този	Pde-os-m
+6	ден	ден	Ncmsi
+7	?	?	punct
+
+1	Гледам	гледам	Vpitf-r1s
+2	гнездото	гнездо	Ncnsd
+3	на	на	R
+4	щъркелите	щъркел	Ncmpd
+5	отсреща	отсреща	Dl
+6	.	.	punct
+
+1	Тук	там	Pdl
+2	продават	продавам	Vpitf-r3p
+3	сок	сок	Ncmsi
+4	от	от	R
+5	малини	малина	Ncfpi
+6	в	в	R
+7	бутилки	бутилка	Ncfpi
+8	.	.	punct
+
+1	Идването	идване	Ncnsd
+2	на	на	R
+3	Иван	иван	Npmsi
+4	тук	там	Pdl
+5	е	съм	Vxitf-r3s
+6	странно	странен	Ansi
+7	.	.	punct
+
+1	Прочитането	прочитане	Ncnsd
+2	на	на	R
+3	писмото	писмо	Ncnsd
+4	от	от	R
+5	Иван	иван	Npmsi
+6	е	съм	Vxitf-r3s
+7	лошо	лош	Ansi
+8	.	.	punct
+
+1	Прочитането	прочитане	Ncnsd
+2	на	на	R
+3	писмото	писмо	Ncnsd
+4	от	от	R
+5	Иван	иван	Npmsi
+6	е	съм	Vxitf-r3s
+7	лошо	лош	Ansi
+8	.	.	punct
+
+1	Пътуване	пътуване	Ncnsi
+2	към	към	R
+3	себе	себе	Ppxla
+4	си	си	T
+5	е	съм	Vxitf-r3s
+6	необходимо	необходим	Ansi
+7	сега	сега	Dt
+8	.	.	punct
+
+1	Вярата	вяра	Ncfsd
+2	в	в	R
+3	себе	себе	Ppxla
+4	си	си	T
+5	е	съм	Vxitf-r3s
+6	необходима	необходим	Afsi
+7	сега	сега	Dt
+8	.	.	punct
+
+1	Любовта	любов	Ncfsd
+2	към	към	R
+3	себе	себе	Ppxla
+4	си	си	T
+5	е	съм	Vxitf-r3s
+6	необходима	необходим	Afsi
+7	сега	сега	Dt
+8	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	обича	обичам	Vpitf-r3s
+3	себе	себе	Ppxla
+4	си	си	T
+5	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	изгориха	изгоря	Vpptf-o3p
+3	цяла	цял	Afsi
+4	кола	кола	Ncfsi
+5	дърва	дърво	Ncnpi
+6	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	изгориха	изгоря	Vpptf-o3p
+3	цяла	цял	Afsi
+4	кола	кола	Ncfsi
+5	с	с	R
+6	дърва	дърво	Ncnpi
+7	.	.	punct
+
+1	Там	там	Pdl
+2	имаше	имам	Vnitf-m3s
+3	толкова	толкова	Pdq
+4	много	много	Md--i
+5	студенти	студент	Ncmpi
+6	,	,	punct
+7	че	че	Cs
+8	той	аз	Ppe-os3m
+9	се	се	Ppxta
+10	зачуди	зачудя-(се)	Vpptf-o3s
+11	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	пристигна	пристигна	Vppif-o3s
+3	едва	едва	Dq
+4	след	след	R
+5	два	два	Mcmpi
+6	часа	час	Ncmt
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	говори	говоря	Vpitf-o3s
+3	толкова	толкова	Pdq
+4	,	,	punct
+5	колкото	колкото	Prq
+6	трябваше	трябва	Vniif-m3s
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	пише	пиша	Vpitf-r3s
+3	повече	повече	Md--i
+4	отколкото	колкото	Prq
+5	чете	чета	Vpitf-r3s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	пристигна	пристигна	Vppif-o3s
+3	още	още	Dq
+4	на	на	R
+5	обед	обед	Ncmsi
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	говореше	говоря	Vpitf-m3s
+3	толкова	толкова	Pdq
+4	тихо	тихо	Dm
+5	че	че	Cs
+6	никой	никой	Pne-os-m
+7	не	не	Tn
+8	чуваше	чувам-(се)	Vpitf-m3s
+9	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	писан	пиша	Vpitcv--smi
+4	за	за	R
+5	в	в	R
+6	рая	рай	Ncmsh
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	го	аз	Ppetas3m
+3	мисли	мисля	Vpitf-r3s
+4	за	за	R
+5	глупав	глупав	Amsi
+6	човек	човек	Ncmsi
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	го	аз	Ppetas3m
+3	мисли	мисля	Vpitf-r3s
+4	за	за	R
+5	глупав	глупав	Amsi
+6	.	.	punct
+
+1	Иван	иван	Npmsi
+2	отиде	отида-(си)	Vppif-o3s
+3	в	в	R
+4	градината	градина	Ncfsd
+5	,	,	punct
+6	но	но	Cc
+7	Петър	петър	Npmsi
+8	не	не	Tn
+9	.	.	punct
+
+1	Тая	този	Pde-os-f
+2	история	история	Ncfsi
+3	не	не	Tn
+4	е	съм	Vxitf-r3s
+5	вярна	верен	Afsi
+6	.	.	punct
+
+1	Тая	този	Pde-os-f
+2	история	история	Ncfsi
+3	е	съм	Vxitf-r3s
+4	измислена	измисля	Vpptcv--sfi
+5	.	.	punct
+
+1	Тая	този	Pde-os-f
+2	история	история	Ncfsi
+3	е	съм	Vxitf-r3s
+4	измислена	измисля	Vpptcv--sfi
+5	от	от	R
+6	жена	жена	Ncfsi
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	до	до	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	и	и	Cp
+7	то	то	Te
+8	седнала	седна	Vppicao-sfi
+9	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	седнала	седна	Vppicao-sfi
+4	до	до	R
+5	него	аз	Ppelas3m
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	до	до	R
+4	него	аз	Ppelas3m
+5	седнала	седна	Vppicao-sfi
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	мила	мил	Afsi
+4	към	към	R
+5	вас	аз	Ppelap2
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	учител	учител	Ncmsi
+4	сега	сега	Dt
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	с	с	R
+4	нас	аз	Ppelap1
+5	винаги	винаги	Dt
+6	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	е	съм	Vxitf-r3s
+3	подарък	подарък	Ncmsi
+4	от	от	R
+5	нас	аз	Ppelap1
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	е	съм	Vxitf-r3s
+3	весела	весел	Afsi
+4	винаги	винаги	Dt
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	тук	там	Pdl
+4	вчера	вчера	Dt
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	е	съм	Vxitf-r3s
+3	била	съм	Vxitcat-sfi
+4	тук	там	Pdl
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	мила	мил	Afsi
+4	с	с	R
+5	нас	аз	Ppelap1
+6	понякога	някога	Pft
+7	.	.	punct
+
+1	Почеркът	почерк	Ncmsf
+2	е	съм	Vxitf-r3s
+3	на	на	R
+4	жена	жена	Ncfsi
+5	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	е	съм	Vxitf-r3s
+3	подарък	подарък	Ncmsi
+4	за	за	R
+5	тебе	аз	Ppelas2
+6	от	от	R
+7	нас	аз	Ppelap1
+8	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	беше	съм	Vxitf-t3s
+3	тук	там	Pdl
+4	често	често	Dm
+5	тогава	тогава	Pdt
+6	.	.	punct
+
+1	Показа	покажа-(се)	Vpptf-o3s
+2	снимките	снимка	Ncfpd
+3	на	на	R
+4	гостите	гост	Ncmpd
+5	развеселена	развеселя-(се)	Vpptcv--sfi
+6	.	.	punct
+
+1	Назначиха	назнача	Vpptf-o3p
+2	го	аз	Ppetas3m
+3	за	за	R
+4	ръководител	ръководител	Ncmsi
+5	.	.	punct
+
+1	Говореше	говоря	Vpitf-m3s
+2	на	на	R
+3	всички	всеки	Pce-op
+4	като	като	R
+5	началник	началник	Ncmsi
+6	.	.	punct
+
+1	Говореше	говоря	Vpitf-m3s
+2	на	на	R
+3	всички	всеки	Pce-op
+4	за	за	R
+5	началника	началник	Ncmsh
+6	.	.	punct
+
+1	Има	имам	Vnitf-r3s
+2	една	един	Mcfsi
+3	статия	статия	Ncfsi
+4	готова	готов	Afsi
+5	.	.	punct
+
+1	Изпратиха	изпратя	Vpptf-o3p
+2	нов	нов	Amsi
+3	човек	човек	Ncmsi
+4	на	на	R
+5	групата	група	Ncfsd
+6	за	за	R
+7	ръководител	ръководител	Ncmsi
+8	.	.	punct
+
+1	Гледа	гледам	Vpitf-r3s
+2	към	към	R
+3	нас	аз	Ppelap1
+4	усмихната	усмихнат	Afsi
+5	.	.	punct
+
+1	Взех	взема	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	за	за	R
+4	един	един	Pfe-os-mi
+5	приятел	приятел	Ncmsi
+6	.	.	punct
+
+1	Взех	взема	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	за	за	R
+4	един	един	Pfe-os-mi
+5	приятел	приятел	Ncmsi
+6	.	.	punct
+
+1	Майката	майка	Ncfsd
+2	даде	дам-(се)	Vpptf-o3s
+3	играчка	играчка	Ncfsi
+4	на	на	R
+5	детето	дете	Ncnsd
+6	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	прави	правя-(се)	Vpitf-r3s
+3	Петър	петър	Npmsi
+4	?	?	punct
+
+1	-	-	punct
+2	Чете	чета	Vpitf-r3s
+3	.	.	punct
+
+1	Тоя	този	Pde-os-m
+2	нож	нож	Ncmsi
+3	реже	режа	Vpitf-r3s
+4	добре	добре	Dm
+5	.	.	punct
+
+1	Тоя	този	Pde-os-m
+2	нож	нож	Ncmsi
+3	реже	режа	Vpitf-r3s
+4	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	какво	какъв	Pia--s-n
+3	прави	правя-(се)	Vpitf-r3s
+4	?	?	punct
+
+1	-	-	punct
+2	Реже	режа	Vpitf-r3s
+3	нещо	някой	Pfe-os-ni
+4	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	гледа	гледам	Vpitf-r3s
+3	себе	себе	Ppxla
+4	си	си	T
+5	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	правиш	правя-(се)	Vpitf-r2s
+3	?	?	punct
+
+1	-	-	punct
+2	Подправям	подправям	Vpitf-r1s
+3	нещо	някой	Pfe-os-ni
+4	.	.	punct
+
+1	Подаряваш	подарявам	Vpitf-r2s
+2	дъвки	дъвка	Ncfpi
+3	на	на	R
+4	децата	дете	Ncnpd
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	жаден	жаден	Amsi
+4	за	за	R
+5	нещо	някой	Pfe-os-ni
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	достоен	достоен	Amsi
+4	за	за	R
+5	награда	награда	Ncfsi
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	е	съм	Vxitf-r3s
+3	готов	готов	Amsi
+4	на	на	R
+5	всичко	всеки	Pce-os-n
+6	.	.	punct
+
+1	Ще	ще	Tx
+2	те	аз	Ppetas2
+3	питам	питам-(се)	Vpitf-r1s
+4	за	за	R
+5	нещо	някой	Pfe-os-ni
+6	.	.	punct
+
+1	Голям	голям	Amsi
+2	бой	бой	Ncmsi
+3	го	аз	Ppetas3m
+4	биха	бия-(се)	Vpitf-o3p
+5	.	.	punct
+
+1	Голяма	голям	Afsi
+2	лъжа	лъжа	Ncfsi
+3	го	аз	Ppetas3m
+4	излъгаха	излъжа-(се)	Vpptf-o3p
+5	.	.	punct
+
+1	Столът	стол	Ncmsf
+2	е	съм	Vxitf-r3s
+3	между	между	R
+4	масата	маса	Ncfsd
+5	и	и	Cp
+6	стената	стена	Ncfsd
+7	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	хвърли	хвърля-(се)	Vpptf-o3s
+3	играчката	играчка	Ncfsd
+4	към	към	R
+5	майка	майка	Ncfsi
+6	си	свой	Psxto
+7	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	да	да	Tx
+3	решиш	реша	Vpptf-r2s
+4	да	да	Tx
+5	го	аз	Ppetas3m
+6	помолиш	помоля-(се)	Vpptf-r2s
+7	да	да	Tx
+8	й	аз	Ppetds3f
+9	забрани	забраня	Vpptf-r3s
+10	да	да	Tx
+11	настоява	настоявам-(се)	Vpiif-r3s
+12	да	да	Tx
+13	идва	идвам	Vpiif-r3s
+14	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	взел	взема	Vpptcao-smi
+4	моя	мой	Psol-s1mh
+5	куфар	куфар	Ncmsi
+6	вместо	вместо	R
+7	своя	свой	Psxlos-mh
+8	.	.	punct
+
+1	Петър	петър	Npmsi
+2	каза	кажа	Vpptf-o3s
+3	,	,	punct
+4	че	че	Cs
+5	тя	аз	Ppe-os3f
+6	го	аз	Ppetas3m
+7	е	съм	Vxitf-r3s
+8	одраскала	одраскам-(се)	Vpptcao-sfi
+9	.	.	punct
+
+1	Петър	петър	Npmsi
+2	каза	кажа	Vpptf-o3s
+3	,	,	punct
+4	че	че	Cs
+5	тя	аз	Ppe-os3f
+6	го	аз	Ppetas3m
+7	е	съм	Vxitf-r3s
+8	одраскала	одраскам-(се)	Vpptcao-sfi
+9	.	.	punct
+
+1	То	аз	Ppe-os3n
+2	одраска	одраскам-(се)	Vpptf-o3s
+3	ръката	ръка	Ncfsd
+4	си	свой	Psxto
+5	.	.	punct
+
+1	Детето	дете	Ncnsd
+2	себе	себе	Ppxla
+3	си	си	T
+4	одраска	одраскам-(се)	Vpptf-o3s
+5	.	.	punct
+
+1	Казах	кажа	Vpptf-o1s
+2	на	на	R
+3	Иван	иван	Npmsi
+4	,	,	punct
+5	че	че	Cs
+6	той	аз	Ppe-os3m
+7	ще	ще	Tx
+8	замине	замина	Vpptf-r3s
+9	.	.	punct
+
+1	Казах	кажа	Vpptf-o1s
+2	на	на	R
+3	Иван	иван	Npmsi
+4	,	,	punct
+5	че	че	Cs
+6	той	аз	Ppe-os3m
+7	ще	ще	Tx
+8	замине	замина	Vpptf-r3s
+9	.	.	punct
+
+1	Казах	кажа	Vpptf-o1s
+2	му	аз	Ppetds3m
+3	,	,	punct
+4	че	че	Cs
+5	Иван	иван	Npmsi
+6	ще	ще	Tx
+7	замине	замина	Vpptf-r3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	харесва	харесвам-(се)	Vpitf-r3s
+3	своите	свой	Psxlop--d
+4	разкази	разказ	Ncmpi
+5	за	за	R
+6	себе	себе	Ppxla
+7	си	си	T
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	харесва	харесвам-(се)	Vpitf-r3s
+3	неговите	негов	Psol-p3-dm
+4	разкази	разказ	Ncmpi
+5	за	за	R
+6	себе	себе	Ppxla
+7	си	си	T
+8	.	.	punct
+
+1	След	след	R
+2	завръщането	завръщане	Ncnsd
+3	на	на	R
+4	студента	студент	Ncmsh
+5	хазайката	хазайка	Ncfsd
+6	му	мой	Psot--3--m
+7	се	се	Ppxta
+8	държеше	държа-(се)	Vpitf-m3s
+9	много	много	Md--i
+10	тайнствено	тайнствено	Dm
+11	.	.	punct
+
+1	След	след	R
+2	завръщането	завръщане	Ncnsd
+3	му	мой	Psot--3--m
+4	хазайката	хазайка	Ncfsd
+5	на	на	R
+6	студента	студент	Ncmsh
+7	се	се	Ppxta
+8	държеше	държа-(се)	Vpitf-m3s
+9	много	много	Md--i
+10	тайнствено	тайнствено	Dm
+11	.	.	punct
+
+1	След	след	R
+2	завръщането	завръщане	Ncnsd
+3	му	мой	Psot--3--m
+4	хазайката	хазайка	Ncfsd
+5	на	на	R
+6	студента	студент	Ncmsh
+7	се	се	Ppxta
+8	държеше	държа-(се)	Vpitf-m3s
+9	много	много	Md--i
+10	тайнствено	тайнствено	Dm
+11	.	.	punct
+
+1	Любовта	любов	Ncfsd
+2	на	на	R
+3	хората	хора	Nc-ld
+4	към	към	R
+5	себе	себе	Ppxla
+6	си	си	T
+7	е	съм	Vxitf-r3s
+8	вечна	вечен	Afsi
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	нареди	наредя-(се)	Vpptf-o3s
+3	книгите	книга	Ncfpd
+4	една	един	Pfe-os-fi
+5	до	до	R
+6	друга	друг	Afsi
+7	.	.	punct
+
+1	Аз	аз	Ppe-os1
+2	ги	аз	Ppetap3
+3	запознах	запозная-(се)	Vpptf-o1s
+4	един	един	Pfe-os-mi
+5	с	с	R
+6	друг	друг	Amsi
+7	.	.	punct
+
+1	Децата	дете	Ncnpd
+2	стояха	стоя	Vpiif-m3p
+3	едно	един	Pfe-os-ni
+4	до	до	R
+5	друго	друг	Ansi
+6	.	.	punct
+
+1	Аз	аз	Ppe-os1
+2	ги	аз	Ppetap3
+3	запознах	запозная-(се)	Vpptf-o1s
+4	с	с	R
+5	друг	друг	Amsi
+6	.	.	punct
+
+1	Децата	дете	Ncnpd
+2	се	се	Ppxta
+3	одраскаха	одраскам-(се)	Vpptf-o3p
+4	едно	един	Pfe-os-ni
+5	друго	друг	Ansi
+6	.	.	punct
+
+1	Децата	дете	Ncnpd
+2	се	се	Ppxta
+3	одраскаха	одраскам-(се)	Vpptf-o3p
+4	взаимно	взаимно	Dm
+5	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	си	се	Ppxtd
+3	помогнаха	помогна	Vppif-o3p
+4	един	един	Pfe-os-mi
+5	на	на	R
+6	друг	друг	Amsi
+7	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	се	се	Ppxta
+3	запознаха	запозная-(се)	Vpptf-o3p
+4	един	един	Pfe-os-mi
+5	с	с	R
+6	друг	друг	Amsi
+7	.	.	punct
+
+1	Студентът	студент	Ncmsf
+2	ще	ще	Tx
+3	дойде	дойда	Vppif-r3s
+4	утре	утре	Dt
+5	той	аз	Ppe-os3m
+6	.	.	punct
+
+1	Студентът	студент	Ncmsf
+2	той	аз	Ppe-os3m
+3	ще	ще	Tx
+4	дойде	дойда	Vppif-r3s
+5	утре	утре	Dt
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ще	ще	Tx
+3	дойде	дойда	Vppif-r3s
+4	утре	утре	Dt
+5	студентът	студент	Ncmsf
+6	.	.	punct
+
+1	Студента	студент	Ncmsh
+2	него	аз	Ppelas3m
+3	го	аз	Ppetas3m
+4	изпитаха	изпитам	Vpptf-o3p
+5	.	.	punct
+
+1	Студента	студент	Ncmsh
+2	го	аз	Ppetas3m
+3	изпитаха	изпитам	Vpptf-o3p
+4	него	аз	Ppelas3m
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	каза	кажа	Vpptf-o3s
+3	,	,	punct
+4	че	че	Cs
+5	Петър	петър	Npmsi
+6	ще	ще	Tx
+7	остане	остана	Vppif-r3s
+8	и	и	Cp
+9	ще	ще	Tx
+10	свири	свиря	Vpitf-r3s
+11	за	за	R
+12	вас	аз	Ppelap2
+13	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	каза	кажа	Vpptf-o3s
+3	,	,	punct
+4	че	че	Cs
+5	никой	никой	Pne-os-m
+6	не	не	Tn
+7	знае	знам	Vpiif-r3s
+8	дали	дали	Ti
+9	Петър	петър	Npmsi
+10	ще	ще	Tx
+11	иска	искам	Vpitf-r3s
+12	да	да	Tx
+13	остане	остана	Vppif-r3s
+14	.	.	punct
+
+1	Че	че	Cs
+2	той	аз	Ppe-os3m
+3	е	съм	Vxitf-r3s
+4	тук	там	Pdl
+5	,	,	punct
+6	е	съм	Vxitf-r3s
+7	известно	известно	Dm
+8	на	на	R
+9	всички	всеки	Pce-op
+10	.	.	punct
+
+1	Дали	дали	Ti
+2	е	съм	Vxitf-r3s
+3	идвал	идвам	Vpiicao-smi
+4	,	,	punct
+5	е	съм	Vxitf-r3s
+6	важно	важно	Dm
+7	.	.	punct
+
+1	Странното	странен	Ansd
+2	е	съм	Vxitf-r3s
+3	,	,	punct
+4	че	че	Cs
+5	той	аз	Ppe-os3m
+6	не	не	Tn
+7	е	съм	Vxitf-r3s
+8	тук	там	Pdl
+9	.	.	punct
+
+1	Странно	странно	Dm
+2	е	съм	Vxitf-r3s
+3	,	,	punct
+4	че	че	Cs
+5	той	аз	Ppe-os3m
+6	не	не	Tn
+7	е	съм	Vxitf-r3s
+8	тук	там	Pdl
+9	.	.	punct
+
+1	Че	че	Cs
+2	тя	аз	Ppe-os3f
+3	е	съм	Vxitf-r3s
+4	тук	там	Pdl
+5	,	,	punct
+6	му	аз	Ppetds3m
+7	се	се	Ppxta
+8	струва	струва-(си)	Vniif-r3s
+9	ужасно	ужасно	Dm
+10	.	.	punct
+
+1	Да	да	Tx
+2	се	се	Ppxta
+3	пуши	пуши-ми-се	Vniif-r3s
+4	тук	там	Pdl
+5	изглежда	изглежда	Vniif-r3s
+6	странно	странно	Dm
+7	.	.	punct
+
+1	Че	че	Cs
+2	се	се	Ppxta
+3	пуши	пуши-ми-се	Vniif-r3s
+4	тук	там	Pdl
+5	,	,	punct
+6	изглежда	изглежда	Vniif-r3s
+7	странно	странно	Dm
+8	.	.	punct
+
+1	Струва	струва-(си)	Vniif-r3s
+2	му	аз	Ppetds3m
+3	се	се	Ppxta
+4	,	,	punct
+5	че	че	Cs
+6	тя	аз	Ppe-os3f
+7	е	съм	Vxitf-r3s
+8	тук	там	Pdl
+9	.	.	punct
+
+1	Който	който	Pre-os-m
+2	е	съм	Vxitf-r3s
+3	закъснял	закъснея	Vppicao-smi
+4	,	,	punct
+5	ще	ще	Tx
+6	чака	чакам	Vpitf-r3s
+7	.	.	punct
+
+1	Беше	съм	Vxitf-t3s
+2	им	аз	Ppetdp3
+3	мъка	мъка	Ncfsi
+4	,	,	punct
+5	че	че	Cs
+6	е	съм	Vxitf-r3s
+7	заминал	замина	Vpptcao-smi
+8	.	.	punct
+
+1	Струва	струва-(си)	Vniif-r3s
+2	му	аз	Ppetds3m
+3	се	се	Ppxta
+4	ужасно	ужасно	Dm
+5	,	,	punct
+6	че	че	Cs
+7	тя	аз	Ppe-os3f
+8	е	съм	Vxitf-r3s
+9	тук	там	Pdl
+10	.	.	punct
+
+1	Че	че	Cs
+2	е	съм	Vxitf-r3s
+3	заминал	замина	Vpptcao-smi
+4	,	,	punct
+5	се	се	Ppxta
+6	знае	знам	Vpiif-r3s
+7	от	от	R
+8	всички	всеки	Pce-op
+9	.	.	punct
+
+1	Иска	иска	Vnitf-r3s
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	да	да	Tx
+5	заминеш	замина	Vpptf-r2s
+6	.	.	punct
+
+1	Време	време	Ncnsi
+2	ни	аз	Ppetdp1
+3	е	съм	Vxitf-r3s
+4	да	да	Tx
+5	тръгваме	тръгвам-(си)	Vpiif-r1p
+6	.	.	punct
+
+1	Време	време	Ncnsi
+2	е	съм	Vxitf-r3s
+3	да	да	Tx
+4	се	се	Ppxta
+5	тръгва	тръгвам-(си)	Vpiif-r3s
+6	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	е	съм	Vxitf-r3s
+5	важно	важно	Dm
+6	.	.	punct
+
+1	Който	който	Pre-os-m
+2	студент	студент	Ncmsi
+3	повикаш	повикам	Vpptf-r2s
+4	,	,	punct
+5	ще	ще	Tx
+6	дойде	дойда	Vppif-r3s
+7	.	.	punct
+
+1	Когото	който	Pre-as-m
+2	търсиш	търся	Vpitf-r2s
+3	,	,	punct
+4	е	съм	Vxitf-r3s
+5	излязъл	изляза	Vppicao-smi
+6	.	.	punct
+
+1	Който	който	Pre-os-m
+2	чака	чакам	Vpitf-r3s
+3	,	,	punct
+4	може	мога	Vpiif-r3s
+5	да	да	Tx
+6	дочака	дочакам	Vpptf-r3s
+7	.	.	punct
+
+1	Която	който	Pre-os-f
+2	студентка	студентка	Ncfsi
+3	иска	искам	Vpitf-r3s
+4	,	,	punct
+5	може	мога	Vpiif-r3s
+6	да	да	Tx
+7	направи	направя-(се)	Vpptf-r3s
+8	това	този	Pde-os-n
+9	.	.	punct
+
+1	За	за	R
+2	каквото	какъвто	Pra--s-n
+3	си	съм	Vxitf-r2s
+4	се	се	Ppxta
+5	борил	боря-(се)	Vpitcao-smi
+6	,	,	punct
+7	е	съм	Vxitf-r3s
+8	забравено	забравя-(се)	Vpptcv--sni
+9	.	.	punct
+
+1	Дали	дали	Ti
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	е	съм	Vxitf-r3s
+5	важно	важно	Dm
+6	.	.	punct
+
+1	Каквото	какъвто	Pre--s
+2	намериш	намеря-(се)	Vpptf-r2s
+3	,	,	punct
+4	е	съм	Vxitf-r3s
+5	твое	мой	Psol-s2ni
+6	.	.	punct
+
+1	За	за	R
+2	коя	кой	Pie-os-f
+3	студентка	студентка	Ncfsi
+4	мислиш	мисля	Vpitf-r2s
+5	,	,	punct
+6	е	съм	Vxitf-r3s
+7	важно	важно	Dm
+8	.	.	punct
+
+1	Не	не	Tn
+2	знам	знам	Vpiif-r1s
+3	дали	дали	Ti
+4	е	съм	Vxitf-r3s
+5	дошъл	дойда	Vppicao-smi
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	каза	кажа	Vpptf-o3s
+3	,	,	punct
+4	че	че	Cs
+5	трябва	трябва	Vniif-r3s
+6	да	да	Tx
+7	заминеш	замина	Vpptf-r2s
+8	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	забрави	забравя-(се)	Vpptf-o2s
+3	да	да	Tx
+4	я	аз	Ppetas3f
+5	търсиш	търся	Vpitf-r2s
+6	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	забрави	забравя-(се)	Vpptf-o2s
+3	,	,	punct
+4	че	че	Cs
+5	я	аз	Ppetas3f
+6	търсиш	търся	Vpitf-r2s
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	се	се	Ppxta
+3	опитам	опитам-(се)	Vpptf-r1s
+4	да	да	Tx
+5	работя	работя	Vpitf-r1s
+6	.	.	punct
+
+1	Чакам	чакам	Vpitf-r1s
+2	те	аз	Ppetas2
+3	да	да	Tx
+4	се	се	Ppxta
+5	изкажеш	изкажа-(се)	Vpptf-r2s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	каза	кажа	Vpptf-o3s
+3	да	да	Tx
+4	заминеш	замина	Vpptf-r2s
+5	.	.	punct
+
+1	Кого	кой	Pie-as-m
+2	че	че	Cs
+3	съм	съм	Vxitf-r1s
+4	видял	видя-(се)	Vpptcao-smi
+5	те	аз	Ppetas2
+6	ядосва	ядосвам-(се)	Vpitf-r3s
+7	?	?	punct
+
+1	Насилваха	насилвам-(се)	Vpitf-m3p
+2	я	аз	Ppetas3f
+3	да	да	Tx
+4	се	се	Ppxta
+5	жени	женя-(се)	Vpitf-r3s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	настоява	настоявам-(се)	Vpiif-r3s
+3	да	да	Tx
+4	замине	замина	Vpptf-r3s
+5	утре	утре	Dt
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	настоява	настоявам-(се)	Vpiif-r3s
+3	да	да	Tx
+4	замине	замина	Vpptf-r3s
+5	утре	утре	Dt
+6	.	.	punct
+
+1	Не	не	Tn
+2	вярвам	вярвам	Vpitf-r1s
+3	да	да	Tx
+4	е	съм	Vxitf-r3s
+5	заминал	замина	Vpptcao-smi
+6	.	.	punct
+
+1	Вярвам	вярвам	Vpitf-r1s
+2	,	,	punct
+3	че	че	Cs
+4	е	съм	Vxitf-r3s
+5	заминал	замина	Vpptcao-smi
+6	.	.	punct
+
+1	Повикай	повикам	Vpptz--2s
+2	,	,	punct
+3	когото	който	Pre-as-m
+4	искаш	искам	Vpitf-r2s
+5	.	.	punct
+
+1	Чакам	чакам	Vpitf-r1s
+2	да	да	Tx
+3	чуя	чуя	Vpptf-r1s
+4	какво	какъв	Pia--s-n
+5	ще	ще	Tx
+6	кажеш	кажа	Vpptf-r2s
+7	.	.	punct
+
+1	Видях	видя-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	седи	седя	Vpiif-r3s
+5	.	.	punct
+
+1	Чух	чуя	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	как	как	Pim
+4	пита	питам-(се)	Vpitf-r3s
+5	за	за	R
+6	тебе	аз	Ppelas2
+7	.	.	punct
+
+1	Чух	чуя	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	пита	питам-(се)	Vpitf-r3s
+5	за	за	R
+6	тебе	аз	Ppelas2
+7	.	.	punct
+
+1	Чух	чуя	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	,	,	punct
+4	че	че	Cs
+5	пита	питам-(се)	Vpitf-r3s
+6	за	за	R
+7	тебе	аз	Ppelas2
+8	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	съобщението	съобщение	Ncnsd
+3	,	,	punct
+4	че	че	Cs
+5	експедицията	експедиция	Ncfsd
+6	е	съм	Vxitf-r3s
+7	заминала	замина	Vpptcao-sfi
+8	.	.	punct
+
+1	Моля	моля-(се)	Vpitf-r1s
+2	те	аз	Ppetas2
+3	да	да	Tx
+4	говориш	говоря	Vpitf-r2s
+5	с	с	R
+6	него	аз	Ppelas3m
+7	.	.	punct
+
+1	Моля	моля-(се)	Vpitf-r1s
+2	да	да	Tx
+3	говориш	говоря	Vpitf-r2s
+4	с	с	R
+5	него	аз	Ppelas3m
+6	.	.	punct
+
+1	Намерих	намеря-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	седи	седя	Vpiif-r3s
+5	на	на	R
+6	стълбите	стълба	Ncfpd
+7	.	.	punct
+
+1	Принудиха	принудя-(се)	Vpptf-o3p
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	замине	замина	Vpptf-r3s
+5	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	чаша	чаша	Ncfsi
+3	,	,	punct
+4	за	за	R
+5	да	да	Tx
+6	пия	пия	Vpitf-r1s
+7	вода	вода	Ncfsi
+8	.	.	punct
+
+1	Искам	искам	Vpitf-r1s
+2	чаша	чаша	Ncfsi
+3	да	да	Tx
+4	пия	пия	Vpitf-r1s
+5	вода	вода	Ncfsi
+6	.	.	punct
+
+1	Дълго	дълго	Dq
+2	ще	ще	Tx
+3	чакаш	чакам	Vpitf-r2s
+4	тоя	този	Pde-os-m
+5	миг	миг	Ncmsi
+6	.	.	punct
+
+1	Дълго	дълго	Dq
+2	ще	ще	Tx
+3	чакаш	чакам	Vpitf-r2s
+4	тоя	този	Pde-os-m
+5	миг	миг	Ncmsi
+6	да	да	Tx
+7	се	се	Ppxta
+8	върне	върна-(се)	Vpptf-r3s
+9	.	.	punct
+
+1	Дълго	дълго	Dq
+2	ще	ще	Tx
+3	чакаш	чакам	Vpitf-r2s
+4	да	да	Tx
+5	се	се	Ppxta
+6	върне	върна-(се)	Vpptf-r3s
+7	тоя	този	Pde-os-m
+8	миг	миг	Ncmsi
+9	.	.	punct
+
+1	Посъветваха	посъветвам-(се)	Vpptf-o3p
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	замине	замина	Vpptf-r3s
+5	.	.	punct
+
+1	Иван	иван	Npmsi
+2	го	аз	Ppetas3m
+3	чакаше	чакам	Vpitf-m3s
+4	да	да	Tx
+5	се	се	Ppxta
+6	върне	върна-(се)	Vpptf-r3s
+7	.	.	punct
+
+1	Иван	иван	Npmsi
+2	го	аз	Ppetas3m
+3	чакаше	чакам	Vpitf-m3s
+4	да	да	Tx
+5	се	се	Ppxta
+6	върне	върна-(се)	Vpptf-r3s
+7	.	.	punct
+
+1	Дълго	дълго	Dq
+2	ще	ще	Tx
+3	чакаш	чакам	Vpitf-r2s
+4	тоя	този	Pde-os-m
+5	миг	миг	Ncmsi
+6	да	да	Tx
+7	се	се	Ppxta
+8	върне	върна-(се)	Vpptf-r3s
+9	.	.	punct
+
+1	Посъветвах	посъветвам-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	тръгнем	тръгна-(си)	Vppif-r1p
+5	заедно	заедно	Dm
+6	.	.	punct
+
+1	Завидяха	завидя	Vppif-o3p
+2	му	аз	Ppetds3m
+3	,	,	punct
+4	че	че	Cs
+5	остава	оставам	Vpiif-r3s
+6	.	.	punct
+
+1	Накарах	накарам-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	ТОЙ	аз	Ppe-os3m
+4	да	да	Tx
+5	ти	аз	Ppetds2
+6	каже	кажа	Vpptf-r3s
+7	това	този	Pde-os-n
+8	.	.	punct
+
+1	Наредиха	наредя-(се)	Vpptf-o3p
+2	ми	аз	Ppetds1
+3	да	да	Tx
+4	остана	остана	Vppif-r1s
+5	.	.	punct
+
+1	Помогнаха	помогна	Vppif-o3p
+2	му	аз	Ppetds3m
+3	да	да	Tx
+4	вдигне	вдигна-(се)	Vpptf-r3s
+5	оградата	ограда	Ncfsd
+6	.	.	punct
+
+1	Опитай	опитам-(се)	Vpptz--2s
+2	се	се	Ppxta
+3	да	да	Tx
+4	го	аз	Ppetas3m
+5	намериш	намеря-(се)	Vpptf-r2s
+6	.	.	punct
+
+1	Радвам	радвам-(се)	Vpitf-r1s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	пристигат	пристигам	Vpiif-r3p
+6	.	.	punct
+
+1	Радвам	радвам-(се)	Vpitf-r1s
+2	се	се	Ppxta
+3	на	на	R
+4	новината	новина	Ncfsd
+5	.	.	punct
+
+1	Всички	всеки	Pce-op
+2	говорят	говоря	Vpitf-r3p
+3	,	,	punct
+4	че	че	Cs
+5	ти	аз	Ppe-os2
+6	си	съм	Vxitf-r2s
+7	му	аз	Ppetds3m
+8	казал	кажа	Vpptcao-smi
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	се	се	Ppxta
+3	погрижа	погрижа-се	Vppif-r1s
+4	да	да	Tx
+5	го	аз	Ppetas3m
+6	намеря	намеря-(се)	Vpptf-r1s
+7	.	.	punct
+
+1	Чух	чуя	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	казва	казвам-(се)	Vpitf-r3s
+5	това	този	Pde-os-n
+6	.	.	punct
+
+1	Чух	чуя	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	ТОЙ	аз	Ppe-os3m
+4	да	да	Tx
+5	казва	казвам-(се)	Vpitf-r3s
+6	това	този	Pde-os-n
+7	.	.	punct
+
+1	Накарах	накарам-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	да	да	Tx
+4	ти	аз	Ppetds2
+5	каже	кажа	Vpptf-r3s
+6	това	този	Pde-os-n
+7	.	.	punct
+
+1	Всички	всеки	Pce-op
+2	говорят	говоря	Vpitf-r3p
+3	,	,	punct
+4	ТИ	аз	Ppe-os2
+5	че	че	Cs
+6	си	съм	Vxitf-r2s
+7	му	аз	Ppetds3m
+8	казал	кажа	Vpptcao-smi
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Вярвам	вярвам	Vpitf-r1s
+2	,	,	punct
+3	че	че	Cs
+4	е	съм	Vxitf-r3s
+5	дошъл	дойда	Vppicao-smi
+6	.	.	punct
+
+1	Помогнаха	помогна	Vppif-o3p
+2	да	да	Tx
+3	се	се	Ppxta
+4	вдигне	вдигна-(се)	Vpptf-r3s
+5	оградата	ограда	Ncfsd
+6	.	.	punct
+
+1	Радвам	радвам-(се)	Vpitf-r1s
+2	се	се	Ppxta
+3	на	на	R
+4	новината	новина	Ncfsd
+5	,	,	punct
+6	че	че	Cs
+7	пристигат	пристигам	Vpiif-r3p
+8	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	видя	видя-(се)	Vpptf-o3s
+3	къде	къде	Pil
+4	е	съм	Vxitf-r3s
+5	отишъл	отида-(си)	Vppicao-smi
+6	?	?	punct
+
+1	Кажи	кажа	Vpptz--2s
+2	ми	аз	Ppetds1
+3	къде	къде	Pil
+4	да	да	Tx
+5	оставя	оставя-(се)	Vpptf-r1s
+6	чашата	чаша	Ncfsd
+7	.	.	punct
+
+1	Съжалявам	съжалявам-(се)	Vpitf-r1s
+2	за	за	R
+3	това	този	Pde-os-n
+4	,	,	punct
+5	че	че	Cs
+6	заминаваш	заминавам	Vpiif-r2s
+7	.	.	punct
+
+1	Упътих	упътя-(се)	Vpptf-o1s
+2	го	аз	Ppetas3m
+3	как	как	Pim
+4	да	да	Tx
+5	стигне	стигна	Vpptf-r3s
+6	до	до	R
+7	там	там	Pdl
+8	.	.	punct
+
+1	Наизвадиха	наизвадя	Vpptf-o3p
+2	,	,	punct
+3	каквото	какъвто	Pre--s
+4	носеха	нося-(се)	Vpitf-m3p
+5	.	.	punct
+
+1	Вземи	взема	Vpptz--2s
+2	,	,	punct
+3	каквото	какъвто	Pre--s
+4	искаш	искам	Vpitf-r2s
+5	.	.	punct
+
+1	Наизвадиха	наизвадя	Vpptf-o3p
+2	всичко	всеки	Pce-os-n
+3	,	,	punct
+4	каквото	какъвто	Pre--s
+5	носеха	нося-(се)	Vpitf-m3p
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ще	ще	Tx
+3	отиде	отида-(си)	Vppif-r3s
+4	,	,	punct
+5	където	където	Prl
+6	го	аз	Ppetas3m
+7	пратят	пратя	Vpptf-r3p
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	връща	връщам-(се)	Vpitf-r3s
+4	оттам	там	Pdl
+5	,	,	punct
+6	където	където	Prl
+7	ти	аз	Ppe-os2
+8	отиваш	отивам-(си)	Vpiif-r2s
+9	.	.	punct
+
+1	Ние	аз	Ppe-op1
+2	сме	съм	Vxitf-r1p
+3	,	,	punct
+4	които	който	Pre-op
+5	търсите	търся	Vpitf-r2p
+6	.	.	punct
+
+1	У	у	R
+2	тях	аз	Ppelap3
+3	нямаше	нямам	Vnitf-m3s
+4	нито	нито	Tn
+5	следа	следа	Ncfsi
+6	от	от	R
+7	някакъв	някакъв	Pfa--s-m
+8	мироглед	мироглед	Ncmsi
+9	,	,	punct
+10	който	който	Pre-os-m
+11	да	да	Tx
+12	подкрепи	подкрепя	Vpptf-r3s
+13	живота	живот	Ncmsh
+14	им	техен	Pszt--3
+15	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	,	,	punct
+3	който	който	Pre-os-m
+4	четеш	чета	Vpitf-r2s
+5	житието	житие	Ncnsd
+6	му	мой	Psot--3--m
+7	,	,	punct
+8	прощавай	прощавам-(се)	Vpitz--2s
+9	.	.	punct
+
+1	Въпросът	въпрос	Ncmsf
+2	,	,	punct
+3	кой	кой	Pie-os-m
+4	кога	кога	Pit
+5	е	съм	Vxitf-r3s
+6	заминал	замина	Vpptcao-smi
+7	,	,	punct
+8	беше	съм	Vxitf-t3s
+9	изоставен	изоставя	Vpptcv--smi
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	я	аз	Ppetas3f
+3	видя	видя-(се)	Vpptf-o3s
+4	пак	пак	Dt
+5	хубава	хубав	Afsi
+6	,	,	punct
+7	каквато	какъвто	Pra--s-f
+8	беше	съм	Vxitf-t3s
+9	преди	преди	Dt
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	я	аз	Ppetas3f
+3	видя	видя-(се)	Vpptf-o3s
+4	пак	пак	Dt
+5	хубава	хубав	Afsi
+6	,	,	punct
+7	каквато	какъвто	Pra--s-f
+8	беше	съм	Vxitf-t3s
+9	преди	преди	Dt
+10	.	.	punct
+
+1	Жената	жена	Ncfsd
+2	стана	стана	Vppif-o3s
+3	моя	мой	Psol-s1fi
+4	утешителка	утешителка	Ncfsi
+5	,	,	punct
+6	каквато	какъвто	Pra--s-f
+7	някога	някога	Pft
+8	бе	съм	Vxitf-t3s
+9	царската	царски	Afsd
+10	дъщеря	дъщеря	Ncfsi
+11	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	имаше	имам	Vpitf-m3s
+3	само	само	Dd
+4	убеждението	убеждение	Ncnsd
+5	,	,	punct
+6	че	че	Cs
+7	всичко	всеки	Pce-os-n
+8	носеше	нося-(се)	Vpitf-m3s
+9	отпечатък	отпечатък	Ncmsi
+10	на	на	R
+11	отдавна	отдавна	Dt
+12	осъдена	осъдя	Vpptcv--sfi
+13	в	в	R
+14	душата	душа	Ncfsd
+15	му	мой	Psot--3--m
+16	несправедливост	несправедливост	Ncfsi
+17	.	.	punct
+
+1	Мисълта	мисъл	Ncfsd
+2	,	,	punct
+3	кога	кога	Pit
+4	ще	ще	Tx
+5	свърши	свърша-(се)	Vpptf-r3s
+6	всичко	всеки	Pce-os-n
+7	,	,	punct
+8	не	не	Tn
+9	го	аз	Ppetas3m
+10	оставяше	оставям-(се)	Vpitf-m3s
+11	на	на	R
+12	мира	мира	Ncfsi
+13	.	.	punct
+
+1	През	през	R
+2	тия	този	Pde-op
+3	разговори	разговор	Ncmpi
+4	имаше	имам	Vnitf-m3s
+5	един	един	Pfe-os-mi
+6	миг	миг	Ncmsi
+7	,	,	punct
+8	когато	когато	Prt
+9	погледите	поглед	Ncmpd
+10	им	техен	Pszt--3
+11	се	се	Ppxta
+12	срещнаха	срещна-(се)	Vpptf-o3p
+13	.	.	punct
+
+1	Желанието	желание	Ncnsd
+2	да	да	Tx
+3	направи	направя-(се)	Vpptf-r3s
+4	всичко	всеки	Pce-os-n
+5	това	този	Pde-os-n
+6	не	не	Tn
+7	го	аз	Ppetas3m
+8	напускаше	напускам	Vpitf-m3s
+9	.	.	punct
+
+1	Обхвана	обхвана	Vpptf-o3s
+2	го	аз	Ppetas3m
+3	усещането	усещане	Ncnsd
+4	,	,	punct
+5	че	че	Cs
+6	нещо	някой	Pfe-os-ni
+7	не	не	Tn
+8	е	съм	Vxitf-r3s
+9	наред	наред	Dm
+10	.	.	punct
+
+1	Следствието	следствие	Ncnsd
+2	от	от	R
+3	това	този	Pde-os-n
+4	,	,	punct
+5	че	че	Cs
+6	е	съм	Vxitf-r3s
+7	заминал	замина	Vpptcao-smi
+8	,	,	punct
+9	е	съм	Vxitf-r3s
+10	очевидно	очевиден	Ansi
+11	.	.	punct
+
+1	Това	този	Pde-os-n
+2	,	,	punct
+3	че	че	Cs
+4	е	съм	Vxitf-r3s
+5	тук	там	Pdl
+6	,	,	punct
+7	е	съм	Vxitf-r3s
+8	тайна	тайна	Ncfsi
+9	.	.	punct
+
+1	Това	този	Pde-os-n
+2	,	,	punct
+3	че	че	Cs
+4	са	съм	Vxitf-r3p
+5	го	аз	Ppetas3m
+6	видели	видя-(се)	Vpptcao-p-i
+7	,	,	punct
+8	е	съм	Vxitf-r3s
+9	слух	слух	Ncmsi
+10	.	.	punct
+
+1	Следствието	следствие	Ncnsd
+2	,	,	punct
+3	че	че	Cs
+4	е	съм	Vxitf-r3s
+5	заминал	замина	Vpptcao-smi
+6	,	,	punct
+7	беше	съм	Vxitf-t3s
+8	направено	направя-(се)	Vpptcv--sni
+9	лесно	лесно	Dm
+10	.	.	punct
+
+1	Имаше	имам	Vpitf-m3s
+2	желание	желание	Ncnsi
+3	да	да	Tx
+4	пакости	пакостя	Vpiif-r3s
+5	,	,	punct
+6	каквато	какъвто	Pra--s-f
+7	наклонност	наклонност	Ncfsi
+8	проявяваше	проявявам-(се)	Vpitf-m3s
+9	често	често	Dm
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	гледаше	гледам	Vpitf-m3s
+3	колата	кола	Ncfsd
+4	,	,	punct
+5	дето	който	Pre--s
+6	тя	аз	Ppe-os3f
+7	слезе	сляза	Vppif-o3s
+8	от	от	R
+9	нея	аз	Ppelas3f
+10	.	.	punct
+
+1	Кои	кой	Pie-op
+2	бяха	съм	Vxitf-t3p
+3	ония	този	Pde-op
+4	,	,	punct
+5	дето	който	Pre--s
+6	ги	аз	Ppetap3
+7	видяхме	видя-(се)	Vpptf-o1p
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	влезе	вляза	Vppif-o3s
+3	във	във	R
+4	вагона	вагон	Ncmsh
+5	до	до	R
+6	бюфета	бюфет	Ncmsh
+7	,	,	punct
+8	който	който	Pre-os-m
+9	вагон	вагон	Ncmsi
+10	се	се	Ppxta
+11	оказа	окажа-(се)	Vpptf-o3s
+12	празен	празен	Amsi
+13	.	.	punct
+
+1	Такава	такъв	Pda--s-f
+2	книга	книга	Ncfsi
+3	ти	аз	Ppe-os2
+4	ми	аз	Ppetds1
+5	даваш	давам-(се)	Vpitf-r2s
+6	,	,	punct
+7	каквато	какъвто	Pra--s-f
+8	аз	аз	Ppe-os1
+9	ти	аз	Ppetds2
+10	давам	давам-(се)	Vpitf-r1s
+11	.	.	punct
+
+1	Бъди	бъда	Vyptz--2s
+2	такава	такъв	Pda--s-f
+3	,	,	punct
+4	каквато	какъвто	Pra--s-f
+5	си	съм	Vxitf-r2s
+6	.	.	punct
+
+1	Гледах	гледам	Vpitf-o1s
+2	филм	филм	Ncmsi
+3	,	,	punct
+4	какъвто	какъвто	Pra--s-m
+5	не	не	Tn
+6	бях	съм	Vxitf-t1s
+7	гледал	гледам	Vpitcao-smi
+8	.	.	punct
+
+1	Гледах	гледам	Vpitf-o1s
+2	филм	филм	Ncmsi
+3	,	,	punct
+4	чийто	чийто	Prp--s-m
+5	смисъл	смисъл	Ncmsi
+6	не	не	Tn
+7	разбрах	разбера-(се)	Vpptf-o1s
+8	.	.	punct
+
+1	Училището	училище	Ncnsd
+2	,	,	punct
+3	чийто	чийто	Prp--s-m
+4	директор	директор	Ncmsi
+5	си	съм	Vxitf-r2s
+6	ти	аз	Ppe-os2
+7	,	,	punct
+8	е	съм	Vxitf-r3s
+9	ново	нов	Ansi
+10	.	.	punct
+
+1	Каквато	какъвто	Pra--s-f
+2	книга	книга	Ncfsi
+3	аз	аз	Ppe-os1
+4	ти	аз	Ppetds2
+5	давам	давам-(се)	Vpitf-r1s
+6	,	,	punct
+7	такава	такъв	Pda--s-f
+8	ти	аз	Ppe-os2
+9	ми	аз	Ppetds1
+10	даваш	давам-(се)	Vpitf-r2s
+11	.	.	punct
+
+1	Училището	училище	Ncnsd
+2	,	,	punct
+3	на	на	R
+4	което	който	Pre-os-n
+5	ти	аз	Ppe-os2
+6	си	съм	Vxitf-r2s
+7	директор	директор	Ncmsi
+8	,	,	punct
+9	е	съм	Vxitf-r3s
+10	ново	нов	Ansi
+11	.	.	punct
+
+1	Такава	такъв	Pda--s-f
+2	книга	книга	Ncfsi
+3	ти	аз	Ppe-os2
+4	ми	аз	Ppetds1
+5	даваш	давам-(се)	Vpitf-r2s
+6	,	,	punct
+7	каквато	какъвто	Pra--s-f
+8	книга	книга	Ncfsi
+9	аз	аз	Ppe-os1
+10	ти	аз	Ppetds2
+11	давам	давам-(се)	Vpitf-r1s
+12	.	.	punct
+
+1	Каквато	какъвто	Pra--s-f
+2	книга	книга	Ncfsi
+3	аз	аз	Ppe-os1
+4	ти	аз	Ppetds2
+5	давам	давам-(се)	Vpitf-r1s
+6	,	,	punct
+7	такава	такъв	Pda--s-f
+8	книга	книга	Ncfsi
+9	ти	аз	Ppe-os2
+10	ми	аз	Ppetds1
+11	даваш	давам-(се)	Vpitf-r2s
+12	.	.	punct
+
+1	Гледах	гледам	Vpitf-o1s
+2	филм	филм	Ncmsi
+3	,	,	punct
+4	смисъла	смисъл	Ncmsh
+5	на	на	R
+6	който	който	Pre-os-m
+7	не	не	Tn
+8	разбрах	разбера-(се)	Vpptf-o1s
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	разбра	разбера-(се)	Vpptf-o3s
+3	всичко	всеки	Pce-os-n
+4	в	в	R
+5	мига	миг	Ncmsh
+6	,	,	punct
+7	когато	когато	Prt
+8	погледите	поглед	Ncmpd
+9	им	техен	Pszt--3
+10	се	се	Ppxta
+11	срещнаха	срещна-(се)	Vpptf-o3p
+12	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	разбра	разбера-(се)	Vpptf-o3s
+3	всичко	всеки	Pce-os-n
+4	в	в	R
+5	мига	миг	Ncmsh
+6	,	,	punct
+7	когато	когато	Prt
+8	погледите	поглед	Ncmpd
+9	им	техен	Pszt--3
+10	се	се	Ppxta
+11	срещнаха	срещна-(се)	Vpptf-o3p
+12	.	.	punct
+
+1	Това	този	Pde-os-n
+2	е	съм	Vxitf-r3s
+3	къщата	къща	Ncfsd
+4	,	,	punct
+5	където	където	Prl
+6	живееше	живея	Vpitf-m3s
+7	той	аз	Ppe-os3m
+8	.	.	punct
+
+1	Студентите	студент	Ncmpd
+2	,	,	punct
+3	които	който	Pre-op
+4	впрочем	впрочем	Dd
+5	си	се	Ppxtd
+6	бяха	съм	Vxitf-t3p
+7	взели	взема	Vpptcao-p-i
+8	изпита	изпит	Ncmsh
+9	,	,	punct
+10	заминаха	замина	Vpptf-o3p
+11	.	.	punct
+
+1	Училището	училище	Ncnsd
+2	,	,	punct
+3	на	на	R
+4	което	който	Pre-os-n
+5	си	съм	Vxitf-r2s
+6	директор	директор	Ncmsi
+7	,	,	punct
+8	е	съм	Vxitf-r3s
+9	ново	нов	Ansi
+10	.	.	punct
+
+1	Търся	търся	Vpitf-r1s
+2	път	път	Ncmsi
+3	,	,	punct
+4	който	който	Pre-os-m
+5	да	да	Tx
+6	води	водя	Vpitf-r3s
+7	към	към	R
+8	върха	връх	Ncmsh
+9	.	.	punct
+
+1	Търся	търся	Vpitf-r1s
+2	книга	книга	Ncfsi
+3	,	,	punct
+4	която	който	Pre-os-f
+5	да	да	Tx
+6	й	аз	Ppetds3f
+7	хареса	харесам-(се)	Vpptf-r3s
+8	.	.	punct
+
+1	Студентите	студент	Ncmpd
+2	,	,	punct
+3	които	който	Pre-op
+4	си	се	Ppxtd
+5	бяха	съм	Vxitf-t3p
+6	взели	взема	Vpptcao-p-i
+7	изпита	изпит	Ncmsh
+8	,	,	punct
+9	заминаха	замина	Vpptf-o3p
+10	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	иска	искам	Vpitf-r3s
+3	да	да	Tx
+4	те	аз	Ppetas2
+5	види	видя-(се)	Vpptf-r3s
+6	?	?	punct
+
+1	Къщата	къща	Ncfsd
+2	,	,	punct
+3	в	в	R
+4	която	който	Pre-os-f
+5	кой	кой	Pie-os-m
+6	живее	живея	Vpitf-r3s
+7	,	,	punct
+8	е	съм	Vxitf-r3s
+9	нова	нов	Afsi
+10	?	?	punct
+
+1	Той	аз	Ppe-os3m
+2	иска	искам	Vpitf-r3s
+3	съвет	съвет	Ncmsi
+4	,	,	punct
+5	към	към	R
+6	кого	кой	Pie-as-m
+7	да	да	Tx
+8	се	се	Ppxta
+9	обърне	обърна-(се)	Vpptf-r3s
+10	.	.	punct
+
+1	В	в	R
+2	тоя	този	Pde-os-m
+3	град	град	Ncmsi
+4	няма	нямам	Vnitf-r3s
+5	човек	човек	Ncmsi
+6	,	,	punct
+7	от	от	R
+8	икони	икона	Ncfpi
+9	да	да	Tx
+10	разбира	разбирам-(се)	Vpitf-r3s
+11	.	.	punct
+
+1	Въпросът	въпрос	Ncmsf
+2	,	,	punct
+3	кой	кой	Pie-os-m
+4	да	да	Tx
+5	направи	направя-(се)	Vpptf-r3s
+6	това	този	Pde-os-n
+7	,	,	punct
+8	не	не	Tn
+9	го	аз	Ppetas3m
+10	занимаваше	занимавам-(се)	Vpitf-m3s
+11	.	.	punct
+
+1	Ще	ще	Tx
+2	намеря	намеря-(се)	Vpptf-r1s
+3	книгата	книга	Ncfsd
+4	,	,	punct
+5	която	който	Pre-os-f
+6	да	да	Tx
+7	й	аз	Ppetds3f
+8	хареса	харесам-(се)	Vpptf-r3s
+9	.	.	punct
+
+1	В	в	R
+2	тоя	този	Pde-os-m
+3	град	град	Ncmsi
+4	няма	нямам	Vnitf-r3s
+5	човек	човек	Ncmsi
+6	,	,	punct
+7	който	който	Pre-os-m
+8	да	да	Tx
+9	разбира	разбирам-(се)	Vpitf-r3s
+10	от	от	R
+11	икони	икона	Ncfpi
+12	.	.	punct
+
+1	Занимаваше	занимавам-(се)	Vpitf-m3s
+2	ги	аз	Ppetap3
+3	въпросът	въпрос	Ncmsf
+4	,	,	punct
+5	кой	кой	Pie-os-m
+6	е	съм	Vxitf-r3s
+7	направил	направя-(се)	Vpptcao-smi
+8	това	този	Pde-os-n
+9	.	.	punct
+
+1	Кога	кога	Pit
+2	иска	искам	Vpitf-r3s
+3	да	да	Tx
+4	те	аз	Ppetas2
+5	види	видя-(се)	Vpptf-r3s
+6	?	?	punct
+
+1	Кога	кога	Pit
+2	иска	искам	Vpitf-r3s
+3	да	да	Tx
+4	те	аз	Ppetas2
+5	види	видя-(се)	Vpptf-r3s
+6	?	?	punct
+
+1	Той	аз	Ppe-os3m
+2	ще	ще	Tx
+3	ви	аз	Ppetdp2
+4	даде	дам-(се)	Vpptf-r3s
+5	указания	указание	Ncnpi
+6	,	,	punct
+7	как	как	Pim
+8	да	да	Tx
+9	постъпите	постъпя	Vppif-r2p
+10	.	.	punct
+
+1	Съветът	съвет	Ncmsf
+2	ти	твой	Psot--2
+3	да	да	Tx
+4	остана	остана	Vppif-r1s
+5	беше	съм	Vxitf-t3s
+6	добър	добър	Amsi
+7	.	.	punct
+
+1	Прочети	прочета	Vpptz--2s
+2	упътването	упътване	Ncnsd
+3	,	,	punct
+4	как	как	Pim
+5	да	да	Tx
+6	включиш	включа-(се)	Vpptf-r2s
+7	уреда	уред	Ncmsh
+8	.	.	punct
+
+1	Има	имам	Vnitf-r3s
+2	кой	кой	Pie-os-m
+3	да	да	Tx
+4	ми	аз	Ppetds1
+5	каже	кажа	Vpptf-r3s
+6	.	.	punct
+
+1	Имам	имам	Vpitf-r1s
+2	какво	какъв	Pia--s-n
+3	да	да	Tx
+4	чета	чета	Vpitf-r1s
+5	.	.	punct
+
+1	Сетих	сетя-се	Vppif-o1s
+2	се	се	Ppxta
+3	кого	кой	Pie-as-m
+4	ще	ще	Tx
+5	попиташ	попитам	Vpptf-r2s
+6	.	.	punct
+
+1	Сетих	сетя-се	Vppif-o1s
+2	се	се	Ppxta
+3	кого	кой	Pie-as-m
+4	да	да	Tx
+5	попиташ	попитам	Vpptf-r2s
+6	.	.	punct
+
+1	Нямат	нямам	Vpitf-r3p
+2	какво	какъв	Pia--s-n
+3	да	да	Tx
+4	ядат	ям-(се)	Vpitf-r3p
+5	.	.	punct
+
+1	Знам	знам	Vpiif-r1s
+2	кой	кой	Pie-os-m
+3	ще	ще	Tx
+4	ми	аз	Ppetds1
+5	каже	кажа	Vpptf-r3s
+6	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	тъй	така	Pdm
+7	като	като	Cs
+8	той	аз	Ppe-os3m
+9	иска	искам	Vpitf-r3s
+10	това	този	Pde-os-n
+11	.	.	punct
+
+1	Пречиш	преча-(се)	Vpiif-r2s
+2	на	на	R
+3	другите	друг	A-pd
+4	така	така	Pdm
+5	,	,	punct
+6	както	както	Prm
+7	си	съм	Vxitf-r2s
+8	застанал	застана	Vppicao-smi
+9	.	.	punct
+
+1	Не	не	Tn
+2	остава	оставам	Vpiif-r3s
+3	друго	друг	Ansi
+4	,	,	punct
+5	освен	освен	R
+6	да	да	Tx
+7	чакаме	чакам	Vpitf-r1p
+8	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	понеже	понеже	Cs
+7	той	аз	Ppe-os3m
+8	иска	искам	Vpitf-r3s
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	понеже	понеже	Cs
+7	той	аз	Ppe-os3m
+8	иска	искам	Vpitf-r3s
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	защото	защото	Prc
+7	той	аз	Ppe-os3m
+8	иска	искам	Vpitf-r3s
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	защото	защото	Prc
+7	той	аз	Ppe-os3m
+8	иска	искам	Vpitf-r3s
+9	това	този	Pde-os-n
+10	.	.	punct
+
+1	Бягаше	бягам	Vpiif-m3s
+2	така	така	Pdm
+3	,	,	punct
+4	като	като	Cs
+5	че	че	Cs
+6	ли	ли	Ti
+7	го	аз	Ppetas3m
+8	гонят	гоня-(се)	Vpitf-r3p
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	вървеше	вървя	Vpiif-m3s
+3	към	към	R
+4	нея	аз	Ppelas3f
+5	,	,	punct
+6	като	като	Cs
+7	се	се	Ppxta
+8	усмихваше	усмихвам-се	Vpiif-m3s
+9	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	дам	дам-(се)	Vpptf-r1s
+4	толкова	толкова	Pdq
+5	,	,	punct
+6	колкото	колкото	Prq
+7	искаш	искам	Vpitf-r2s
+8	.	.	punct
+
+1	По-добре	добре	Dm
+2	говори	говоря	Vpitz--2s
+3	с	с	R
+4	него	аз	Ppelas3m
+5	,	,	punct
+6	отколкото	колкото	Prq
+7	да	да	Tx
+8	му	аз	Ppetds3m
+9	пишеш	пиша	Vpitf-r2s
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	кажа	кажа	Vpptf-r1s
+4	,	,	punct
+5	след	след	R
+6	като	като	R
+7	дойдеш	дойда	Vppif-r2s
+8	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	кажа	кажа	Vpptf-r1s
+4	,	,	punct
+5	преди	преди	R
+6	да	да	Tx
+7	дойдеш	дойда	Vppif-r2s
+8	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	излезе	изляза	Vppif-o3s
+3	веднага	веднага	Dt
+4	да	да	Tx
+5	не	не	Tn
+6	го	аз	Ppetas3m
+7	срещне	срещна-(се)	Vpptf-r3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	излезе	изляза	Vppif-o3s
+3	,	,	punct
+4	въпреки	въпреки	R
+5	че	че	Cs
+6	валеше	валя	Vniif-m3s
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	кажа	кажа	Vpptf-r1s
+4	,	,	punct
+5	когато	когато	Prt
+6	дойдеш	дойда	Vppif-r2s
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	ти	аз	Ppetds2
+3	кажа	кажа	Vpptf-r1s
+4	,	,	punct
+5	като	като	Cs
+6	дойдеш	дойда	Vppif-r2s
+7	.	.	punct
+
+1	Да	да	Tx
+2	знаех	знам	Vpiif-m1s
+3	,	,	punct
+4	бих	съм	Vxitu-o1s
+5	ти	аз	Ppetds2
+6	казал	кажа	Vpptcao-smi
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	излезе	изляза	Vppif-o3s
+3	веднага	веднага	Dt
+4	,	,	punct
+5	за	за	R
+6	да	да	Tx
+7	не	не	Tn
+8	го	аз	Ppetas3m
+9	срещне	срещна-(се)	Vpptf-r3s
+10	.	.	punct
+
+1	Сетих	сетя-се	Vppif-o1s
+2	се	се	Ppxta
+3	за	за	R
+4	това	този	Pde-os-n
+5	неочаквано	неочаквано	Dm
+6	,	,	punct
+7	както	както	Prm
+8	си	се	Ppxtd
+9	вървях	вървя	Vpiif-m1s
+10	.	.	punct
+
+1	Говореше	говоря	Vpitf-m3s
+2	така	така	Pdm
+3	,	,	punct
+4	както	както	Prm
+5	си	се	Ppxtd
+6	знаеше	знам	Vpiif-m3s
+7	.	.	punct
+
+1	Бих	съм	Vxitu-o1s
+2	ти	аз	Ppetds2
+3	казал	кажа	Vpptcao-smi
+4	,	,	punct
+5	ако	ако	Cs
+6	знаех	знам	Vpiif-m1s
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	ще	ще	Tx
+3	се	се	Ppxta
+4	върне	върна-(се)	Vpptf-r3s
+5	,	,	punct
+6	и	и	Cp
+7	да	да	Tx
+8	не	не	Tn
+9	иска	искам	Vpitf-r3s
+10	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	се	се	Ppxta
+3	сърди	сърдя-(се)	Vpitf-r3s
+4	,	,	punct
+5	каквото	какъвто	Pre--s
+6	и	и	Cp
+7	да	да	Tx
+8	й	аз	Ppetds3f
+9	кажеш	кажа	Vpptf-r2s
+10	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	излезе	изляза	Vppif-o3s
+3	,	,	punct
+4	вместо	вместо	R
+5	да	да	Tx
+6	го	аз	Ppetas3m
+7	дочака	дочакам	Vpptf-r3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	съгласи	съглася-се	Vppif-o3s
+4	едва	едва	Dq
+5	когато	когато	Prt
+6	му	аз	Ppetds3m
+7	показах	покажа-(се)	Vpptf-o1s
+8	документите	документ	Ncmpd
+9	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	говори	говоря	Vpitf-r3s
+3	силно	силно	Dm
+4	,	,	punct
+5	така	така	Pdm
+6	че	че	Cs
+7	ще	ще	Tx
+8	я	аз	Ppetas3f
+9	чуеш	чуя	Vpitf-r2s
+10	.	.	punct
+
+1	Да	да	Tx
+2	знаех	знам	Vpiif-m1s
+3	,	,	punct
+4	щях	ща	Vpitf-m1s
+5	да	да	Tx
+6	дойда	дойда	Vppif-r1s
+7	.	.	punct
+
+1	Облечи	облека	Vpptz--2s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	студено	студено	Dm
+7	.	.	punct
+
+1	Говори	говоря	Vpitz--2s
+2	така	така	Pdm
+3	,	,	punct
+4	че	че	Cs
+5	да	да	Tx
+6	те	аз	Ppetas2
+7	чуват	чувам-(се)	Vpitf-r3p
+8	.	.	punct
+
+1	Бягаше	бягам	Vpiif-m3s
+2	,	,	punct
+3	без	без	R
+4	да	да	Tx
+5	се	се	Ppxta
+6	обръща	обръщам-(се)	Vpitf-r3s
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	извика	извикам	Vpptf-o3s
+3	толкова	толкова	Pdq
+4	силно	силно	Dm
+5	,	,	punct
+6	че	че	Cs
+7	всички	всеки	Pce-op
+8	го	аз	Ppetas3m
+9	чуха	чуя	Vpptf-o3p
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	я	аз	Ppetas3f
+3	дочакам	дочакам	Vpptf-r1s
+4	,	,	punct
+5	когато	когато	Prt
+6	и	и	Cp
+7	да	да	Tx
+8	дойде	дойда	Vppif-r3s
+9	.	.	punct
+
+1	Отивам	отивам-(си)	Vpiif-r1s
+2	да	да	Tx
+3	говоря	говоря	Vpitf-r1s
+4	с	с	R
+5	него	аз	Ppelas3m
+6	.	.	punct
+
+1	Като	като	Cs
+2	не	не	Tn
+3	знаеш	знам	Vpiif-r2s
+4	,	,	punct
+5	мълчи	мълча	Vpiiz--2s
+6	!	!	punct
+
+1	Той	аз	Ppe-os3m
+2	бързаше	бързам	Vpiif-m3s
+3	насам	насам	Dl
+4	,	,	punct
+5	като	като	Cs
+6	викаше	викам	Vpitf-m3s
+7	нещо	някой	Pfe-os-ni
+8	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	оставаше	оставам	Vpiif-m3s
+3	дълго	дълго	Dq
+4	там	там	Pdl
+5	,	,	punct
+6	където	където	Prl
+7	и	и	Cp
+8	да	да	Tx
+9	отидеше	отида-(си)	Vppif-m3s
+10	.	.	punct
+
+1	Като	като	Cs
+2	идвах	идвам	Vpiif-m1s
+3	,	,	punct
+4	валеше	валя	Vniif-m3s
+5	.	.	punct
+
+1	Ще	ще	Tx
+2	отида	отида-(си)	Vppif-r1s
+3	,	,	punct
+4	когато	когато	Prt
+5	ме	аз	Ppetas1
+6	повикат	повикам	Vpptf-r3p
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	отида	отида-(си)	Vppif-r1s
+3	,	,	punct
+4	защото	защото	Prc
+5	ме	аз	Ppetas1
+6	повикаха	повикам	Vpptf-o3p
+7	.	.	punct
+
+1	Излез	изляза	Vppiz--2s
+2	,	,	punct
+3	че	че	Cs
+4	те	аз	Ppetas2
+5	викат	викам	Vpitf-r3p
+6	.	.	punct
+
+1	Не	не	Tn
+2	го	аз	Ppetas3m
+3	намерих	намеря-(се)	Vpptf-o1s
+4	,	,	punct
+5	защото	защото	Prc
+6	е	съм	Vxitf-r3s
+7	заминал	замина	Vpptcao-smi
+8	.	.	punct
+
+1	Излез	изляза	Vppiz--2s
+2	,	,	punct
+3	понеже	понеже	Cs
+4	те	аз	Ppetas2
+5	викат	викам	Vpitf-r3p
+6	.	.	punct
+
+1	Излез	изляза	Vppiz--2s
+2	,	,	punct
+3	защото	защото	Prc
+4	те	аз	Ppetas2
+5	викат	викам	Vpitf-r3p
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	оставаше	оставам	Vpiif-m3s
+3	дълго	дълго	Dq
+4	там	там	Pdl
+5	,	,	punct
+6	където	където	Prl
+7	отидеше	отида-(си)	Vppif-m3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	беше	съм	Vxitf-t3s
+3	толкова	толкова	Pdq
+4	отдавна	отдавна	Dt
+5	готов	готов	Amsi
+6	да	да	Tx
+7	замине	замина	Vpptf-r3s
+8	,	,	punct
+9	че	че	Cs
+10	тръгна	тръгна-(си)	Vppif-o3s
+11	веднага	веднага	Dt
+12	.	.	punct
+
+1	Ще	ще	Tx
+2	говориш	говоря	Vpitf-r2s
+3	толкова	толкова	Pdq
+4	,	,	punct
+5	че	че	Cs
+6	всички	всеки	Pce-op
+7	да	да	Tx
+8	се	се	Ppxta
+9	възмутят	възмутя-(се)	Vpptf-r3p
+10	.	.	punct
+
+1	Ще	ще	Tx
+2	говориш	говоря	Vpitf-r2s
+3	така	така	Pdm
+4	,	,	punct
+5	че	че	Cs
+6	всички	всеки	Pce-op
+7	да	да	Tx
+8	се	се	Ppxta
+9	възмутят	възмутя-(се)	Vpptf-r3p
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	стигна	стигна	Vpptf-o3s
+3	до	до	R
+4	там	там	Pdl
+5	,	,	punct
+6	че	че	Cs
+7	отвърна	отвърна-(се)	Vpptf-o3s
+8	от	от	R
+9	себе	себе	Ppxla
+10	си	си	T
+11	най-близкия	близък	Amsh
+12	си	свой	Psxto
+13	човек	човек	Ncmsi
+14	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	оставаше	оставам	Vpiif-m3s
+3	,	,	punct
+4	където	където	Prl
+5	той	аз	Ppe-os3m
+6	и	и	Cp
+7	да	да	Tx
+8	отидеше	отида-(си)	Vppif-m3s
+9	.	.	punct
+
+1	Дойдох	дойда	Vppif-o1s
+2	,	,	punct
+3	без	без	R
+4	той	аз	Ppe-os3m
+5	да	да	Tx
+6	знае	знам	Vpiif-r3s
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	говореше	говоря	Vpitf-m3s
+3	така	така	Pdm
+4	,	,	punct
+5	че	че	Cs
+6	никой	никой	Pne-os-m
+7	не	не	Tn
+8	го	аз	Ppetas3m
+9	чуваше	чувам-(се)	Vpitf-m3s
+10	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	говори	говоря	Vpitf-o3s
+3	толкова	толкова	Pdq
+4	,	,	punct
+5	че	че	Cs
+6	всички	всеки	Pce-op
+7	се	се	Ppxta
+8	възмутиха	възмутя-(се)	Vpptf-o3p
+9	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	говори	говоря	Vpitf-o3s
+3	така	така	Pdm
+4	,	,	punct
+5	че	че	Cs
+6	всички	всеки	Pce-op
+7	се	се	Ppxta
+8	възмутиха	възмутя-(се)	Vpptf-o3p
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	замина	замина	Vpptf-o3s
+3	,	,	punct
+4	така	така	Pdm
+5	че	че	Cs
+6	не	не	Tn
+7	го	аз	Ppetas3m
+8	търси	търся	Vpitz--2s
+9	.	.	punct
+
+1	Разказвай	разказвам	Vpitz--2s
+2	така	така	Pdm
+3	,	,	punct
+4	че	че	Cs
+5	да	да	Tx
+6	те	аз	Ppetas2
+7	разбират	разбирам-(се)	Vpitf-r3p
+8	.	.	punct
+
+1	Отивам	отивам-(си)	Vpiif-r1s
+2	да	да	Tx
+3	купя	купя	Vpptf-r1s
+4	нещо	някой	Pfe-os-ni
+5	в	в	R
+6	магазина	магазин	Ncmsh
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ме	аз	Ppetas1
+3	покани	поканя	Vpptf-o3s
+4	да	да	Tx
+5	го	аз	Ppetas3m
+6	навестя	навестя	Vpptf-r1s
+7	да	да	Tx
+8	видя	видя-(се)	Vpptf-r1s
+9	язовеца	язовец	Ncmsh
+10	.	.	punct
+
+1	Кажи	кажа	Vpptz--2s
+2	му	аз	Ppetds3m
+3	,	,	punct
+4	за	за	R
+5	да	да	Tx
+6	не	не	Tn
+7	тръгва	тръгвам-(си)	Vpiif-r3s
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ме	аз	Ppetas1
+3	покани	поканя	Vpptf-o3s
+4	да	да	Tx
+5	го	аз	Ppetas3m
+6	навестя	навестя	Vpptf-r1s
+7	,	,	punct
+8	за	за	R
+9	да	да	Tx
+10	видя	видя-(се)	Vpptf-r1s
+11	язовеца	язовец	Ncmsh
+12	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	се	се	Ppxta
+3	спря	спра-(се)	Vpptf-o3s
+4	,	,	punct
+5	за	за	R
+6	да	да	Tx
+7	гледа	гледам	Vpitf-r3s
+8	.	.	punct
+
+1	Аз	аз	Ppe-os1
+2	обикалях	обикалям	Vpitf-m1s
+3	,	,	punct
+4	за	за	R
+5	да	да	Tx
+6	им	аз	Ppetdp3
+7	давам	давам-(се)	Vpitf-r1s
+8	упование	упование	Ncnsi
+9	.	.	punct
+
+1	Ела	дойда	Vpiiz--2s
+2	да	да	Tx
+3	излезем	изляза	Vppif-r1p
+4	да	да	Tx
+5	изучим	изуча-(се)	Vpptf-r1p
+6	позицията	позиция	Ncfsd
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	търсеше	търся	Vpitf-m3s
+3	очилата	очила	Nc-ld
+4	си	свой	Psxto
+5	да	да	Tx
+6	види	видя-(се)	Vpptf-r3s
+7	надписа	надпис	Ncmsh
+8	.	.	punct
+
+1	Дойдох	дойда	Vppif-o1s
+2	да	да	Tx
+3	те	аз	Ppetas2
+4	питам	питам-(се)	Vpitf-r1s
+5	нещо	някой	Pfe-os-ni
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	търсеше	търся	Vpitf-m3s
+3	очилата	очила	Nc-ld
+4	си	свой	Psxto
+5	за	за	R
+6	да	да	Tx
+7	види	видя-(се)	Vpptf-r3s
+8	надписа	надпис	Ncmsh
+9	.	.	punct
+
+1	За	за	R
+2	да	да	Tx
+3	го	аз	Ppetas3m
+4	посрещнат	посрещна	Vpptf-r3p
+5	,	,	punct
+6	отидоха	отида-(си)	Vppif-o3p
+7	всички	всеки	Pce-op
+8	.	.	punct
+
+1	Ще	ще	Tx
+2	дойда	дойда	Vppif-r1s
+3	по-рано	рано	Dt
+4	,	,	punct
+5	за	за	R
+6	да	да	Tx
+7	има	има	Vnitf-r3s
+8	време	време	Ncnsi
+9	за	за	R
+10	по	по	R
+11	едно	един	Mcnsi
+12	кафе	кафе	Ncnsi
+13	.	.	punct
+
+1	Иди	ида	Vppiz--2s
+2	да	да	Tx
+3	донесеш	донеса	Vpptf-r2s
+4	дренки	дрянка	Ncfpi
+5	.	.	punct
+
+1	Искърът	искър	Npmsf
+2	се	се	Ppxta
+3	губи	губя-(се)	Vpitf-r3s
+4	в	в	R
+5	пролома	пролом	Ncmsh
+6	,	,	punct
+7	за	за	R
+8	да	да	Tx
+9	пресече	пресека-(се)	Vpptf-r3s
+10	и	и	Cp
+11	Дунавската	дунавски	Afsd
+12	равнина	равнина	Ncfsi
+13	и	и	Cp
+14	да	да	Tx
+15	се	се	Ppxta
+16	влее	влея-(се)	Vpptf-r3s
+17	в	в	R
+18	Дунава	дунав	Npmsh
+19	.	.	punct
+
+1	Ще	ще	Tx
+2	те	аз	Ppetas2
+3	дочакам	дочакам	Vpptf-r1s
+4	,	,	punct
+5	когато	когато	Prt
+6	и	и	Cp
+7	да	да	Tx
+8	дойдеш	дойда	Vppif-r2s
+9	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	има	имам	Vpitf-r3s
+3	толкова	толкова	Pdq
+4	моливи	молив	Ncmpi
+5	,	,	punct
+6	колкото	колкото	Prq
+7	ти	аз	Ppe-os2
+8	имаш	имам	Vpitf-r2s
+9	книги	книга	Ncfpi
+10	.	.	punct
+
+1	Котката	котка	Ncfsd
+2	е	съм	Vxitf-r3s
+3	силна	силен	Afsi
+4	,	,	punct
+5	колкото	колкото	Prq
+6	трябва	трябва	Vniif-r3s
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	се	се	Ppxta
+3	срещнеш	срещна-(се)	Vpptf-r2s
+4	с	с	R
+5	него	аз	Ppelas3m
+6	,	,	punct
+7	който	който	Pre-os-m
+8	и	и	Cp
+9	да	да	Tx
+10	е	съм	Vxitf-r3s
+11	той	аз	Ppe-os3m
+12	.	.	punct
+
+1	Ще	ще	Tx
+2	се	се	Ppxta
+3	срещнеш	срещна-(се)	Vpptf-r2s
+4	с	с	R
+5	него	аз	Ppelas3m
+6	,	,	punct
+7	какъвто	какъвто	Pra--s-m
+8	и	и	Cp
+9	да	да	Tx
+10	е	съм	Vxitf-r3s
+11	той	аз	Ppe-os3m
+12	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	излезе	изляза	Vppif-o3s
+3	,	,	punct
+4	макар	макар	R
+5	че	че	Cs
+6	валеше	валя	Vniif-m3s
+7	.	.	punct
+
+1	Ще	ще	Tx
+2	говоря	говоря	Vpitf-r1s
+3	,	,	punct
+4	който	който	Pre-os-m
+5	и	и	Cp
+6	да	да	Tx
+7	сте	съм	Vxitf-r2p
+8	Вие	аз	Pph-os2
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	я	аз	Ppetas3f
+3	дочакваше	дочаквам	Vpitf-m3s
+4	,	,	punct
+5	колкото	колкото	Prq
+6	да	да	Tx
+7	я	аз	Ppetas3f
+8	види	видя-(се)	Vpptf-r3s
+9	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	има	имам	Vpitf-r3s
+3	повече	повече	Md--i
+4	моливи	молив	Ncmpi
+5	,	,	punct
+6	отколкото	колкото	Prq
+7	ти	аз	Ppe-os2
+8	имаш	имам	Vpitf-r2s
+9	книги	книга	Ncfpi
+10	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	ще	ще	Tx
+3	се	се	Ppxta
+4	зарадва	зарадвам-(се)	Vpptf-r3s
+5	,	,	punct
+6	каквато	какъвто	Pra--s-f
+7	шапка	шапка	Ncfsi
+8	и	и	Cp
+9	да	да	Tx
+10	й	аз	Ppetds3f
+11	сложиш	сложа-(се)	Vpptf-r2s
+12	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	ще	ще	Tx
+3	се	се	Ppxta
+4	зарадва	зарадвам-(се)	Vpptf-r3s
+5	,	,	punct
+6	каквато	какъвто	Pra--s-f
+7	и	и	Cp
+8	шапка	шапка	Ncfsi
+9	да	да	Tx
+10	й	аз	Ppetds3f
+11	сложиш	сложа-(се)	Vpptf-r2s
+12	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	има	имам	Vpitf-r3s
+3	моливи	молив	Ncmpi
+4	,	,	punct
+5	колкото	колкото	Prq
+6	ти	аз	Ppe-os2
+7	имаш	имам	Vpitf-r2s
+8	книги	книга	Ncfpi
+9	.	.	punct
+
+1	Нощ	нощ	Ncfsi
+2	,	,	punct
+3	дъжд	дъжд	Ncmsi
+4	,	,	punct
+5	мъгла	мъгла	Ncfsi
+6	,	,	punct
+7	неприятно	неприятен	Ansi
+8	време	време	Ncnsi
+9	след	след	R
+10	хубав	хубав	Amsi
+11	ден	ден	Ncmsi
+12	.	.	punct
+
+1	Когато	когато	Prt
+2	тя	аз	Ppe-os3f
+3	влезе	вляза	Vppif-o3s
+4	,	,	punct
+5	заговори	заговоря-(се)	Vpptf-o3s
+6	.	.	punct
+
+1	Когато	когато	Prt
+2	тя	аз	Ppe-os3f
+3	влезе	вляза	Vppif-o3s
+4	,	,	punct
+5	заговори	заговоря-(се)	Vpptf-o3s
+6	.	.	punct
+
+1	Когато	когато	Prt
+2	влезе	вляза	Vppif-o3s
+3	,	,	punct
+4	тя	аз	Ppe-os3f
+5	заговори	заговоря-(се)	Vpptf-o3s
+6	.	.	punct
+
+1	Когато	когато	Prt
+2	влезе	вляза	Vppif-o3s
+3	,	,	punct
+4	тя	аз	Ppe-os3f
+5	заговори	заговоря-(се)	Vpptf-o3s
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	влезе	вляза	Vppif-o3s
+3	и	и	Cp
+4	заговори	заговоря-(се)	Vpptf-o3s
+5	.	.	punct
+
+1	Известието	известие	Ncnsd
+2	,	,	punct
+3	че	че	Cs
+4	тя	аз	Ppe-os3f
+5	заминава	заминавам	Vpiif-r3s
+6	,	,	punct
+7	го	аз	Ppetas3m
+8	разтревожи	разтревожа-(се)	Vpptf-o3s
+9	.	.	punct
+
+1	Известието	известие	Ncnsd
+2	,	,	punct
+3	че	че	Cs
+4	заминава	заминавам	Vpiif-r3s
+5	,	,	punct
+6	го	аз	Ppetas3m
+7	разтревожи	разтревожа-(се)	Vpptf-o3s
+8	.	.	punct
+
+1	Известието	известие	Ncnsd
+2	,	,	punct
+3	че	че	Cs
+4	заминава	заминавам	Vpiif-r3s
+5	,	,	punct
+6	го	аз	Ppetas3m
+7	разтревожи	разтревожа-(се)	Vpptf-o3s
+8	.	.	punct
+
+1	Стойко	стойко	Npmsi
+2	замълча	замълча	Vppif-o3s
+3	.	.	punct
+
+1	Продължи	продължа	Vpptf-o3s
+2	,	,	punct
+3	когато	когато	Prt
+4	тя	аз	Ppe-os3f
+5	излезе	изляза	Vppif-o3s
+6	.	.	punct
+
+1	Ако	ако	Cs
+2	някой	някой	Pfe-os-m
+3	дойде	дойда	Vppif-r3s
+4	,	,	punct
+5	тя	аз	Ppe-os3f
+6	моли	моля-(се)	Vpitf-r3s
+7	да	да	Tx
+8	почака	почакам	Vpptf-r3s
+9	.	.	punct
+
+1	Често	често	Dm
+2	ме	аз	Ppetas1
+3	питат	питам-(се)	Vpitf-r3p
+4	за	за	R
+5	тебе	аз	Ppelas2
+6	.	.	punct
+
+1	Хората	хора	Nc-ld
+2	ме	аз	Ppetas1
+3	питат	питам-(се)	Vpitf-r3p
+4	за	за	R
+5	тебе	аз	Ppelas2
+6	.	.	punct
+
+1	Вчера	вчера	Dt
+2	са	съм	Vxitf-r3p
+3	изгонили	изгоня	Vpptcao-p-i
+4	журналистите	журналист	Ncmpd
+5	от	от	R
+6	сградата	сграда	Ncfsd
+7	.	.	punct
+
+1	Търси	търся	Vpitf-o3s
+2	ли	ли	Ti
+3	ме	аз	Ppetas1
+4	някой	някой	Pfe-os-m
+5	?	?	punct
+
+1	Донесоха	донеса	Vpptf-o3p
+2	ли	ли	Ti
+3	писмата	писмо	Ncnpd
+4	?	?	punct
+
+1	-	-	punct
+2	Донесени	донеса	Vpptcv--p-i
+3	са	съм	Vxitf-r3p
+4	.	.	punct
+
+1	Надеждата	надежда	Ncfsd
+2	да	да	Tx
+3	си	се	Ppxtd
+4	върнеш	върна-(се)	Vpptf-r2s
+5	загубеното	загубя-(се)	Vpptcv--snd
+6	постепенно	постепенно	Dm
+7	те	аз	Ppetas2
+8	напуска	напускам	Vpitf-r3s
+9	.	.	punct
+
+1	Надяват	надявам-се	Vpiif-r3p
+2	се	се	Ppxta
+3	да	да	Tx
+4	им	аз	Ppetdp3
+5	се	се	Ppxta
+6	публикува	публикувам	Vpptf-r3s
+7	статията	статия	Ncfsd
+8	.	.	punct
+
+1	Принудиха	принудя-(се)	Vpptf-o3p
+2	ги	аз	Ppetap3
+3	да	да	Tx
+4	заминат	замина	Vpptf-r3p
+5	.	.	punct
+
+1	В	в	R
+2	книжарницата	книжарница	Ncfsd
+3	търсят	търся	Vpitf-r3p
+4	да	да	Tx
+5	назначат	назнача	Vpptf-r3p
+6	продавач	продавач	Ncmsi
+7	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	се	се	Ppxta
+3	опитваш	опитвам-(се)	Vpitf-r2s
+4	да	да	Tx
+5	му	аз	Ppetds3m
+6	обясниш	обясня-(се)	Vpptf-r2s
+7	,	,	punct
+8	той	аз	Ppe-os3m
+9	не	не	Tn
+10	те	аз	Ppetas2
+11	слуша	слушам	Vpitf-r3s
+12	.	.	punct
+
+1	Тая	този	Pde-os-f
+2	музика	музика	Ncfsi
+3	те	аз	Ppetas2
+4	успокоява	успокоявам-(се)	Vpitf-r3s
+5	.	.	punct
+
+1	Надяват	надявам-се	Vpiif-r3p
+2	се	се	Ppxta
+3	да	да	Tx
+4	им	аз	Ppetsp3
+5	публикуват	публикувам	Vpptf-r3p
+6	статията	статия	Ncfsd
+7	.	.	punct
+
+1	Тая	този	Pde-os-f
+2	музика	музика	Ncfsi
+3	те	аз	Ppetas2
+4	кара	карам-се	Vpiif-r3s
+5	да	да	Tx
+6	се	се	Ppxta
+7	замислиш	замисля-(се)	Vpptf-r2s
+8	.	.	punct
+
+1	Не	не	Tn
+2	е	съм	Vxitf-r3s
+3	да	да	Tx
+4	не	не	Tn
+5	съм	съм	Vxitf-r1s
+6	искал	искам	Vpitcao-smi
+7	.	.	punct
+
+1	Човек	човек	Ncmsi
+2	рядко	рядко	Dm
+3	вижда	виждам-(се)	Vpitf-r3s
+4	такова	такъв	Pda--s-n
+5	нещо	някой	Pfe-os-ni
+6	.	.	punct
+
+1	Тук	там	Pdl
+2	не	не	Tn
+3	се	се	Ppxta
+4	ходи	ходи	Vnitf-r3s
+5	бос	бос	Amsi
+6	.	.	punct
+
+1	Тук	там	Pdl
+2	се	се	Ppxta
+3	спи	спи	Vniif-r3s
+4	приятно	приятно	Dm
+5	.	.	punct
+
+1	Трябва	трябва	Vniif-r3s
+2	да	да	Tx
+3	бъдеш	бъда	Vyptf-r2s
+4	поканен	поканя	Vpptcv--smi
+5	,	,	punct
+6	за	за	R
+7	да	да	Tx
+8	го	аз	Ppetas3m
+9	видиш	видя-(се)	Vpptf-r2s
+10	.	.	punct
+
+1	Не	не	Tn
+2	ми	аз	Ppetds1
+3	е	съм	Vxitf-r3s
+4	до	до	R
+5	смях	смях	Ncmsi
+6	.	.	punct
+
+1	То	аз	Ppe-os3n
+2	наистина	наистина	Dm
+3	ми	аз	Ppetds1
+4	е	съм	Vxitf-r3s
+5	студено	студено	Dm
+6	.	.	punct
+
+1	То	аз	Ppe-os3n
+2	наистина	наистина	Dm
+3	ми	аз	Ppetds1
+4	се	се	Ppxta
+5	спи	спи	Vniif-r3s
+6	.	.	punct
+
+1	То	то	Te
+2	наистина	наистина	Dm
+3	се	се	Ppxta
+4	разказваха	разказвам	Vpitf-m3p
+5	вицове	виц	Ncmpi
+6	.	.	punct
+
+1	То	то	Te
+2	всички	всеки	Pce-op
+3	били	съм	Vxitcat-p-i
+4	заминали	замина	Vpptcao-p-i
+5	.	.	punct
+
+1	Чете	чета	Vpitf-r3s
+2	му	аз	Ppetds3m
+3	се	се	Ppxta
+4	поезия	поезия	Ncfsi
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	трудно	трудно	Dm
+3	се	се	Ppxta
+4	събува	събувам	Vpitf-r3s
+5	когато	когато	Prt
+6	е	съм	Vxitf-r3s
+7	мокър	мокър	Amsi
+8	.	.	punct
+
+1	В	в	R
+2	читалнята	читалня	Ncfsd
+3	не	не	Tn
+4	се	се	Ppxta
+5	разказват	разказвам	Vpitf-r3p
+6	вицове	виц	Ncmpi
+7	.	.	punct
+
+1	Не	не	Tn
+2	ми	аз	Ppetds1
+3	се	се	Ppxta
+4	ходи	ходи	Vnitf-r3s
+5	сам	сам	Amsi
+6	.	.	punct
+
+1	Иска	иска	Vnitf-r3s
+2	му	аз	Ppetds3m
+3	се	се	Ppxta
+4	всичко	всеки	Pce-os-n
+5	.	.	punct
+
+1	В	в	R
+2	читалнята	читалня	Ncfsd
+3	не	не	Tn
+4	се	се	Ppxta
+5	спи	спи	Vniif-r3s
+6	.	.	punct
+
+1	Там	там	Pdl
+2	не	не	Tn
+3	се	се	Ppxta
+4	ходи	ходи	Vnitf-r3s
+5	сам	сам	Amsi
+6	.	.	punct
+
+1	Че	че	Cs
+2	тя	аз	Ppe-os3f
+3	ще	ще	Tx
+4	дойде	дойда	Vppif-r3s
+5	тук	там	Pdl
+6	,	,	punct
+7	е	съм	Vxitf-r3s
+8	радостно	радостно	Dm
+9	.	.	punct
+
+1	Предполага	предполагам	Vnitf-r3s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	ще	ще	Tx
+6	дойдеш	дойда	Vppif-r2s
+7	.	.	punct
+
+1	Предстои	предстоя	Vniif-r3s
+2	да	да	Tx
+3	се	се	Ppxta
+4	срещнем	срещна-(се)	Vpptf-r1p
+5	.	.	punct
+
+1	Говори	говоря	Vnitf-r3s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	ще	ще	Tx
+6	дойдеш	дойда	Vppif-r2s
+7	.	.	punct
+
+1	Да	да	Tx
+2	се	се	Ppxta
+3	разбере	разбера-(се)	Vpptf-r3s
+4	това	този	Pde-os-n
+5	,	,	punct
+6	не	не	Tn
+7	е	съм	Vxitf-r3s
+8	трудно	трудно	Dm
+9	.	.	punct
+
+1	Иска	иска	Vnitf-r3s
+2	й	аз	Ppetds3f
+3	се	се	Ppxta
+4	да	да	Tx
+5	дойдеш	дойда	Vppif-r2s
+6	.	.	punct
+
+1	Чете	чета	Vpitf-r3s
+2	се	се	Ppxta
+3	криминална	криминален	Afsi
+4	книга	книга	Ncfsi
+5	.	.	punct
+
+1	Чете	чета	Vpitf-r3s
+2	му	аз	Ppetds3m
+3	се	се	Ppxta
+4	криминална	криминален	Afsi
+5	книга	книга	Ncfsi
+6	.	.	punct
+
+1	Някъде	някъде	Pfl
+2	се	се	Ppxta
+3	пее	пея	Vpitf-r3s
+4	родопска	родопски	Afsi
+5	песен	песен	Ncfsi
+6	.	.	punct
+
+1	Иска	иска	Vnitf-r3s
+2	се	се	Ppxta
+3	да	да	Tx
+4	се	се	Ppxta
+5	тръгне	тръгна-(си)	Vppif-r3s
+6	веднага	веднага	Dt
+7	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	нареди	наредя-(се)	Vpptf-o3s
+3	да	да	Tx
+4	се	се	Ppxta
+5	тръгне	тръгна-(си)	Vppif-r3s
+6	веднага	веднага	Dt
+7	.	.	punct
+
+1	Лесно	лесно	Dm
+2	е	съм	Vxitf-r3s
+3	да	да	Tx
+4	се	се	Ppxta
+5	говори	говоря	Vnitf-r3s
+6	.	.	punct
+
+1	Иска	иска	Vnitf-r3s
+2	се	се	Ppxta
+3	да	да	Tx
+4	тръгнем	тръгна-(си)	Vppif-r1p
+5	веднага	веднага	Dt
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	вървеше	вървя	Vpiif-m3s
+3	,	,	punct
+4	гледайки	гледам	Vpitg
+5	нататък	там	Pdl
+6	.	.	punct
+
+1	Цигарата	цигара	Ncfsd
+2	,	,	punct
+3	паднала	падна-(се)	Vppicao-sfi
+4	на	на	R
+5	пода	под	Ncmsh
+6	,	,	punct
+7	димеше	димя	Vpiif-m3s
+8	.	.	punct
+
+1	Да	да	Tx
+2	се	се	Ppxta
+3	пуши	пуши-ми-се	Vniif-r3s
+4	е	съм	Vxitf-r3s
+5	забранено	забраня	Vpptcv--sni
+6	.	.	punct
+
+1	Изневеряване	изневеряване	Ncnsi
+2	на	на	R
+3	себе	себе	Ppxla
+4	си	си	T
+5	не	не	Tn
+6	й	аз	Ppetds3f
+7	се	се	Ppxta
+8	случва	случвам-(се)	Vpitf-r3s
+9	.	.	punct
+
+1	Знаеш	знам	Vpiif-r2s
+2	ли	ли	Ti
+3	Иван	иван	Npmsi
+4	заминал	замина	Vpptcao-smi
+5	ли	ли	Ti
+6	е	съм	Vxitf-r3s
+7	?	?	punct
+
+1	Къде	къде	Pil
+2	е	съм	Vxitf-r3s
+3	отишъл	отида-(си)	Vppicao-smi
+4	Иван	иван	Npmsi
+5	?	?	punct
+
+1	-	-	punct
+2	Иван	иван	Npmsi
+3	ли	ли	Ti
+4	къде	къде	Pil
+5	е	съм	Vxitf-r3s
+6	отишъл	отида-(си)	Vppicao-smi
+7	?	?	punct
+
+1	Срещнал	срещна-(се)	Vpptcao-smi
+2	ли	ли	Ti
+3	е	съм	Vxitf-r3s
+4	рецензента	рецензент	Ncmsh
+5	си	свой	Psxto
+6	Иван	иван	Npmsi
+7	вчера	вчера	Dt
+8	?	?	punct
+
+1	КУЧЕТО	куче	Ncnsd
+2	ли	ли	Ti
+3	на	на	R
+4	съседите	съсед	Ncmpd
+5	е	съм	Vxitf-r3s
+6	изчезнало	изчезна	Vppicao-sni
+7	?	?	punct
+
+1	Кучето	куче	Ncnsd
+2	на	на	R
+3	СЪСЕДИТЕ	съсед	Ncmpd
+4	ли	ли	Ti
+5	лае	лая	Vpitf-r3s
+6	?	?	punct
+
+1	Не	не	Tn
+2	съм	съм	Vxitf-r1s
+3	го	аз	Ppetas3m
+4	виждал	виждам-(се)	Vpitcao-smi
+5	.	.	punct
+
+1	Да	да	Ta
+2	,	,	punct
+3	КУЧЕТО	куче	Ncnsd
+4	на	на	R
+5	съседите	съсед	Ncmpd
+6	е	съм	Vxitf-r3s
+7	изчезнало	изчезна	Vppicao-sni
+8	.	.	punct
+
+1	Да	да	Ta
+2	,	,	punct
+3	КУЧЕТО	куче	Ncnsd
+4	намерихме	намеря-(се)	Vpptf-o1p
+5	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	му	мой	Psot--3--m
+3	ли	ли	Ti
+4	четеш	чета	Vpitf-r2s
+5	?	?	punct
+
+1	Книгата	книга	Ncfsd
+2	ли	ли	Ti
+3	му	аз	Ppetds3m
+4	четеш	чета	Vpitf-r2s
+5	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	срещнах	срещна-(се)	Vpptf-o1s
+3	вчера	вчера	Dt
+4	ли	ли	Ti
+5	?	?	punct
+
+1	Не	не	Tn
+2	студентите	студент	Ncmpd
+3	ли	ли	Ti
+4	искат	искам	Vpitf-r3p
+5	това	този	Pde-os-n
+6	?	?	punct
+
+1	Студентите	студент	Ncmpd
+2	ли	ли	Ti
+3	не	не	Tn
+4	искат	искам	Vpitf-r3p
+5	това	този	Pde-os-n
+6	?	?	punct
+
+1	Не	не	Tn
+2	го	аз	Ppetas3m
+3	ли	ли	Ti
+4	видя	видя-(се)	Vpptf-o2s
+5	?	?	punct
+
+1	Не	не	Tn
+2	видя	видя-(се)	Vpptf-o2s
+3	ли	ли	Ti
+4	го	аз	Ppetas3m
+5	?	?	punct
+
+1	Той	аз	Ppe-os3m
+2	не	не	Tn
+3	говори	говоря	Vpitf-r3s
+4	само	само	Dd
+5	за	за	R
+6	тебе	аз	Ppelas2
+7	.	.	punct
+
+1	Не	не	Tn
+2	знам	знам	Vpiif-r1s
+3	къде	къде	Pil
+4	с	с	R
+5	кого	кой	Pie-as-m
+6	ще	ще	Tx
+7	ходи	ходя-(си)	Vpitf-r3s
+8	.	.	punct
+
+1	Къде	къде	Pil
+2	и	и	Cp
+3	защо	защо	Pic
+4	отиваш	отивам-(си)	Vpiif-r2s
+5	сам	сам	Amsi
+6	?	?	punct
+
+1	Пита	питам-(се)	Vpitf-r3s
+2	за	за	R
+3	тебе	аз	Ppelas2
+4	кой	кой	Pie-os-m
+5	?	?	punct
+
+1	Кой	кой	Pie-os-m
+2	пита	питам-(се)	Vpitf-r3s
+3	за	за	R
+4	тебе	аз	Ppelas2
+5	?	?	punct
+
+1	Кой	кой	Pie-os-m
+2	кого	кой	Pie-as-m
+3	ще	ще	Tx
+4	изпитва	изпитвам	Vpitf-r3s
+5	?	?	punct
+
+1	С	с	R
+2	кого	кой	Pie-as-m
+3	кога	кога	Pit
+4	си	съм	Vxitf-r2s
+5	говорил	говоря	Vpitcao-smi
+6	?	?	punct
+
+1	Кой	кой	Pie-os-m
+2	искаш	искам	Vpitf-r2s
+3	да	да	Tx
+4	те	аз	Ppetas2
+5	търси	търся	Vpitf-r3s
+6	?	?	punct
+
+1	Кои	кой	Pie-op
+2	картини	картина	Ncfpi
+3	мислиш	мисля	Vpitf-r2s
+4	,	,	punct
+5	че	че	Cs
+6	Иван	иван	Npmsi
+7	каза	кажа	Vpptf-o3s
+8	да	да	Tx
+9	поръчаш	поръчам	Vpptf-r2s
+10	на	на	R
+11	Петър	петър	Npmsi
+12	да	да	Tx
+13	купи	купя	Vpptf-r3s
+14	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	че	че	Cs
+5	Иван	иван	Npmsi
+6	каза	кажа	Vpptf-o3s
+7	да	да	Tx
+8	потърсиш	потърся	Vpptf-r2s
+9	?	?	punct
+
+1	Кой	кой	Pie-os-m
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	че	че	Cs
+5	те	аз	Ppetas2
+6	е	съм	Vxitf-r3s
+7	търсил	търся	Vpitcao-smi
+8	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	че	че	Cs
+3	съм	съм	Vxitf-r1s
+4	видял	видя-(се)	Vpptcao-smi
+5	го	аз	Ppetas3m
+6	ядосва	ядосвам-(се)	Vpitf-r3s
+7	?	?	punct
+
+1	Кой	кой	Pie-os-m
+2	къде	къде	Pil
+3	иска	искам	Vpitf-r3s
+4	да	да	Tx
+5	отиде	отида-(си)	Vppif-r3s
+6	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	къде	къде	Pil
+3	искаш	искам	Vpitf-r2s
+4	да	да	Tx
+5	видиш	видя-(се)	Vpptf-r2s
+6	?	?	punct
+
+1	Ето	ето	Tv
+2	дървото	дърво	Ncnsd
+3	,	,	punct
+4	което	който	Pre-os-n
+5	,	,	punct
+6	не	не	Tn
+7	знам	знам	Vpiif-r1s
+8	защо	защо	Pic
+9	,	,	punct
+10	той	аз	Ppe-os3m
+11	искаше	искам	Vpitf-m3s
+12	да	да	Tx
+13	кажа	кажа	Vpptf-r1s
+14	на	на	R
+15	Петър	петър	Npmsi
+16	да	да	Tx
+17	отсече	отсека-(се)	Vpptf-r3s
+18	.	.	punct
+
+1	Отивам	отивам-(си)	Vpiif-r1s
+2	в	в	R
+3	магазина	магазин	Ncmsh
+4	,	,	punct
+5	за	за	R
+6	да	да	Tx
+7	купя	купя	Vpptf-r1s
+8	нещо	някой	Pfe-os-ni
+9	.	.	punct
+
+1	Какво	какъв	Pia--s-n
+2	отиваш	отивам-(си)	Vpiif-r2s
+3	да	да	Tx
+4	купиш	купя	Vpptf-r2s
+5	в	в	R
+6	магазина	магазин	Ncmsh
+7	?	?	punct
+
+1	Какво	какъв	Pia--s-n
+2	отиваш	отивам-(си)	Vpiif-r2s
+3	да	да	Tx
+4	купиш	купя	Vpptf-r2s
+5	?	?	punct
+
+1	Отивам	отивам-(си)	Vpiif-r1s
+2	да	да	Tx
+3	купя	купя	Vpptf-r1s
+4	нещо	някой	Pfe-os-ni
+5	.	.	punct
+
+1	-	-	punct
+2	Какво	какъв	Pia--s-n
+3	отиваш	отивам-(си)	Vpiif-r2s
+4	да	да	Tx
+5	купиш	купя	Vpptf-r2s
+6	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	ти	аз	Ppe-os2
+3	ще	ще	Tx
+4	поканиш	поканя	Vpptf-r2s
+5	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	мислиш	мисля	Vpitf-r2s
+3	,	,	punct
+4	че	че	Cs
+5	тя	аз	Ppe-os3f
+6	обича	обичам	Vpitf-r3s
+7	?	?	punct
+
+1	Кого	кой	Pie-as-m
+2	неговият	мой	Psol-s3mfm
+3	приятел	приятел	Ncmsi
+4	срещна	срещна-(се)	Vpptf-o3s
+5	?	?	punct
+
+1	Иван	иван	Npmsi
+2	изглежда	изглежда	Vniif-r3s
+3	да	да	Tx
+4	е	съм	Vxitf-r3s
+5	поканен	поканя	Vpptcv--smi
+6	.	.	punct
+
+1	Кой	кой	Pie-os-m
+2	се	се	Ppxta
+3	предполага	предполагам	Vnitf-r3s
+4	да	да	Tx
+5	е	съм	Vxitf-r3s
+6	заминал	замина	Vpptcao-smi
+7	.	.	punct
+
+1	Иван	иван	Npmsi
+2	изглежда	изглежда	Vniif-r3s
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	тук	там	Pdl
+7	.	.	punct
+
+1	Изглежда	изглежда	Vniif-r3s
+2	,	,	punct
+3	че	че	Cs
+4	ти	аз	Ppe-os2
+5	си	съм	Vxitf-r2s
+6	весела	весел	Afsi
+7	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	изглежда	изглежда	Vniif-r3s
+3	си	съм	Vxitf-r2s
+4	весела	весел	Afsi
+5	.	.	punct
+
+1	-	-	punct
+2	Ти	аз	Ppe-os2
+3	си	съм	Vxitf-r2s
+4	весела	весел	Afsi
+5	изглежда	изглежда	Vniif-r3s
+6	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	трябва	трябва	Vniif-r3s
+3	да	да	Tx
+4	си	съм	Vxitf-r2s
+5	весела	весел	Afsi
+6	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	изглежда	изглежда	Vniif-r3s
+3	,	,	punct
+4	че	че	Cs
+5	си	съм	Vxitf-r2s
+6	весела	весел	Afsi
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	избягал	избягам	Vppicao-smi
+3	,	,	punct
+4	но	но	Cc
+5	бил	съм	Vxitcat-smi
+6	тежко	тежко	Dm
+7	ранен	раня	Vpptcv--smi
+8	от	от	R
+9	стражата	стража	Ncfsd
+10	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	избягал	избягам	Vppicao-smi
+3	,	,	punct
+4	но	но	Cc
+5	стражата	стража	Ncfsd
+6	го	аз	Ppetas3m
+7	ранила	раня	Vpptcao-sfi
+8	тежко	тежко	Dm
+9	.	.	punct
+
+1	Колата	кола	Ncfsd
+2	изглежда	изглежда	Vniif-r3s
+3	,	,	punct
+4	че	че	Cs
+5	русалката	русалка	Ncfsd
+6	е	съм	Vxitf-r3s
+7	продала	продам	Vpptcao-sfi
+8	.	.	punct
+
+1	Русалката	русалка	Ncfsd
+2	изглежда	изглежда	Vniif-r3s
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	продала	продам	Vpptcao-sfi
+7	колата	кола	Ncfsd
+8	.	.	punct
+
+1	Книгата	книга	Ncfsd
+2	изглежда	изглежда	Vniif-r3s
+3	,	,	punct
+4	че	че	Cs
+5	е	съм	Vxitf-r3s
+6	разпродадена	разпродам	Vpptcv--sfi
+7	.	.	punct
+
+1	Изглежда	изглежда	Vniif-r3s
+2	,	,	punct
+3	че	че	Cs
+4	книгата	книга	Ncfsd
+5	е	съм	Vxitf-r3s
+6	разпродадена	разпродам	Vpptcv--sfi
+7	.	.	punct
+
+1	Предполага	предполагам	Vnitf-r3s
+2	се	се	Ppxta
+3	,	,	punct
+4	че	че	Cs
+5	лятото	лято	Ncnsd
+6	ще	ще	Tx
+7	бъде	бъда	Vyptf-r3s
+8	горещо	горещ	Ansi
+9	.	.	punct
+
+1	Иван	иван	Npmsi
+2	е	съм	Vxitf-r3s
+3	трудно	трудно	Dm
+4	да	да	Tx
+5	бъде	бъда	Vyptf-r3s
+6	убеден	убедя-(се)	Vpptcv--smi
+7	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	предполага	предполагам	Vpitf-r3s
+3	,	,	punct
+4	че	че	Cs
+5	лятото	лято	Ncnsd
+6	ще	ще	Tx
+7	бъде	бъда	Vyptf-r3s
+8	горещо	горещ	Ansi
+9	.	.	punct
+
+1	Лятото	лято	Ncnsd
+2	се	се	Ppxta
+3	предполага	предполагам	Vnitf-r3s
+4	,	,	punct
+5	че	че	Cs
+6	ще	ще	Tx
+7	бъде	бъда	Vyptf-r3s
+8	горещо	горещ	Ansi
+9	.	.	punct
+
+1	Иван	иван	Npmsi
+2	е	съм	Vxitf-r3s
+3	вероятно	вероятно	Dd
+4	да	да	Tx
+5	дойде	дойда	Vppif-r3s
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	предполага	предполагам	Vpitf-r3s
+3	нещо	някой	Pfe-os-ni
+4	,	,	punct
+5	но	но	Cc
+6	не	не	Tn
+7	казва	казвам-(се)	Vpitf-r3s
+8	какво	какъв	Pia--s-n
+9	.	.	punct
+
+1	Лятото	лято	Ncnsd
+2	,	,	punct
+3	че	че	Cs
+4	ще	ще	Tx
+5	бъде	бъда	Vyptf-r3s
+6	горещо	горещ	Ansi
+7	,	,	punct
+8	се	се	Ppxta
+9	знае	знам	Vpiif-r3s
+10	.	.	punct
+
+1	Кучето	куче	Ncnsd
+2	че	че	Cs
+3	е	съм	Vxitf-r3s
+4	куче	куче	Ncnsi
+5	,	,	punct
+6	пък	пък	Te
+7	и	и	Cp
+8	то	аз	Ppe-os3n
+9	разбира	разбирам-(се)	Vpitf-r3s
+10	.	.	punct
+
+1	Иван	иван	Npmsi
+2	е	съм	Vxitf-r3s
+3	трудно	трудно	Dm
+4	да	да	Tx
+5	разбере	разбера-(се)	Vpptf-r3s
+6	.	.	punct
+
+1	Иван	иван	Npmsi
+2	беше	съм	Vxitf-t3s
+3	решено	реша	Vpptcv--sni
+4	да	да	Tx
+5	замине	замина	Vpptf-r3s
+6	.	.	punct
+
+1	Кучето	куче	Ncnsd
+2	макар	макар	R
+3	че	че	Cs
+4	е	съм	Vxitf-r3s
+5	куче	куче	Ncnsi
+6	,	,	punct
+7	пък	пък	Te
+8	и	и	Cp
+9	то	аз	Ppe-os3n
+10	разбира	разбирам-(се)	Vpitf-r3s
+11	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	че	че	Cs
+3	ще	ще	Tx
+4	дойде	дойда	Vppif-r3s
+5	,	,	punct
+6	ще	ще	Tx
+7	дойде	дойда	Vppif-r3s
+8	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	,	,	punct
+3	изглежда	изглежда	Vniif-r3s
+4	,	,	punct
+5	че	че	Cs
+6	си	съм	Vxitf-r2s
+7	забравил	забравя-(се)	Vpptcao-smi
+8	.	.	punct
+
+1	Студентът	студент	Ncmsf
+2	му	аз	Ppetds3m
+3	продаде	продам	Vpptf-o3s
+4	книгите	книга	Ncfpd
+5	ти	твой	Psot--2
+6	.	.	punct
+
+1	На	на	R
+2	Свилен	свилен	Npfsi
+3	старите	стар	A-pd
+4	хубави	хубав	A-pi
+5	книги	книга	Ncfpi
+6	изгоряха	изгоря	Vppif-o3p
+7	.	.	punct
+
+1	Изгоряха	изгоря	Vppif-o3p
+2	му	мой	Ppetss3m
+3	старите	стар	A-pd
+4	хубави	хубав	A-pi
+5	книги	книга	Ncfpi
+6	.	.	punct
+
+1	До	до	R
+2	вчера	вчера	Dt
+3	му	аз	Ppetds3m
+4	търсеха	търся	Vpitf-m3p
+5	книгите	книга	Ncfpd
+6	,	,	punct
+7	днес	днес	Dt
+8	никой	никой	Pne-os-m
+9	не	не	Tn
+10	му	аз	Ppetds3m
+11	ги	аз	Ppetap3
+12	търси	търся	Vpitf-r3s
+13	.	.	punct
+
+1	Слушах	слушам	Vpitf-m1s
+2	разсърдила	разсърдя-(се)	Vpptcao-sfi
+3	се	се	Ppxta
+4	студентка	студентка	Ncfsi
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ти	аз	Ppetds2
+3	прочете	прочета	Vpptf-o3s
+4	статията	статия	Ncfsd
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	ти	аз	Ppetss2
+3	прочете	прочета	Vpptf-o3s
+4	статията	статия	Ncfsd
+5	.	.	punct
+
+1	Като	като	Cs
+2	останах	остана	Vppif-o1s
+3	сам	сам	Amsi
+4	,	,	punct
+5	му	мой	Ppetss3m
+6	дочетох	дочета	Vpptf-o1s
+7	книгата	книга	Ncfsd
+8	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	му	аз	Ppetds3m
+3	собствената	собствен	Afsd
+4	му	мой	Psot--3--m
+5	статия	статия	Ncfsi
+6	,	,	punct
+7	но	но	Cc
+8	той	аз	Ppe-os3m
+9	не	не	Tn
+10	я	аз	Ppetas3f
+11	разбра	разбера-(се)	Vpptf-o3s
+12	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	му	аз	Ppetds3m
+3	даде	дам-(се)	Vpptf-o3s
+4	снимката	снимка	Ncfsd
+5	с	с	R
+6	детето	дете	Ncnsd
+7	си	свой	Psxto
+8	.	.	punct
+
+1	Върни	върна-(се)	Vpptz--2s
+2	му	аз	Ppetds3m
+3	неговата	мой	Psol-s3fdm
+4	си	свой	Psxto
+5	книга	книга	Ncfsi
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	му	аз	Ppetds3m
+3	даде	дам-(се)	Vpptf-o3s
+4	снимката	снимка	Ncfsd
+5	ти	твой	Psot--2
+6	с	с	R
+7	детето	дете	Ncnsd
+8	си	свой	Psxto
+9	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	му	аз	Ppetds3m
+3	статията	статия	Ncfsd
+4	ти	твой	Psot--2
+5	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	му	аз	Ppetds3m
+3	статията	статия	Ncfsd
+4	му	мой	Psot--3--m
+5	.	.	punct
+
+1	Прочетох	прочета	Vpptf-o1s
+2	му	аз	Ppetds3m
+3	статията	статия	Ncfsd
+4	му	мой	Psot--3--m
+5	.	.	punct
+
+1	Върни	върна-(се)	Vpptz--2s
+2	си	се	Ppxtd
+3	му	аз	Ppetds3m
+4	книгата	книга	Ncfsd
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	си	се	Ppxtd
+3	им	аз	Ppetdp3
+4	се	се	Ppxta
+5	е	съм	Vxitf-r3s
+6	усмихвала	усмихвам-се	Vpiicam-sfi
+7	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	им	аз	Ppetdp3
+4	се	се	Ppxta
+5	заканил	заканя-се	Vppicao-smi
+6	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	го	аз	Ppetas3m
+3	не	не	Tn
+4	познаваш	познавам	Vpitf-r2s
+5	.	.	punct
+
+1	Те	аз	Ppe-op3
+2	събираха	събирам-(се)	Vpitf-m3p
+3	по	по	R
+4	една	един	Mcfsi
+5	торба	торба	Ncfsi
+6	орехи	орех	Ncmpi
+7	всяка	всеки	Pce-os-f
+8	вечер	вечер	Ncfsi
+9	.	.	punct
+
+1	Майка	майка	Ncfsi
+2	ми	мой	Psot--1
+3	ми	аз	Ppetds1
+4	е	съм	Vxitf-r3s
+5	плела	плета	Vpitcao-sfi
+6	това	този	Pde-os-n
+7	шалче	шалче	Ncnsi
+8	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	им	аз	Ppetdp3
+3	се	се	Ppxta
+4	е	съм	Vxitf-r3s
+5	заканил	заканя-се	Vppicao-smi
+6	.	.	punct
+
+1	То	аз	Ppe-os3n
+2	се	се	Ppxta
+3	не	не	Tn
+4	знае	знам	Vpiif-r3s
+5	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	си	се	Ppxtd
+3	се	се	Ppxta
+4	усмихва	усмихвам-се	Vpiif-r3s
+5	.	.	punct
+
+1	Ти	аз	Ppe-os2
+2	си	съм	Vxitf-r2s
+3	им	аз	Ppetdp3
+4	се	се	Ppxta
+5	усмихвала	усмихвам-се	Vpiicao-sfi
+6	.	.	punct
+
+1	Тя	аз	Ppe-os3f
+2	си	се	Ppxtd
+3	се	се	Ppxta
+4	е	съм	Vxitf-r3s
+5	усмихвала	усмихвам-се	Vpiicao-sfi
+6	.	.	punct
+
+1	По	по	R
+2	една	един	Mcfsi
+3	торба	торба	Ncfsi
+4	орехи	орех	Ncmpi
+5	се	се	Ppxta
+6	събираха	събирам-(се)	Vpitf-m3p
+7	всяка	всеки	Pce-os-f
+8	вечер	вечер	Ncfsi
+9	.	.	punct
+
+1	КОГО	кой	Pie-as-m
+2	чакат	чакам	Vpitf-r3p
+3	тия	този	Pde-op
+4	хора	хора	Nc-li
+5	?	?	punct
+
+1	-	-	punct
+2	НАС	аз	Ppelap1
+3	чакат	чакам	Vpitf-r3p
+4	те	аз	Ppe-op3
+5	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	даде	дам-(се)	Vpptf-o3s
+3	една	един	Pfe-os-fi
+4	тояга	тояга	Ncfsi
+5	на	на	R
+6	един	един	Pfe-os-mi
+7	критик	критик	Ncmsi
+8	.	.	punct
+
+1	Дадоха	дам-(се)	Vpptf-o3p
+2	му	аз	Ppetds3m
+3	само	само	Dd
+4	хляб	хляб	Ncmsi
+5	за	за	R
+6	вечеря	вечеря	Ncfsi
+7	.	.	punct
+
+1	Боса	бос	Afsi
+2	влезе	вляза	Vppif-o3s
+3	в	в	R
+4	жаравата	жарава	Ncfsd
+5	.	.	punct
+
+1	Дадоха	дам-(се)	Vpptf-o3p
+2	му	аз	Ppetds3m
+3	значка	значка	Ncfsi
+4	за	за	R
+5	спомен	спомен	Ncmsi
+6	.	.	punct
+
+1	Къщата	къща	Ncfsd
+2	кога	кога	Pit
+3	е	съм	Vxitf-r3s
+4	построена	построя-(се)	Vpptcv--sfi
+5	?	?	punct
+
+1	Щях	ща	Vpitf-m1s
+2	АЗ	аз	Ppe-os1
+3	да	да	Tx
+4	му	аз	Ppetds3m
+5	кажа	кажа	Vpptf-r1s
+6	.	.	punct
+
+1	Помислих	помисля	Vpptf-o1s
+2	МЕН	аз	Ppelas1
+3	че	че	Cs
+4	питаш	питам-(се)	Vpitf-r2s
+5	.	.	punct
+
+1	Вие	аз	Ppe-op2
+2	кога	кога	Pit
+3	построихте	построя-(се)	Vpptf-o2p
+4	къщата	къща	Ncfsd
+5	?	?	punct
+
+1	Петър	петър	Npmsi
+2	поиска	поискам	Vpptf-o3s
+3	писмото	писмо	Ncnsd
+4	за	за	R
+5	да	да	Tx
+6	го	аз	Ppetas3n
+7	прочете	прочета	Vpptf-r3s
+8	.	.	punct
+
+1	Петър	петър	Npmsi
+2	поиска	поискам	Vpptf-o3s
+3	писмото	писмо	Ncnsd
+4	да	да	Tx
+5	прочете	прочета	Vpptf-r3s
+6	.	.	punct
+
+1	Петър	петър	Npmsi
+2	поиска	поискам	Vpptf-o3s
+3	да	да	Tx
+4	прочете	прочета	Vpptf-r3s
+5	писмото	писмо	Ncnsd
+6	.	.	punct
+
+1	Писмото	писмо	Ncnsd
+2	го	аз	Ppetas3n
+3	донесе	донеса	Vpptf-o3s
+4	РАЗДАВАЧЪТ	раздавач	Ncmsf
+5	.	.	punct
+
+1	Не	не	Tn
+2	изпитах	изпитам	Vpptf-o1s
+3	нищо	никой	Pne-os-ni
+4	.	.	punct
+
+1	Нито	нито	Cr
+2	мъка	мъка	Ncfsi
+3	,	,	punct
+4	нито	нито	Cr
+5	омраза	омраза	Ncfsi
+6	,	,	punct
+7	дори	дори	Te
+8	и	и	Cp
+9	погнуса	погнуса	Ncfsi
+10	не	не	Tn
+11	чувствах	чувствам-(се)	Vpitf-m1s
+12	.	.	punct
+
+1	ПОКРИВА	покрив	Ncmsh
+2	поправи	поправя-(се)	Vpptf-o3s
+3	той	аз	Ppe-os3m
+4	на	на	R
+5	къщата	къща	Ncfsd
+6	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	го	аз	Ppetas3m
+3	търсеше	търся	Vpitf-m3s
+4	било	било	Cr
+5	за	за	R
+6	да	да	Tx
+7	разговарят	разговарям	Vpiif-r3p
+8	,	,	punct
+9	било	било	Cr
+10	за	за	R
+11	да	да	Tx
+12	излязат	изляза	Vppif-r3p
+13	заедно	заедно	Dm
+14	,	,	punct
+15	било	било	Cr
+16	за	за	R
+17	да	да	Tx
+18	иска	искам	Vpitf-r3s
+19	нещо	някой	Pfe-os-ni
+20	.	.	punct
+
+1	Навън	навън	Dl
+2	валеше	валя	Vpiif-m3s
+3	дъжд	дъжд	Ncmsi
+4	и	и	Cp
+5	духаше	духам	Vpitf-m3s
+6	вятър	вятър	Ncmsi
+7	,	,	punct
+8	а	а	Cp
+9	тя	аз	Ppe-os3f
+10	седеше	седя	Vpiif-m3s
+11	до	до	R
+12	прозореца	прозорец	Ncmsh
+13	и	и	Cp
+14	се	се	Ppxta
+15	опитваше	опитвам-(се)	Vpitf-m3s
+16	да	да	Tx
+17	чете	чета	Vpitf-r3s
+18	.	.	punct
+
+1	Говоря	говоря	Vpitf-r1s
+2	за	за	R
+3	тебе	аз	Ppelas2
+4	,	,	punct
+5	а	а	Cp
+6	не	не	Tn
+7	за	за	R
+8	него	аз	Ppelas3m
+9	.	.	punct
+
+1	Той	аз	Ppe-os3m
+2	застана	застана	Vppif-o3s
+3	между	между	R
+4	прозореца	прозорец	Ncmsh
+5	и	и	Cp
+6	масата	маса	Ncfsd
+7	.	.	punct
+
+1	Имаше	имам	Vpitf-m3s
+2	сприхав	сприхав	Amsi
+3	,	,	punct
+4	шотландски	шотландски	Amsi
+5	характер	характер	Ncmsi
+6	.	.	punct
+
+1	Гласът	глас	Ncmsf
+2	пееше	пея	Vpitf-m3s
+3	с	с	R
+4	уморена	уморя-(се)	Vpptcv--sfi
+5	и	и	Cp
+6	равна	равен	Afsi
+7	скръб	скръб	Ncfsi
+8	.	.	punct
+

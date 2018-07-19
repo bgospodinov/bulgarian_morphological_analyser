@@ -6,8 +6,7 @@
 #SBATCH --mem=8000  # memory in Mb
 
 # Author: Bogomil Gospodinov
-# path to original dataset (relative to root dir of project)
-original_dataset=data/datasets/MorphoData-NewSplit
+
 
 # if slurm job id is unavailable use datetime for logging purposes
 datetime_name=`date +%s`
@@ -37,7 +36,9 @@ conda list
 
 if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	set -x
-
+	
+	# path to original dataset (relative to root dir of project)
+	original_dataset=${original_dataset:=data/datasets/MorphoData-NewSplit}
 	# transform params
 	tag_unit=${tag_unit:=char}
 	word_unit=${word_unit:=char}
