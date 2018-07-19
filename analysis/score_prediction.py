@@ -19,6 +19,7 @@ if __name__ == "__main__":
     #UD baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
     #hypertune_word_and_context "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_20u_cchar_n1__30062018\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.131784"
     #context_word_and_context "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_10u_cbpe_n5000\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.137598"
+    #hypertune_sentence_to_sentence "E:\msc_backup\MorphoData-NewSplit_wchar_tchar_n1\m1_1_400_300_tanh_0.0_0.1_0.2_0.0_0.0_adadelta_1.0\data\dev_prediction.140973"
     # "E:\msc_backup\MorphoData-NewSplit_wchar_tword_20u_cchar_n1\m3_1_300_300_tanh_0.0_0.2_0.3_0.0_0.0_adadelta_1.0\data\dev_prediction.141028"
     # for fh in ../models/MorphoData-*/*/data/dev_prediction ; do python -m score_prediction ${fh} > ${fh%/*}/dev_score ; done
 

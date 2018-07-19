@@ -17,6 +17,7 @@ nematus=${nematus:=nematus}
 
 model_run_dir=$( find models/ -type d -path "*/$job_id" | head -n 1 )
 model_dir=${model_run_dir%/*}
+# NB dev_source below already contains the context tags on the left....
 input_path=${input_path:=${model_dir}/data/dev_source}
 output_path=${output_path:=${model_dir}/data/dev_hypothesis.ct.${job_id}}
 
