@@ -66,9 +66,9 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	dropout_target=${dropout_target:=0.0}
 	output_hidden_activation=${output_hidden_activation:=tanh}
 	decay_c=${decay_c:=0.0}
-	maxlen=${maxlen:=50}
-	translation_maxlen=${translation_maxlen:=$maxlen}
-	sentence_size=${sentence_size:=$maxlen}
+	maxlen=${maxlen:=120}
+	translation_maxlen=${translation_maxlen:=50}
+	sentence_size=${sentence_size:=50}
 	valid_burn_in=${valid_burn_in:=10000}
 	valid_freq=${valid_freq:=3000}
 	batch_size=${batch_size:=60}
