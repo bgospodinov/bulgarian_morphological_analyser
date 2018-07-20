@@ -72,7 +72,7 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	valid_burn_in=${valid_burn_in:=10000}
 	valid_freq=${valid_freq:=3000}
 	batch_size=${batch_size:=60}
-	valid_batch_size=${valid_batch_size:=60}
+	valid_batch_size=${valid_batch_size:=25}
 	beam_size=${beam_size:=12}
 	
 
