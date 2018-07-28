@@ -11,9 +11,10 @@ if __name__ == "__main__":
     from config import config
     import argparse
     import pandas as pd
+    import numpy as np
     from data.preprocess_ud import preprocess_dataset_for_train, preprocess_dataset_for_eval
 
-    cols = list(config["DATASET"]["COLUMNS"].values())
+    cols = np.array(list(config["DATASET"]["COLUMNS"].values()))
 
     #BTB baselines/lemming/predictions/btb/bg-dev-pred-py.txt --ground data/datasets/MorphoData-NewSplit/dev.txt
     #UD baselines/lemming/predictions/ud/bg-dev-pred-py.txt --ground baselines/lemming/data/UD_Bulgarian-BTB/bg-ud-dev.conllu.conv
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     spyder_result = {}
 
     for partition in ["training", "ground"]:
-        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', skip_blank_lines=(partition != "ground"), names=cols, usecols=args.dataset_cols))\
+        dfs[partition] = preprocess_dataset_for_train(pd.read_csv(vars(args)[partition], sep='\s+', skip_blank_lines=(partition != "ground"), names=cols[args.dataset_cols], usecols=args.dataset_cols))\
             .reset_index()
 
     # add end-of-sentence column to ground truth table
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     dfs["ground"].dropna(inplace=True)
     dfs["ground"] = dfs["ground"].reset_index()
 
-    dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols, usecols=args.prediction_cols)
+    dfs["prediction"] = pd.read_csv(vars(args)["prediction"], sep='\s+', names=cols[args.prediction_cols], usecols=args.prediction_cols)
 
     print("{} ? {}".format(dfs["prediction"].shape[0], dfs["ground"].shape[0]), file=sys.stderr)
     assert dfs["prediction"].shape[0] == dfs["ground"].shape[0], "More rows predicted than necessary"
