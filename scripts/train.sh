@@ -51,6 +51,9 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	tag_first=${tag_first:+--tag_first}
 	bpe_operations=${bpe_operations:=500}
 	output_dir=${TMPDIR:-data/input/}
+	word_column_index=${word_column_index:=0}
+	lemma_column_index=${lemma_column_index:=1}
+	tag_column_index=${tag_column_index:=2}
 
 	# training params
 	patience=${patience:=2}
@@ -106,6 +109,9 @@ if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 		--context_size $context_size \
 		--char_n_gram_mode $char_n_gram_mode \
 		--transform_appendix $SLURM_JOB_ID \
+		--word_column_index $word_column_index \
+		--lemma_column_index $lemma_column_index \
+		--tag_column_index $tag_column_index \
 		| sed -n 1p )
 
 		set +x
