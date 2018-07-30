@@ -6,7 +6,7 @@ data/datasets/*
 !data/datasets/MorphoData-NewSplit/
 data/datasets/MorphoData-NewSplit/*-pre.txt
 !data/datasets/MorphoData-NewSplit-100k/
-!data/datasets/UD_Bulgarian-BTB/
+!data/datasets/UD*
 !data/results/
 !data/*.py
 models/*
