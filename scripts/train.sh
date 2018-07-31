@@ -13,6 +13,8 @@ datetime_name=`date +%s`
 
 set -x
 
+# path to original dataset (relative to root dir of project)
+original_dataset=${original_dataset:=data/datasets/MorphoData-NewSplit}
 PYTHON_INTERPRETER_DEFAULT_PATH=$(which python)
 CONDA_DEFAULT_ENV_NAME=$CONDA_DEFAULT_ENV
 CONDA_PREFIX_PATH=$CONDA_PREFIX
@@ -37,8 +39,6 @@ conda list
 if [[ -z "$SLURM_ORIGINAL_JOB_ID" ]]; then
 	set -x
 	
-	# path to original dataset (relative to root dir of project)
-	original_dataset=${original_dataset:=data/datasets/MorphoData-NewSplit}
 	# transform params
 	tag_unit=${tag_unit:=char}
 	word_unit=${word_unit:=char}
@@ -232,19 +232,21 @@ echo Translating dev set
 
 if [ "$transform_mode" = "sentence_to_sentence" ] ; then
 	set -x
-	ground_file=${model_dir}/data/dev_source
+	pred_ground_file=${model_dir}/data/dev_source
+	score_ground_file=${original_dataset}/dev.txt
 	set +x
 else
 	set -x
-	ground_file="data/datasets/MorphoData-NewSplit/dev.txt"
+	pred_ground_file=${original_dataset}/dev.txt
+	score_ground_file=$pred_ground_file
 	set +x
 fi
 
 echo Postprocessing dev predictions
-/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} $ground_file --${transform_mode} > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m data.postprocess_nematus ${model_dir}/data/dev_hypothesis.${SLURM_JOB_ID} $pred_ground_file --${transform_mode} > ${model_dir}/data/dev_prediction.${SLURM_JOB_ID}
 
 echo Calculating score
-/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
+/usr/bin/time -f %e $PYTHON_INTERPRETER_PATH -m analysis.score_prediction ${model_dir}/data/dev_prediction.${SLURM_JOB_ID} --ground $score_ground_file > ${model_dir}/data/dev_score.${SLURM_JOB_ID}
 
 echo Concatenating
 cat ${model_dir}/data/dev_score.* > ${model_dir}/data/dev_scores
