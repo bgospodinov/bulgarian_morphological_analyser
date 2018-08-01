@@ -17,12 +17,9 @@
 [submodule "data/datasets/UD_Czech-PDT"]
 	path = data/datasets/UD_Czech-PDT
 	url = git@github.com:UniversalDependencies/UD_Czech-PDT.git
-[submodule "data/datasets/UD_Hungarian-Szeged"]
-	path = data/datasets/UD_Hungarian-Szeged
-	url = git@github.com:UniversalDependencies/UD_Hungarian-Szeged.git
-[submodule "data/datasets/UD_Latin-Perseus"]
-	path = data/datasets/UD_Latin-Perseus
-	url = git@github.com:UniversalDependencies/UD_Latin-Perseus.git
-[submodule "data/datasets/UD_Spanish-GSD"]
-	path = data/datasets/UD_Spanish-GSD
-	url = git@github.com:UniversalDependencies/UD_Spanish-GSD.git
+[submodule "data/datasets/UD_Romanian-RRT"]
+	path = data/datasets/UD_Romanian-RRT
+	url = git@github.com:UniversalDependencies/UD_Romanian-RRT.git
+[submodule "data/datasets/UD_Tamil-TTB"]
+	path = data/datasets/UD_Tamil-TTB
+	url = git@github.com:UniversalDependencies/UD_Tamil-TTB.git
