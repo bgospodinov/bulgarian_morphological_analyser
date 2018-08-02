@@ -22,7 +22,12 @@ def preprocess_dataset_for_train(df):
     df = df.apply(lambda x: x.astype(str).str.lower() if not pd.isna(x).any() else x, axis=1)
     # Bulgarian BTB-UD specific preprocessing
     df["tag"] = df["tag"].apply(lambda x: re.sub(r"(?:\+[0-9]+|\".*|;.*)+$", "", x) if not pd.isna(x) else x)
-    return df[((df["tag"] != "punct") & (df["lemma"] != "punct")) | pd.isna(df["word"])]
+    # ignore corrupted entries where only the word is null but not the tag
+    df = df.loc[~(pd.isna(df["word"]) & ~pd.isna(df["tag"]))]
+    # ignore punctuation by tag and by string but keep nans that represent new lines
+    df = df[~df["word"].str.contains(r"^(?:\"|!|'|,|\.|\?|:|;|\||\-|\+|\(|\)|%|\*|/|&|=|>|<|_)", na=False)]
+    df = df[((df["tag"] != "punct") & (df["lemma"] != "punct")) | pd.isna(df["word"])]
+    return df
 
 
 def preprocess_dataset_for_eval(df, prediction=False):

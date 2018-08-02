@@ -58,6 +58,10 @@ class Transformer(object):
         :param rc_df: Ditto
         :return: tuple(output_source_lines, output_target_lines)
         """
+
+        if sentence_df.empty:
+            return [], []
+
         # merges the sentence to be processed with its left and right context sentences (if any)
         sentence_with_context_df = pd.concat([lc_df, sentence_df, rc_df], copy=False)
 
@@ -379,7 +383,7 @@ def main(argv):
     # loading file
     infile_df = preprocess_dataset_for_train(pd.read_csv(args.input, sep='\s+', names=cols,
                                                          usecols=[args.word_column_index, args.lemma_column_index, args.tag_column_index],
-                                                         skip_blank_lines=False, comment='#')[cols])
+                                                         skip_blank_lines=False, comment='#', quoting=3)[cols])
     infile_df = infile_df.reset_index(drop=True)
 
     # subword preprocessing of the input file
@@ -465,6 +469,9 @@ def main(argv):
                     rc_df = pd.concat(rc_df_ls)
 
             output_source_lines, output_target_lines = transformer.process_sentence(sentence_df, lc_df, rc_df)
+
+            if not (output_source_lines or output_target_lines):
+                continue
 
             if args.debug:
                 if args.print_file == 'source':
