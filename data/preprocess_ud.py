@@ -25,7 +25,7 @@ def preprocess_dataset_for_train(df):
     # ignore corrupted entries where only the word is null but not the tag
     df = df.loc[~(pd.isna(df["word"]) & ~pd.isna(df["tag"]))]
     # ignore punctuation by tag and by string but keep nans that represent new lines
-    df = df[~df["word"].str.contains(r"^(?:\"|!|'|,|\.|\?|:|;|\||\-|\+|\(|\)|%|\*|/|&|=|>|<|_)", na=False)]
+    df = df[~df["word"].str.contains(r"^(?:\"|!|'|,|\.|\?|:|;|\||\-|\+|\(|\)|%|\*|/|&|=|>|<|_|\s)", na=False)]
     df = df[((df["tag"] != "punct") & (df["lemma"] != "punct")) | pd.isna(df["word"])]
     return df
 
