@@ -7,6 +7,7 @@ options=$options,tag-dependent=true,seed=12345
 #language extension
 lang=bg
 set=dev
+data=UD_Bulgarian-BTB
 
 mkdir -p models
 
@@ -15,10 +16,11 @@ mkdir -p models
 # empty line used as a sentence separator
 
 #train POS model
-#java -d64 -Xmx10G -cp marmot.jar marmot.morph.cmd.Trainer -tag-morph false -train-file form-index=0,tag-index=2,data/UD_Bulgarian-BTB/${lang}-ud-train.conllu.conv -model-file models/ud/${lang}.marmot 
+#mkdir -p models/${data} && java -d64 -Xmx10G -cp marmot.jar marmot.morph.cmd.Trainer -tag-morph false -train-file form-index=0,tag-index=2,../../data/datasets/${data}/training.txt -model-file models/${data}/${lang}.marmot
 
 #train lemmatizer
-#java -d64 -Xmx10G -cp "marmot.jar;mallet.jar;trove.jar" lemming.lemma.cmd.Trainer lemming.lemma.ranker.RankerTrainer $options models/ud/${lang}.lemming form-index=0,lemma-index=1,tag-index=2,data/UD_Bulgarian-BTB/${lang}-ud-train.conllu.conv  
+#java -d64 -Xmx10G -cp "marmot.jar;mallet.jar;trove.jar" lemming.lemma.cmd.Trainer lemming.lemma.ranker.RankerTrainer $options models/${data}/${lang}.lemming form-index=0,lemma-index=1,tag-index=2,../../data/datasets/${data}/training.txt
 
 #make predictions 
-#java -d64 -Xmx10g -cp "marmot.jar;trove.jar" marmot.morph.cmd.Annotator -model-file models/ud/${lang}.marmot -lemmatizer-file models/ud/${lang}.lemming -test-file form-index=0,data/UD_Bulgarian-BTB/${lang}-ud-${set}.conllu.conv -pred-file predictions/ud/${lang}-${set}-pred.txt
+#mkdir -p predictions/${data} && java -d64 -Xmx10g -cp "marmot.jar;trove.jar" marmot.morph.cmd.Annotator -model-file models/${data}/${lang}.marmot -lemmatizer-file models/${data}/${lang}.lemming -test-file form-index=0,../../data/datasets/${data}/${set}.txt -pred-file predictions/${data}/${lang}-${set}-pred.txt
+#./predictions/ud/convert_lemming_pred.awk predictions/${data}/${lang}-${set}-pred.txt > predictions/${data}/${lang}-${set}-pred-py.txt
