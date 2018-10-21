@@ -2,6 +2,8 @@
 University of Edinburgh MSc project 2017/2018\
 Bogomil Gospodinov (s1312650@sms.ed.ac.uk)
 
+A contextual morphological analyzer for Bulgarian, based on the attentive encoder-decoder machine translation system Nematus. Read more here: https://github.com/bgospodinov/msc_report
+
 ## How to install
 1. Install conda dependencies `conda env create -f=msc.yml -n [envname]`
 1. Run `git submodule update --init` to initialise submodule dependencies
